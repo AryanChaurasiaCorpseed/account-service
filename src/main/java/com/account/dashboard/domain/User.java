@@ -38,85 +38,51 @@ public class User {
 	@NonNull
 	private List<String> role;
 
-//	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
-//	private Opportunities opportunities;
-
-
-
-//	@ManyToMany
-//	@JoinTable(name = "opportunities_id")
-//	private Opportunities opportunities;
-
 	public Long getId() {
 		return id;
 	}
-
-
-
 	public String getEmail() {
 		return email;
 	}
-
 	public String getDesignation() {
 		return designation;
 	}
-
 	public String getDepartment() {
 		return department;
 	}
-
-
-
+	
 	//All Setter
-
-
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-
-	
 	public List<String> getRole() {
 		return role;
 	}
-
 	public void setRole(List<String> role) {
 		this.role = role;
 	}
-
 	public String getFullName() {
 		return fullName;
 	}
-
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-
-
-
 	public List<Role> getUserRole() {
 		return userRole;
 	}
-
-
-
 	public void setUserRole(List<Role> userRole) {
 		this.userRole = userRole;
 	}
-
 
 }
 
