@@ -13,6 +13,8 @@ public interface UrlsMapping {
 	public static final String GET_ALL_USER=PREFIX+ "/users/getAllUser";
 	public static final String IS_USER_EXIST_OR_NOT=PREFIX+ "/users/isUserExistOrNot";
 	public static final String CREATE_USER=PREFIX+ "/users/createUser";
+	public static final String CREATE_USER_BY_LEAD=PREFIX+ "/users/createUserByLead";
+
 	public static final String GET_USER=PREFIX+ "/users/getUser";
 	public static final String UPDATE_USER=PREFIX+ "/users/updateUser";
 	public static final String DELETE_USER=PREFIX+ "/users/deleteUser";
@@ -21,6 +23,7 @@ public interface UrlsMapping {
 	//======================== ROLE =================================
 	public static final String CREATE_ROLE=PREFIX+ "/roles/createRole";
 	public static final String GET_ALL_ROLE=PREFIX+ "/roles/getAllRole";
-	
+	public static final String CREATE_ALL_ROLE_BY_LEAD=PREFIX+ "/roles/createAllRoleByLead";
+
 	
 }

@@ -24,4 +24,6 @@ public interface UserService {
 
 	User createUserByEmail(String userName, String email, String role, Long id, String designation);
 
+	User createUserByLead(UserDto user);
+
 }

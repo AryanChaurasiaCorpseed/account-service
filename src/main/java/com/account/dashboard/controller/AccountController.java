@@ -12,7 +12,6 @@ public class AccountController {
 	@GetMapping(UrlsMapping.TEST)
 	public String test()
 	{
-//		return securityFeignClient.test();	
 		System.out.println("Test . . . .");
 		return "Test";		 
 

@@ -17,7 +17,6 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 
-@RequestMapping("/leadService/")
 public class UserController {
 	@Autowired
 	 UserService userService;
@@ -52,6 +51,13 @@ public class UserController {
 		User createdUser = userService.createUser(user);
 		return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
 	}
+	
+	@PostMapping(UrlsMapping.CREATE_USER_BY_LEAD)
+	public User createUserByLead(@RequestBody UserDto user) {
+		User createdUser = userService.createUserByLead(user);
+		return createdUser;
+	}
+
 
 	@GetMapping(UrlsMapping.GET_USER)
 	public ResponseEntity<User> getUserById(@RequestParam Long id) {
