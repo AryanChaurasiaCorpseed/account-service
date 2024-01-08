@@ -16,4 +16,11 @@ public class AccountController {
 		return "Test";		 
 
 	}
+	@GetMapping(UrlsMapping.TEST)
+	public String createAccount()
+	{
+		System.out.println("Test . . . .");
+		return "Test";		 
+
+	}
 }

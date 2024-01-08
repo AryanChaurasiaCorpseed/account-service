@@ -25,5 +25,7 @@ public interface UrlsMapping {
 	public static final String GET_ALL_ROLE=PREFIX+ "/roles/getAllRole";
 	public static final String CREATE_ALL_ROLE_BY_LEAD=PREFIX+ "/roles/createAllRoleByLead";
 
-	
+	//=============================  Account  =================================
+	public static final String CREATE_ACCOUNT_DATA=PREFIX+ "/account/createAccountData";	
+
 }
