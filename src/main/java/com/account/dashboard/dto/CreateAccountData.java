@@ -1,6 +1,7 @@
 package com.account.dashboard.dto;
 
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -9,17 +10,19 @@ public class CreateAccountData {
 	private String transactionType;
 	private Long projectId;
 	private Long createdById;
-	private String transactionId;
+	private List<String> transactionId;
 	private String serviceName;  // need to Discussion
-	private int professionalFees;
-	private int govFees;
-	private int serviceCharge;
-	private int othertherFees;
+	private long professionalFees;
+	private long govFees;
+	private long serviceCharge;
+	private long othertherFees;
 	private String UploadReceipt;
-	private int totalAmount;
+	private long totalAmount;
 	private String remark;
 	private Date paymentDate;
 	private String estimateNo;
+	private List<String>doc;
+
 	
 	private Long approvedById;
 	private Date approveDate;
@@ -49,10 +52,11 @@ public class CreateAccountData {
 	public void setCreatedById(Long createdById) {
 		this.createdById = createdById;
 	}
-	public String getTransactionId() {
+    
+	public List<String> getTransactionId() {
 		return transactionId;
 	}
-	public void setTransactionId(String transactionId) {
+	public void setTransactionId(List<String> transactionId) {
 		this.transactionId = transactionId;
 	}
 	public String getServiceName() {
@@ -62,35 +66,41 @@ public class CreateAccountData {
 		this.serviceName = serviceName;
 	}
 	
-	public int getGovFees() {
+	public List<String> getDoc() {
+		return doc;
+	}
+	public void setDoc(List<String> doc) {
+		this.doc = doc;
+	}
+	public long getGovFees() {
 		return govFees;
 	}
-	public void setGovFees(int govFees) {
+	public void setGovFees(long govFees) {
 		this.govFees = govFees;
 	}
 	
-	public int getServiceCharge() {
+	public long getServiceCharge() {
 		return serviceCharge;
 	}
-	public void setServiceCharge(int serviceCharge) {
+	public void setServiceCharge(long serviceCharge) {
 		this.serviceCharge = serviceCharge;
 	}
-	public int getProfessionalFees() {
+	public long getProfessionalFees() {
 		return professionalFees;
 	}
-	public void setProfessionalFees(int professionalFees) {
+	public void setProfessionalFees(long professionalFees) {
 		this.professionalFees = professionalFees;
 	}
-	public int getTotalAmount() {
+	public long getTotalAmount() {
 		return totalAmount;
 	}
-	public void setTotalAmount(int totalAmount) {
+	public void setTotalAmount(long totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-	public int getOthertherFees() {
+	public long getOthertherFees() {
 		return othertherFees;
 	}
-	public void setOthertherFees(int othertherFees) {
+	public void setOthertherFees(long othertherFees) {
 		this.othertherFees = othertherFees;
 	}
 	public String getUploadReceipt() {

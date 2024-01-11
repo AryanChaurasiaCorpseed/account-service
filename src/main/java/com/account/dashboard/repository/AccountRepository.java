@@ -7,4 +7,6 @@ import com.account.dashboard.domain.ManageSales;
 
 public interface AccountRepository extends JpaRepository<ManageSales, Long> {
 
+	ManageSales findByProjectId(Long projectId);
+
 }
