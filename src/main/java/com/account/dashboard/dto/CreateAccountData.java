@@ -12,10 +12,19 @@ public class CreateAccountData {
 	private Long createdById;
 	private List<String> transactionId;
 	private String serviceName;  // need to Discussion
-	private long professionalFees;
-	private long govFees;
-	private long serviceCharge;
-	private long othertherFees;
+	
+    double  govermentfees;
+	double govermentGst;
+	
+	double professionalFees;
+	double profesionalGst;
+	
+	double serviceCharge;
+	double serviceGst;
+	
+	double otherFees;
+	double otherGst;
+	
 	private String UploadReceipt;
 	private long totalAmount;
 	private String remark;
@@ -26,25 +35,17 @@ public class CreateAccountData {
 	
 	private Long approvedById;
 	private Date approveDate;
-	
-	
-	public Long getProjectId() {
-		return projectId;
-	}
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
-	public String getEstimateNo() {
-		return estimateNo;
-	}
-	public void setEstimateNo(String estimateNo) {
-		this.estimateNo = estimateNo;
-	}
 	public String getTransactionType() {
 		return transactionType;
 	}
 	public void setTransactionType(String transactionType) {
 		this.transactionType = transactionType;
+	}
+	public Long getProjectId() {
+		return projectId;
+	}
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
 	}
 	public Long getCreatedById() {
 		return createdById;
@@ -52,7 +53,6 @@ public class CreateAccountData {
 	public void setCreatedById(Long createdById) {
 		this.createdById = createdById;
 	}
-    
 	public List<String> getTransactionId() {
 		return transactionId;
 	}
@@ -65,43 +65,53 @@ public class CreateAccountData {
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
 	}
-	
-	public List<String> getDoc() {
-		return doc;
+	public double getGovermentfees() {
+		return govermentfees;
 	}
-	public void setDoc(List<String> doc) {
-		this.doc = doc;
+	public void setGovermentfees(double govermentfees) {
+		this.govermentfees = govermentfees;
 	}
-	public long getGovFees() {
-		return govFees;
+	public double getGovermentGst() {
+		return govermentGst;
 	}
-	public void setGovFees(long govFees) {
-		this.govFees = govFees;
+	public void setGovermentGst(double govermentGst) {
+		this.govermentGst = govermentGst;
 	}
-	
-	public long getServiceCharge() {
-		return serviceCharge;
-	}
-	public void setServiceCharge(long serviceCharge) {
-		this.serviceCharge = serviceCharge;
-	}
-	public long getProfessionalFees() {
+	public double getProfessionalFees() {
 		return professionalFees;
 	}
-	public void setProfessionalFees(long professionalFees) {
+	public void setProfessionalFees(double professionalFees) {
 		this.professionalFees = professionalFees;
 	}
-	public long getTotalAmount() {
-		return totalAmount;
+	public double getProfesionalGst() {
+		return profesionalGst;
 	}
-	public void setTotalAmount(long totalAmount) {
-		this.totalAmount = totalAmount;
+	public void setProfesionalGst(double profesionalGst) {
+		this.profesionalGst = profesionalGst;
 	}
-	public long getOthertherFees() {
-		return othertherFees;
+	public double getServiceCharge() {
+		return serviceCharge;
 	}
-	public void setOthertherFees(long othertherFees) {
-		this.othertherFees = othertherFees;
+	public void setServiceCharge(double serviceCharge) {
+		this.serviceCharge = serviceCharge;
+	}
+	public double getServiceGst() {
+		return serviceGst;
+	}
+	public void setServiceGst(double serviceGst) {
+		this.serviceGst = serviceGst;
+	}
+	public double getOtherFees() {
+		return otherFees;
+	}
+	public void setOtherFees(double otherFees) {
+		this.otherFees = otherFees;
+	}
+	public double getOtherGst() {
+		return otherGst;
+	}
+	public void setOtherGst(double otherGst) {
+		this.otherGst = otherGst;
 	}
 	public String getUploadReceipt() {
 		return UploadReceipt;
@@ -109,7 +119,12 @@ public class CreateAccountData {
 	public void setUploadReceipt(String uploadReceipt) {
 		UploadReceipt = uploadReceipt;
 	}
-
+	public long getTotalAmount() {
+		return totalAmount;
+	}
+	public void setTotalAmount(long totalAmount) {
+		this.totalAmount = totalAmount;
+	}
 	public String getRemark() {
 		return remark;
 	}
@@ -121,6 +136,18 @@ public class CreateAccountData {
 	}
 	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
+	}
+	public String getEstimateNo() {
+		return estimateNo;
+	}
+	public void setEstimateNo(String estimateNo) {
+		this.estimateNo = estimateNo;
+	}
+	public List<String> getDoc() {
+		return doc;
+	}
+	public void setDoc(List<String> doc) {
+		this.doc = doc;
 	}
 	public Long getApprovedById() {
 		return approvedById;
@@ -134,6 +161,8 @@ public class CreateAccountData {
 	public void setApproveDate(Date approveDate) {
 		this.approveDate = approveDate;
 	}
+	
+	
 	
 	
 }

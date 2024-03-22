@@ -2,10 +2,12 @@ package com.account.dashboard.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.account.dashboard.domain.ManageSales;
 import com.account.dashboard.dto.CreateAccountData;
 import com.account.dashboard.dto.UpdateAccountData;
-
+@Service
 public interface AccountService {
 
 

@@ -23,47 +23,27 @@ public class Amount {
 	User createdBy;
 	List<String> transactionId;
 	String serviceName;  // need to Discussion
-	long professionalFees;
-	long govFees;
-	Long serviceCharge;
-	long othertherFees;
+//==================	
+    double  govermentfees;
+	double govermentGst;
+	
+	double professionalFees;
+	double profesionalGst;
+	
+	double serviceCharge;
+	double serviceGst;
+	
+	double otherFees;
+	double otherGst;
+	
 	String UploadReceipt;
-	long totalAmount;
+	double totalAmount;
 	String remark;
 	Date paymentDate;
 	List<String>doc;
 	@ManyToOne
 	User approvedBy;
 	Date approveDate;
-	
-	public List<String> getDoc() {
-		return doc;
-	}
-	public void setDoc(List<String> doc) {
-		this.doc = doc;
-	}
-	
-	public long getGovFees() {
-		return govFees;
-	}
-	public void setGovFees(long govFees) {
-		this.govFees = govFees;
-	}
-	public Long getServiceCharge() {
-		return serviceCharge;
-	}
-	public void setServiceCharge(Long serviceCharge) {
-		this.serviceCharge = serviceCharge;
-	}
-	public long getTotalAmount() {
-		return totalAmount;
-	}
-	public void setTotalAmount(long totalAmount) {
-		this.totalAmount = totalAmount;
-	}
-	public void setTransactionId(List<String> transactionId) {
-		this.transactionId = transactionId;
-	}
 	public Long getId() {
 		return id;
 	}
@@ -82,15 +62,11 @@ public class Amount {
 	public void setCreatedBy(User createdBy) {
 		this.createdBy = createdBy;
 	}
-
-	public long getProfessionalFees() {
-		return professionalFees;
-	}
-	public void setProfessionalFees(long professionalFees) {
-		this.professionalFees = professionalFees;
-	}
 	public List<String> getTransactionId() {
 		return transactionId;
+	}
+	public void setTransactionId(List<String> transactionId) {
+		this.transactionId = transactionId;
 	}
 	public String getServiceName() {
 		return serviceName;
@@ -98,12 +74,53 @@ public class Amount {
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
 	}
-
-	public long getOthertherFees() {
-		return othertherFees;
+	public double getGovermentfees() {
+		return govermentfees;
 	}
-	public void setOthertherFees(long othertherFees) {
-		this.othertherFees = othertherFees;
+	public void setGovermentfees(double govermentfees) {
+		this.govermentfees = govermentfees;
+	}
+	public double getGovermentGst() {
+		return govermentGst;
+	}
+	public void setGovermentGst(double govermentGst) {
+		this.govermentGst = govermentGst;
+	}
+	public double getProfessionalFees() {
+		return professionalFees;
+	}
+	public void setProfessionalFees(double professionalFees) {
+		this.professionalFees = professionalFees;
+	}
+	public double getProfesionalGst() {
+		return profesionalGst;
+	}
+	public void setProfesionalGst(double profesionalGst) {
+		this.profesionalGst = profesionalGst;
+	}
+	public double getServiceCharge() {
+		return serviceCharge;
+	}
+	public void setServiceCharge(double serviceCharge) {
+		this.serviceCharge = serviceCharge;
+	}
+	public double getServiceGst() {
+		return serviceGst;
+	}
+	public void setServiceGst(double serviceGst) {
+		this.serviceGst = serviceGst;
+	}
+	public double getOtherFees() {
+		return otherFees;
+	}
+	public void setOtherFees(double otherFees) {
+		this.otherFees = otherFees;
+	}
+	public double getOtherGst() {
+		return otherGst;
+	}
+	public void setOtherGst(double otherGst) {
+		this.otherGst = otherGst;
 	}
 	public String getUploadReceipt() {
 		return UploadReceipt;
@@ -111,7 +128,12 @@ public class Amount {
 	public void setUploadReceipt(String uploadReceipt) {
 		UploadReceipt = uploadReceipt;
 	}
-	
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
 	public String getRemark() {
 		return remark;
 	}
@@ -123,6 +145,12 @@ public class Amount {
 	}
 	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
+	}
+	public List<String> getDoc() {
+		return doc;
+	}
+	public void setDoc(List<String> doc) {
+		this.doc = doc;
 	}
 	public User getApprovedBy() {
 		return approvedBy;
@@ -138,5 +166,4 @@ public class Amount {
 	}
 	
 	
-
 }

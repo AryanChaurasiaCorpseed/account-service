@@ -2,7 +2,10 @@ package com.account.dashboard.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,7 +13,16 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Table
+@Entity
+@Getter
+@Setter
+@Data
 public class ManageSales {
 
 	@Id
@@ -24,26 +36,26 @@ public class ManageSales {
 	@ManyToOne
 	User updatedBy;
     @ManyToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
 	@JoinTable(name="manage_sales_amount",joinColumns = {@JoinColumn(name="manage_sales_id",referencedColumnName="id",nullable=true)},
 			inverseJoinColumns = {@JoinColumn(name="manage_sales_amount_id"
 					+ "",referencedColumnName = "id",nullable=true,unique=false)})
     private List<Amount>manageSalesAmount;
 
-	long  govermentfees;
+    double  govermentfees;
 	String govermentCode;
-	String govermentGst;
-	long professionalFees;
+	double govermentGst;
+	double professionalFees;
 	String professionalCode;
-	String profesionalGst;
-	long serviceCharge;
+	double profesionalGst;
+	double serviceCharge;
 	String serviceCode;
-	String serviceGst;
-	long otherFees;
-	long totalAmount;
-	long paidAmount;
-	
+	double serviceGst;
+	double otherFees;
+	double totalAmount;
+	double paidAmount;	
 	String otherCode;
-	String otherGst;
+	double otherGst;
 	public Long getId() {
 		return id;
 	}
@@ -86,10 +98,10 @@ public class ManageSales {
 	public void setManageSalesAmount(List<Amount> manageSalesAmount) {
 		this.manageSalesAmount = manageSalesAmount;
 	}
-	public long getGovermentfees() {
+	public double getGovermentfees() {
 		return govermentfees;
 	}
-	public void setGovermentfees(long govermentfees) {
+	public void setGovermentfees(double govermentfees) {
 		this.govermentfees = govermentfees;
 	}
 	public String getGovermentCode() {
@@ -98,16 +110,16 @@ public class ManageSales {
 	public void setGovermentCode(String govermentCode) {
 		this.govermentCode = govermentCode;
 	}
-	public String getGovermentGst() {
+	public double getGovermentGst() {
 		return govermentGst;
 	}
-	public void setGovermentGst(String govermentGst) {
+	public void setGovermentGst(double govermentGst) {
 		this.govermentGst = govermentGst;
 	}
-	public long getProfessionalFees() {
+	public double getProfessionalFees() {
 		return professionalFees;
 	}
-	public void setProfessionalFees(long professionalFees) {
+	public void setProfessionalFees(double professionalFees) {
 		this.professionalFees = professionalFees;
 	}
 	public String getProfessionalCode() {
@@ -116,16 +128,16 @@ public class ManageSales {
 	public void setProfessionalCode(String professionalCode) {
 		this.professionalCode = professionalCode;
 	}
-	public String getProfesionalGst() {
+	public double getProfesionalGst() {
 		return profesionalGst;
 	}
-	public void setProfesionalGst(String profesionalGst) {
+	public void setProfesionalGst(double profesionalGst) {
 		this.profesionalGst = profesionalGst;
 	}
-	public long getServiceCharge() {
+	public double getServiceCharge() {
 		return serviceCharge;
 	}
-	public void setServiceCharge(long serviceCharge) {
+	public void setServiceCharge(double serviceCharge) {
 		this.serviceCharge = serviceCharge;
 	}
 	public String getServiceCode() {
@@ -134,28 +146,28 @@ public class ManageSales {
 	public void setServiceCode(String serviceCode) {
 		this.serviceCode = serviceCode;
 	}
-	public String getServiceGst() {
+	public double getServiceGst() {
 		return serviceGst;
 	}
-	public void setServiceGst(String serviceGst) {
+	public void setServiceGst(double serviceGst) {
 		this.serviceGst = serviceGst;
 	}
-	public long getOtherFees() {
+	public double getOtherFees() {
 		return otherFees;
 	}
-	public void setOtherFees(long otherFees) {
+	public void setOtherFees(double otherFees) {
 		this.otherFees = otherFees;
 	}
-	public long getTotalAmount() {
+	public double getTotalAmount() {
 		return totalAmount;
 	}
-	public void setTotalAmount(long totalAmount) {
+	public void setTotalAmount(double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-	public long getPaidAmount() {
+	public double getPaidAmount() {
 		return paidAmount;
 	}
-	public void setPaidAmount(long paidAmount) {
+	public void setPaidAmount(double paidAmount) {
 		this.paidAmount = paidAmount;
 	}
 	public String getOtherCode() {
@@ -164,11 +176,15 @@ public class ManageSales {
 	public void setOtherCode(String otherCode) {
 		this.otherCode = otherCode;
 	}
-	public String getOtherGst() {
+	public double getOtherGst() {
 		return otherGst;
 	}
-	public void setOtherGst(String otherGst) {
+	public void setOtherGst(double otherGst) {
 		this.otherGst = otherGst;
 	}
+	
+	
+	
+
 
 }

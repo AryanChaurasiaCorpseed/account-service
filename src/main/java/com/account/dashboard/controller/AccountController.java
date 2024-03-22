@@ -59,7 +59,7 @@ public class AccountController {
 		return account;		 
 
 	}	
-	@DeleteMapping(UrlsMapping.UPDATE_ACCOUNT_DATA)
+	@DeleteMapping(UrlsMapping.DELETE_ACCOUNT_DATA)
 	public ManageSales DeleteAccountData(Long manageSalesId)
 	{
 		ManageSales account=accountService.DeleteAccountData(manageSalesId);

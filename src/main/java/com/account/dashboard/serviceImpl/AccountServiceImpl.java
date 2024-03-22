@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.account.dashboard.domain.Amount;
 import com.account.dashboard.domain.ManageSales;
@@ -16,6 +17,7 @@ import com.account.dashboard.repository.AmountRepository;
 import com.account.dashboard.repository.UserRepository;
 import com.account.dashboard.service.AccountService;
 
+@Service
 public class AccountServiceImpl implements AccountService{
 
 	@Autowired
@@ -54,8 +56,8 @@ public class AccountServiceImpl implements AccountService{
 		amount.setPaymentDate(createAccountData.getPaymentDate());
 		amount.setTotalAmount(createAccountData.getTotalAmount());
 		amount.setServiceCharge(createAccountData.getServiceCharge());
-		amount.setGovFees(createAccountData.getGovFees());
-		amount.setOthertherFees(createAccountData.getOthertherFees());
+		amount.setGovermentfees(createAccountData.getGovermentfees());
+		amount.setOtherFees(createAccountData.getOtherFees());
 		amount.setProfessionalFees(createAccountData.getProfessionalFees());
 		amount.setApproveDate(createAccountData.getApproveDate());
 		amount.setPaymentDate(createAccountData.getPaymentDate());
@@ -73,8 +75,8 @@ public class AccountServiceImpl implements AccountService{
 //			User createdBy = userRepository.findById(createAccountData.getCreatedById()).get();
 			manageSales.setCreatedBy(createdBy);
 			manageSales.setEstimateNo(createAccountData.getEstimateNo());
-			manageSales.setGovermentfees(createAccountData.getGovFees());
-			manageSales.setOtherFees(createAccountData.getOthertherFees());
+			manageSales.setGovermentfees(createAccountData.getGovermentfees());
+			manageSales.setOtherFees(createAccountData.getOtherFees());
 
 			manageSales.setProfessionalFees(createAccountData.getProfessionalFees());
 			manageSales.setProjectId(createAccountData.getProjectId());
