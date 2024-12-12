@@ -30,7 +30,7 @@ public class OpenAPIConfig {
     Contact contact = new Contact();
     License mitLicense = new License().name("MIT License").url("https://choosealicense.com/licenses/mit/");
     Info info = new Info()
-        .title("Lead Management API")
+        .title("Account Management API")
         .version("1.0")
         .contact(contact)
         .description("This API exposes endpoints to manage Lead.").termsOfService("https://www.corpseed.com/terms")

@@ -30,7 +30,19 @@ public interface UrlsMapping {
 	public static final String GET_ACCOUNT_DATA=PREFIX+ "/account/getAccountData";	
 	public static final String GET_ALL_ACCOUNT_DATA=PREFIX+ "/account/getAllAccountData";	
 	public static final String UPDATE_ACCOUNT_DATA=PREFIX+ "/account/updateAccountData";	
-	public static final String DELETE_ACCOUNT_DATA=PREFIX+ "/account/deleteAccountData";	
+	public static final String DELETE_ACCOUNT_DATA=PREFIX+ "/account/deleteAccountData";
+	
+	///===============================  Ledger	Type  =================================
+	public static final String CREATE_LEDGER_TYPE=PREFIX+ "/ledgerType/createLedgerType";
+	public static final String UPDATE_LEDGER_TYPE=PREFIX+ "/ledgerType/updateLedgerType";
+	public static final String GET_ALL_LEDGER_TYPE=PREFIX+ "/ledgerType/getAllLedgerType";
+	
+	
+	//================================ Ledger ==========================================
+	
+	public static final String CREATE_LEDGER=PREFIX+ "/ledgerType/createLedger";
+	public static final String UPDATE_LEDGER=PREFIX+ "/ledgerType/updateLedger";
+	public static final String GET_ALL_LEDGER=PREFIX+ "/ledgerType/getAllLedger";
 
 
 }
