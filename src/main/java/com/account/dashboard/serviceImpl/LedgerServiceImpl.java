@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.account.dashboard.domain.account.Ledger;
 import com.account.dashboard.domain.account.LedgerType;
@@ -11,7 +12,7 @@ import com.account.dashboard.dto.LedgerDto;
 import com.account.dashboard.repository.LedgerRepository;
 import com.account.dashboard.repository.LedgerTypeRepository;
 import com.account.dashboard.service.LedgerService;
-
+@Service
 public class LedgerServiceImpl implements LedgerService{
 
 	@Autowired
