@@ -44,5 +44,11 @@ public interface UrlsMapping {
 	public static final String UPDATE_LEDGER=PREFIX+ "/ledgerType/updateLedger";
 	public static final String GET_ALL_LEDGER=PREFIX+ "/ledgerType/getAllLedger";
 
+	//================================ Voucher ==========================================
+
+	
+	public static final String CREATE_VOUCHER_TYPE=PREFIX+ "/ledgerType/createVoucherType";
+	public static final String UPDATE_VOUCHER_TYPE=PREFIX+ "/ledgerType/updateVoucherType";
+	public static final String GET_ALL_VOUCHER_TYPE=PREFIX+ "/ledgerType/getAllVoucherType";
 
 }
