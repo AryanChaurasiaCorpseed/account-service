@@ -16,6 +16,7 @@ import lombok.Setter;
 @Setter
 @Data
 public class Ledger {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	Long id;
@@ -33,7 +34,8 @@ public class Ledger {
 	String country;
 	
 	String pin;
-	                  
+	   
+	
 	
 	
 }
