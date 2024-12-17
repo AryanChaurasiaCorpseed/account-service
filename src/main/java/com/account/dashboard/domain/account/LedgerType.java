@@ -1,6 +1,8 @@
 package com.account.dashboard.domain.account;
 
 
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,6 +35,8 @@ public class LedgerType {
 
 	@ManyToOne
 	LedgerType ledgerType; 
+	
+	Date createDate;
 
 
 	//hsn details
@@ -49,10 +53,15 @@ public class LedgerType {
 	String gstRates;
 	
 	
-	//Aditional Configration
+	//Bank Details
 	
-	String hsnSummary;
-	
+	boolean isBankAccount;
+	String accountHolderName;
+	String accountNo;
+	String ifscCode;
+	String swiftCode;
+	String bankName;
+	String branch;
 
 
 

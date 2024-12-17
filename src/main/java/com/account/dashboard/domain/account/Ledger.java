@@ -1,5 +1,7 @@
 package com.account.dashboard.domain.account;
 
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,8 +36,34 @@ public class Ledger {
 	String country;
 	
 	String pin;
+	
+	Date createDate;
 	   
 	
+	//hsn details
+    boolean isHsnSac;
+	String hsnSacDetails;
+	String HsnSac;
+	String hsnDescription;
+
+
+	// gst rate details
+	boolean isGstRateDetails;
+	String gstRateDetails;
+	String taxabilityType;
+	String gstRates;
 	
+	// BankDetails
+	boolean isBankAccount;
+	String accountHolderName;
+	String accountNo;
+	String ifscCode;
+	String swiftCode;
+	String bankName;
+	String branch;
+	
+
+	
+	   
 	
 }

@@ -17,7 +17,7 @@ public class BankDetails {
 	private Long id;
 	String bankName;
 	String ifscCode;
-	String branchName;
+	String swiftCode;
 	String branch;
 	
 	

@@ -24,7 +24,7 @@ public class BankDetailsServiceImpl implements BankDetailsService {
 			BankDetails bd= new BankDetails();
 			bd.setBankName(createBankDetailsDto.getBankName());
 			bd.setBranch(createBankDetailsDto.getBranch());
-			bd.setBranchName(createBankDetailsDto.getBranch());
+			bd.setSwiftCode(createBankDetailsDto.getSwiftCode());
 			bd.setIfscCode(createBankDetailsDto.getIfscCode());
 			bankDetailsRepository.save(bd);
 			flag=true;
@@ -35,13 +35,14 @@ public class BankDetailsServiceImpl implements BankDetailsService {
 		List<BankDetails> bankDetailsList = bankDetailsRepository.findAll();
 		return bankDetailsList;
 	}
+	
 	@Override
 	public BankDetails updateBankDetails(UpdateBankDetailsDto updateBankDetailsDto) {
 		BankDetails bankDetails = bankDetailsRepository.findById(updateBankDetailsDto.getId()).get();
-		bankDetails.setBankName(null);
-		bankDetails.setBranch(null);
-		bankDetails.setBranchName(null);
-		bankDetails.setIfscCode(null);
+		bankDetails.setBankName(updateBankDetailsDto.getBankName());
+		bankDetails.setBranch(updateBankDetailsDto.getBranch());
+		bankDetails.setSwiftCode(updateBankDetailsDto.getSwiftCode());
+		bankDetails.setIfscCode(updateBankDetailsDto.getIfscCode());
 		bankDetailsRepository.save(bankDetails);
 		return bankDetails;
 	}

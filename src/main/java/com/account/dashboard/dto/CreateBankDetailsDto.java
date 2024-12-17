@@ -7,7 +7,7 @@ public class CreateBankDetailsDto {
 
 	String bankName;
 	String ifscCode;
-	String branchName;
+	String swiftCode;
 	String branch;
 	
 	

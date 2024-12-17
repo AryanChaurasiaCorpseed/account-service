@@ -5,7 +5,7 @@ public class UpdateBankDetailsDto {
 	Long id;
 	String bankName;
 	String ifscCode;
-	String branchName;
+	String swiftCode;
 	String branch;
 	public Long getId() {
 		return id;
@@ -25,11 +25,12 @@ public class UpdateBankDetailsDto {
 	public void setIfscCode(String ifscCode) {
 		this.ifscCode = ifscCode;
 	}
-	public String getBranchName() {
-		return branchName;
+	
+	public String getSwiftCode() {
+		return swiftCode;
 	}
-	public void setBranchName(String branchName) {
-		this.branchName = branchName;
+	public void setSwiftCode(String swiftCode) {
+		this.swiftCode = swiftCode;
 	}
 	public String getBranch() {
 		return branch;
