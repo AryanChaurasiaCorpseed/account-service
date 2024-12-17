@@ -15,21 +15,39 @@ public class LedgerTypeServiceImpl implements LedgerTypeService{
 	@Autowired
 	LedgerTypeRepository ledgerTypeRepository;
 	
+//	@Override
+//	public Boolean createLedgerType(String name) {
+//		Boolean flag=false;
+//		LedgerType ledgerType = new LedgerType();
+//		ledgerType.setName(name);
+//		ledgerType.set
+//		ledgerTypeRepository.save(ledgerType);
+//		flag=true;
+//		return flag;
+//	}
+
 	@Override
-	public Boolean createLedgerType(String name) {
+	public Boolean createLedgerType(String name, boolean subLeadger, boolean isDebitCredit,boolean usedForCalculation) {
 		Boolean flag=false;
 		LedgerType ledgerType = new LedgerType();
 		ledgerType.setName(name);
+		ledgerType.setDebitCredit(isDebitCredit);
+		ledgerType.setSubLeadger(subLeadger);
+		ledgerType.setUsedForCalculation(usedForCalculation);
 		ledgerTypeRepository.save(ledgerType);
 		flag=true;
 		return flag;
 	}
-
+	
+	
 	@Override
-	public Boolean updateLedgerType(Long id, String name) {
+	public Boolean updateLedgerType(Long id, String name, boolean subLeadger, boolean isDebitCredit,boolean usedForCalculation) {
 		Boolean flag=false;
 		LedgerType ledgerType = ledgerTypeRepository.findById(id).get();
 		ledgerType.setName(name);
+		ledgerType.setDebitCredit(isDebitCredit);
+		ledgerType.setSubLeadger(subLeadger);
+		ledgerType.setUsedForCalculation(usedForCalculation);
 		ledgerTypeRepository.save(ledgerType);
 		flag=true;
 		return flag;
@@ -40,6 +58,7 @@ public class LedgerTypeServiceImpl implements LedgerTypeService{
 		List<LedgerType>leadgerTypeList=ledgerTypeRepository.findAll();
 		return leadgerTypeList;
 	}
+
 	
 	
 

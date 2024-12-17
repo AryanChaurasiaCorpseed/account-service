@@ -1,7 +1,10 @@
 package com.account.dashboard.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +65,28 @@ public class VoucherServiceImpl implements VoucherService{
 	public List<Voucher> getAllVoucher() {
 		List<Voucher>voucher=voucherRepository.findAll();
 		return voucher;
+	}
+	
+	
+	public List<Map<String,Object>> getAllVoucherV1() {
+		List<Voucher>voucher=voucherRepository.findAll();
+		List<Map<String,Object>>result = new ArrayList<>();
+		for(Voucher v:voucher) {
+			Map<String,Object>map = new HashMap<>();
+				map.put("id", v.getId());
+				map.put("companyName", v.getCompanyName());
+				map.put("creaditAmount", v.getCreditAmount());
+				map.put("debitAmount", v.getDebitAmount());
+				map.put("paymentType", v.getPaymentType());
+				map.put("createDate", v.getCreateDate());
+				map.put("ledger", v.getLedger());
+				map.put("ledgerType", v.getLedgerType());
+				map.put("voucherType", v.getVoucherType());
+				map.put("cerateDate", v.getCreateDate());
+			   result.add(map);
+
+		}
+		return result;
 	}
 
 }

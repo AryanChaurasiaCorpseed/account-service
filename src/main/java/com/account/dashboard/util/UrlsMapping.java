@@ -55,6 +55,12 @@ public interface UrlsMapping {
 	public static final String CREATE_VOUCHER=PREFIX+ "/voucher/createVoucher";
 	public static final String UPDATE_VOUCHER=PREFIX+ "/voucher/updateVoucher";
 	public static final String DELETE_VOUCHER=PREFIX+ "/voucher/deleteVoucher";
+	
+	
+	//=============================== Bank Details ========================================
+	public static final String CREATE_BANK_DETAILS=PREFIX+ "/ledgerType/createBankDetails";
+	public static final String UPDATE_BANK_DETAILS=PREFIX+ "/ledgerType/updateBankDetails";
+	public static final String GET_ALL_BANK_DETAILS=PREFIX+ "/ledgerType/getAllBankDetails";
 
 	
 

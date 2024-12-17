@@ -19,16 +19,20 @@ public class LedgerTypeController {
 	
 	@Autowired
 	LedgerTypeService ledgerService;
-	
+//isSubLeadger;
+//	
+//	boolean isDebitCredit;
+//	
+//	boolean isUsedForCalculation;
 	@PostMapping(UrlsMapping.CREATE_LEDGER_TYPE)
-	public Boolean createLedgerType(@RequestParam String name){
-		Boolean res=ledgerService.createLedgerType(name);	
+	public Boolean createLedgerType(@RequestParam String name,@RequestParam boolean subLeadger,@RequestParam boolean isDebitCredit,@RequestParam boolean usedForCalculation){
+		Boolean res=ledgerService.createLedgerType(name,subLeadger,isDebitCredit,usedForCalculation);	
 		return res;
 	}
 	
 	@PutMapping(UrlsMapping.UPDATE_LEDGER_TYPE)
-	public Boolean updateLedgerType(@RequestParam Long id , @RequestParam String name){
-		Boolean res=ledgerService.updateLedgerType(id,name);	
+	public Boolean updateLedgerType(@RequestParam Long id , @RequestParam String name,@RequestParam boolean subLeadger,@RequestParam boolean isDebitCredit,@RequestParam boolean usedForCalculation){
+		Boolean res=ledgerService.updateLedgerType(id,name,subLeadger,isDebitCredit,usedForCalculation);	
 		return res;
 	}
 	
