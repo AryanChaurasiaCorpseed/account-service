@@ -2,23 +2,29 @@ package com.account.dashboard.dto;
 
 import java.util.Date;
 
+
 import com.account.dashboard.domain.account.Ledger;
 import com.account.dashboard.domain.account.LedgerType;
 import com.account.dashboard.domain.account.VoucherType;
 
 import jakarta.persistence.ManyToOne;
+import lombok.*;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreateVoucherDto {
 
 		
 	String companyName;
 	
-	Long ledgerId;
+	long ledgerId;
 	
-	Long ledgerTypeId;
+	long ledgerTypeId;
 	
-	
-	Long voucherTypeId;
+	long voucherTypeId;
 	
 	boolean isCreditDebit;
 	
@@ -36,27 +42,27 @@ public class CreateVoucherDto {
 		this.companyName = companyName;
 	}
 
-	public Long getLedgerId() {
+	public long getLedgerId() {
 		return ledgerId;
 	}
 
-	public void setLedgerId(Long ledgerId) {
+	public void setLedgerId(long ledgerId) {
 		this.ledgerId = ledgerId;
 	}
 
-	public Long getLedgerTypeId() {
+	public long getLedgerTypeId() {
 		return ledgerTypeId;
 	}
 
-	public void setLedgerTypeId(Long ledgerTypeId) {
+	public void setLedgerTypeId(long ledgerTypeId) {
 		this.ledgerTypeId = ledgerTypeId;
 	}
 
-	public Long getVoucherTypeId() {
+	public long getVoucherTypeId() {
 		return voucherTypeId;
 	}
 
-	public void setVoucherTypeId(Long voucherTypeId) {
+	public void setVoucherTypeId(long voucherTypeId) {
 		this.voucherTypeId = voucherTypeId;
 	}
 
@@ -99,6 +105,7 @@ public class CreateVoucherDto {
 	public void setPaymentType(String paymentType) {
 		this.paymentType = paymentType;
 	}
+
 	
 	
 }

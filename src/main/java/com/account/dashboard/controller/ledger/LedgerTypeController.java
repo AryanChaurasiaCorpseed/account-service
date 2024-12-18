@@ -36,7 +36,7 @@ public class LedgerTypeController {
 		return res;
 	}
 	
-	@PutMapping(UrlsMapping.GET_ALL_LEDGER_TYPE)
+	@GetMapping(UrlsMapping.GET_ALL_LEDGER_TYPE)
 	public List<LedgerType> getAllLedgerType(){
 		List<LedgerType> res=ledgerService.getAllLedgerType();	
 		return res;

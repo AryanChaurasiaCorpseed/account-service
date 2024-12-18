@@ -31,8 +31,11 @@ public class LedgerServiceImpl implements LedgerService{
 		l.setState(ledgerDto.getState());
 		l.setCountry(ledgerDto.getCountry());
 		l.setPin(ledgerDto.getPin());
-		LedgerType ledgerType = ledgerTypeRepository.findById(ledgerDto.getLedgerTypeId()).get();
-		l.setLedgerType(ledgerType);
+		System.out.println(ledgerDto.getLedgerTypeId()+".......id");
+		 Optional<LedgerType> ledgerType = ledgerTypeRepository.findById(ledgerDto.getLedgerTypeId());
+		 if(ledgerType!=null&&ledgerType.isPresent() && ledgerType.get()!=null) {
+			 l.setLedgerType(ledgerType.get());
+		 }
 		ledgerRepository.save(l);
 		flag=true;
 		return flag;

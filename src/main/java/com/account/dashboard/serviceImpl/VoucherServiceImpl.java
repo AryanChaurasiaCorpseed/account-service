@@ -37,6 +37,22 @@ public class VoucherServiceImpl implements VoucherService{
 	
 	@Override
 	public Boolean createVoucher(CreateVoucherDto createVoucherDto) {
+		
+		System.out.println("company name .."+createVoucherDto.getCompanyName());
+		System.out.println("debit amount.."+createVoucherDto.getDebitAmount());
+		System.out.println("credit amount .."+createVoucherDto.getCreditAmount());
+		System.out.println("payment type .."+createVoucherDto.getPaymentType());
+		System.out.println("ledger id .."+createVoucherDto.getLedgerId());
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Boolean flag=false;
        Voucher v = new Voucher();
         v.setCompanyName(createVoucherDto.getCompanyName());
@@ -49,13 +65,16 @@ public class VoucherServiceImpl implements VoucherService{
         	v.setDebitAmount(createVoucherDto.getDebitAmount());
         }
         v.setCreateDate(new Date());
-        Ledger ledger = ledgerRepository.findById(createVoucherDto.getLedgerId()).get();
-        v.setLedger(ledger);
-        
+         Optional<Ledger> ledger = ledgerRepository.findById(createVoucherDto.getLedgerId());
+        if(ledger!=null && ledger.isPresent()&&ledger.get()!=null) {
+            v.setLedger(ledger.get());
+        }        
         v.setPaymentType(createVoucherDto.getPaymentType());
         
-        VoucherType voucherType = voucherTypeRepo.findById(createVoucherDto.getVoucherTypeId()).get();
-        v.setVoucherType(voucherType);
+         Optional<VoucherType> voucherType = voucherTypeRepo.findById(createVoucherDto.getVoucherTypeId());
+        if(voucherType!=null &&voucherType.isPresent() && voucherType.get()!=null) {
+            v.setVoucherType(voucherType.get());
+        }
         voucherRepository.save(v);
         flag=true;
 		return flag;
@@ -87,6 +106,35 @@ public class VoucherServiceImpl implements VoucherService{
 
 		}
 		return result;
+	}
+
+	@Override
+	public Map<String, Object> getVoucherAmount() {
+		List<Voucher>voucher=voucherRepository.findAll();
+		Map<String,Object>map = new HashMap<>();
+        long totalCredit=0;
+        long totalDebit=0;
+        long totalAmount=0;
+        for(Voucher v:voucher) {
+        	if(v.isCreditDebit()) {
+        		long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+        		long creditAmount =Long.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
+        		totalCredit=totalCredit+creditAmount;
+        		totalDebit=totalDebit+debitAmount;
+
+        		totalAmount=totalAmount+debitAmount-creditAmount;
+        	}else {
+        		long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+        		totalDebit=totalDebit+debitAmount;
+        		totalAmount=totalAmount+debitAmount;
+        		
+        	}
+        }
+        map.put("totalCredit", totalCredit);
+        map.put("totalDebit", totalDebit);
+        map.put("totalAmount", totalAmount);
+
+		return map;
 	}
 
 }

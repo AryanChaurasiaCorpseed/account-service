@@ -1,6 +1,7 @@
 package com.account.dashboard.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -14,5 +15,7 @@ public interface VoucherService {
 	Boolean createVoucher(CreateVoucherDto createVoucherDto);
 
 	List<Voucher> getAllVoucher();
+
+	Map<String, Object> getVoucherAmount();
 
 }
