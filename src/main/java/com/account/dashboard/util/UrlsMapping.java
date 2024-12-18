@@ -40,9 +40,9 @@ public interface UrlsMapping {
 	
 	//================================ Ledger ==========================================
 	
-	public static final String CREATE_LEDGER=PREFIX+ "/ledgerType/createLedger";
-	public static final String UPDATE_LEDGER=PREFIX+ "/ledgerType/updateLedger";
-	public static final String GET_ALL_LEDGER=PREFIX+ "/ledgerType/getAllLedger";
+	public static final String CREATE_LEDGER=PREFIX+ "/ledger/createLedger";
+	public static final String UPDATE_LEDGER=PREFIX+ "/ledger/updateLedger";
+	public static final String GET_ALL_LEDGER=PREFIX+ "/ledger/getAllLedger";
 
 	//================================ Voucher Type ==========================================
 
@@ -54,7 +54,7 @@ public interface UrlsMapping {
 	//=============================== Voucher  ===========================================
 	public static final String CREATE_VOUCHER=PREFIX+ "/voucher/createVoucher";
 	public static final String UPDATE_VOUCHER=PREFIX+ "/voucher/updateVoucher";
-	public static final String DELETE_VOUCHER=PREFIX+ "/voucher/deleteVoucher";
+	public static final String GET_ALL_VOUCHER=PREFIX+ "/voucher/getAllVoucher";
 	
 	
 	//=============================== Bank Details ========================================

@@ -62,6 +62,9 @@ public class LedgerType {
 	String swiftCode;
 	String bankName;
 	String branch;
+	
+	boolean isDeleted;
+	
 
 
 

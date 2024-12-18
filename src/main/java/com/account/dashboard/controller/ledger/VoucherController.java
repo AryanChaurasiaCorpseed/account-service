@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.account.dashboard.domain.account.Ledger;
 import com.account.dashboard.domain.account.Voucher;
@@ -16,20 +17,20 @@ import com.account.dashboard.util.UrlsMapping;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
-@Controller
+@RestController
 public class VoucherController {
 	
 	@Autowired
 	VoucherService voucherService;
     
 	
-	@PostMapping(UrlsMapping.CREATE_LEDGER)
+	@PostMapping(UrlsMapping.CREATE_VOUCHER)
 	public Boolean createVoucher(@RequestBody CreateVoucherDto createVoucherDto){
 		Boolean res=voucherService.createVoucher(createVoucherDto);	
 		return res;
 	}
 	
-	@GetMapping(UrlsMapping.GET_ALL_LEDGER)
+	@GetMapping(UrlsMapping.GET_ALL_VOUCHER)
 	public List<Voucher> getAllVoucher(){
 		List<Voucher> res=voucherService.getAllVoucher();	
 		return res;

@@ -38,6 +38,8 @@ public class Ledger {
 	String pin;
 	
 	Date createDate;
+	
+	boolean isDeleted;
 	   
 	
 	//hsn details

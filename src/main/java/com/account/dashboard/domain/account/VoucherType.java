@@ -18,4 +18,6 @@ public class VoucherType {
 	Long id;
 	
 	String name;
+	boolean isDeleted;
+	
 }
