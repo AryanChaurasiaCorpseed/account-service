@@ -37,22 +37,7 @@ public class VoucherServiceImpl implements VoucherService{
 	
 	@Override
 	public Boolean createVoucher(CreateVoucherDto createVoucherDto) {
-		
-		System.out.println("company name .."+createVoucherDto.getCompanyName());
-		System.out.println("debit amount.."+createVoucherDto.getDebitAmount());
-		System.out.println("credit amount .."+createVoucherDto.getCreditAmount());
-		System.out.println("payment type .."+createVoucherDto.getPaymentType());
-		System.out.println("ledger id .."+createVoucherDto.getLedgerId());
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		Boolean flag=false;
        Voucher v = new Voucher();
         v.setCompanyName(createVoucherDto.getCompanyName());
@@ -135,6 +120,19 @@ public class VoucherServiceImpl implements VoucherService{
         map.put("totalAmount", totalAmount);
 
 		return map;
+	}
+
+	@Override
+	public List<Map<String, Object>> getAllVoucherByLedgerId(Long ledgerId) {
+		
+		List<Voucher> voucherList = voucherRepository.findAllByLedgerId(ledgerId);
+		for(Voucher v:voucherList) {
+			Map<String,Object>map = new HashMap<>();
+			map.put("id", v.getId());
+			map.put("companyName", v.getCompanyName());
+
+		}
+		return null;
 	}
 
 }

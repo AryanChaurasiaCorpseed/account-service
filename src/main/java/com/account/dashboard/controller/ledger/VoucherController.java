@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.account.dashboard.domain.account.Ledger;
@@ -43,6 +44,13 @@ public class VoucherController {
 	@GetMapping(UrlsMapping.GET_VOUCHER_AMOUNT)
 	public Map<String,Object> getVoucherAmount(){
 		Map<String,Object> res=voucherService.getVoucherAmount();	
+		return res;
+	}
+	
+	
+	@GetMapping(UrlsMapping.GET_ALL_VOUCHER_BY_LEDGER_ID)
+	public List<Map<String,Object>> getAllVoucherByLedgerId(@RequestParam Long ledgerId){
+		List<Map<String,Object>> res=voucherService.getAllVoucherByLedgerId(ledgerId);	
 		return res;
 	}
 }
