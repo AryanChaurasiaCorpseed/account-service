@@ -31,7 +31,7 @@ public class VoucherTypeController {
 		return res;
 	}
 	
-	@PutMapping(UrlsMapping.CREATE_VOUCHER_TYPE)
+	@PutMapping(UrlsMapping.UPDATE_VOUCHER_TYPE)
 	public Boolean updateVoucherType(@RequestParam String name,@RequestParam Long id){
 		Boolean res=voucherTypeService.updateVoucherType(name,id);	
 		return res;
