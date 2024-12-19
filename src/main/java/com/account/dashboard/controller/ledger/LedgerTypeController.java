@@ -41,4 +41,10 @@ public class LedgerTypeController {
 		List<LedgerType> res=ledgerService.getAllLedgerType();	
 		return res;
 	}
+	
+	@GetMapping(UrlsMapping.DELETE_LEDGER_TYPE)
+	public Boolean deleteLedgerType(@RequestParam Long id){
+		Boolean res=ledgerService.deleteLedgerType(id);	
+		return res;
+	}
 }

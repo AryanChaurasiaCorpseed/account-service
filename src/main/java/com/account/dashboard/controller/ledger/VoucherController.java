@@ -49,8 +49,8 @@ public class VoucherController {
 	
 	
 	@GetMapping(UrlsMapping.GET_ALL_VOUCHER_BY_LEDGER_ID)
-	public List<Map<String,Object>> getAllVoucherByLedgerId(@RequestParam Long ledgerId){
-		List<Map<String,Object>> res=voucherService.getAllVoucherByLedgerId(ledgerId);	
+	public Map<String,Object> getAllVoucherByLedgerId(@RequestParam Long ledgerId){
+		Map<String,Object> res=voucherService.getAllVoucherByLedgerId(ledgerId);	
 		return res;
 	}
 }

@@ -15,4 +15,7 @@ public interface LedgerTypeService {
 
 	List<LedgerType> getAllLedgerType();
 
+
+	Boolean deleteLedgerType(Long id);
+
 }

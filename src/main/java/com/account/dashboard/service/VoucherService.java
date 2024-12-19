@@ -18,6 +18,6 @@ public interface VoucherService {
 
 	Map<String, Object> getVoucherAmount();
 
-	List<Map<String, Object>> getAllVoucherByLedgerId(Long ledgerId);
+	Map<String, Object> getAllVoucherByLedgerId(Long ledgerId);
 
 }
