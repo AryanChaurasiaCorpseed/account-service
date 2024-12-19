@@ -126,13 +126,27 @@ public class VoucherServiceImpl implements VoucherService{
 	public List<Map<String, Object>> getAllVoucherByLedgerId(Long ledgerId) {
 		
 		List<Voucher> voucherList = voucherRepository.findAllByLedgerId(ledgerId);
+		List<Map<String, Object>>res= new ArrayList<>();
+		 long totalCredit=0;
+	        long totalDebit=0;
+	        long totalAmount=0;
 		for(Voucher v:voucherList) {
 			Map<String,Object>map = new HashMap<>();
 			map.put("id", v.getId());
 			map.put("companyName", v.getCompanyName());
-
+			map.put("paymentType", v.getPaymentType());
+			map.put("createDate", v.getCreateDate());
+			map.put("ledger", v.getLedger());
+			map.put("ledgerType", v.getLedgerType());
+			map.put("voucherType", v.getVoucherType());
+			map.put("creditAmount", v.getCreditAmount());
+			map.put("debitAmount", v.getDebitAmount());
+			res.add(map);
+			
+			
 		}
-		return null;
+		
+		return res;
 	}
 
 }
