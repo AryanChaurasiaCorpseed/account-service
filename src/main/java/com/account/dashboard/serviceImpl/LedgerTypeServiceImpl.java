@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.account.dashboard.domain.account.LedgerType;
+import com.account.dashboard.dto.CreateLedgerTypeDto;
+import com.account.dashboard.dto.UpdateLedgerTypeDto;
 import com.account.dashboard.repository.LedgerTypeRepository;
 import com.account.dashboard.service.LedgerTypeService;
 
@@ -28,13 +30,21 @@ public class LedgerTypeServiceImpl implements LedgerTypeService{
 //	}
 
 	@Override
-	public Boolean createLedgerType(String name, boolean subLeadger, boolean isDebitCredit,boolean usedForCalculation) {
+	public Boolean createLedgerType(CreateLedgerTypeDto createLedgerTypeDto) {
 		Boolean flag=false;
 		LedgerType ledgerType = new LedgerType();
-		ledgerType.setName(name);
-		ledgerType.setDebitCredit(isDebitCredit);
-		ledgerType.setSubLeadger(subLeadger);
-		ledgerType.setUsedForCalculation(usedForCalculation);
+		ledgerType.setName(createLedgerTypeDto.getName());
+		ledgerType.setDebitCredit(createLedgerTypeDto.isDebitCredit());
+		ledgerType.setSubLeadger(createLedgerTypeDto.isSubLeadger());
+        if(createLedgerTypeDto.isSubLeadger()) {
+    		ledgerType.setSubLeadger(createLedgerTypeDto.isSubLeadger());
+    		LedgerType lType =ledgerTypeRepository.findById(createLedgerTypeDto.getId()).get();
+    		ledgerType.setLedgerType(lType);
+
+        }else {
+    		ledgerType.setSubLeadger(createLedgerTypeDto.isSubLeadger());
+		}
+		ledgerType.setUsedForCalculation(createLedgerTypeDto.isUsedForCalculation());
 		ledgerTypeRepository.save(ledgerType);
 		flag=true;
 		return flag;
@@ -42,13 +52,20 @@ public class LedgerTypeServiceImpl implements LedgerTypeService{
 	
 	
 	@Override
-	public Boolean updateLedgerType(Long id, String name, boolean subLeadger, boolean isDebitCredit,boolean usedForCalculation) {
+	public Boolean updateLedgerType(UpdateLedgerTypeDto updateLedgerTypeDto) {
 		Boolean flag=false;
-		LedgerType ledgerType = ledgerTypeRepository.findById(id).get();
-		ledgerType.setName(name);
-		ledgerType.setDebitCredit(isDebitCredit);
-		ledgerType.setSubLeadger(subLeadger);
-		ledgerType.setUsedForCalculation(usedForCalculation);
+		LedgerType ledgerType = ledgerTypeRepository.findById(updateLedgerTypeDto.getId()).get();
+		ledgerType.setName(updateLedgerTypeDto.getName());
+		ledgerType.setDebitCredit(updateLedgerTypeDto.isDebitCredit());
+		ledgerType.setSubLeadger(updateLedgerTypeDto.isSubLeadger());
+        if(updateLedgerTypeDto.isSubLeadger()) {
+    		ledgerType.setSubLeadger(updateLedgerTypeDto.isSubLeadger());
+    		LedgerType lType = ledgerTypeRepository.findById(updateLedgerTypeDto.getId()).get();
+    		ledgerType.setLedgerType(lType);
+        }else {
+    		ledgerType.setSubLeadger(updateLedgerTypeDto.isSubLeadger());
+		}
+		ledgerType.setUsedForCalculation(updateLedgerTypeDto.isUsedForCalculation());
 		ledgerTypeRepository.save(ledgerType);
 		flag=true;
 		return flag;
@@ -56,7 +73,8 @@ public class LedgerTypeServiceImpl implements LedgerTypeService{
 
 	@Override
 	public List<LedgerType> getAllLedgerType() {
-		List<LedgerType>leadgerTypeList=ledgerTypeRepository.findAll();
+		boolean b=false;
+		List<LedgerType>leadgerTypeList=ledgerTypeRepository.findAllByIsDeleted(b);
 		return leadgerTypeList;
 	}
 

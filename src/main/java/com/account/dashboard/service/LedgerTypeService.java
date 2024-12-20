@@ -5,13 +5,15 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.account.dashboard.domain.account.LedgerType;
+import com.account.dashboard.dto.CreateLedgerTypeDto;
+import com.account.dashboard.dto.UpdateLedgerTypeDto;
 
 @Service
 public interface LedgerTypeService {
 
-	Boolean createLedgerType(String name, boolean subLeadger, boolean isDebitCredit, boolean usedForCalculation);
+	Boolean createLedgerType(CreateLedgerTypeDto createLedgerTypeDto);
 
-	Boolean updateLedgerType(Long id, String name, boolean subLeadger, boolean isDebitCredit, boolean usedForCalculation);
+	Boolean updateLedgerType(UpdateLedgerTypeDto updateLedgerTypeDto);
 
 	List<LedgerType> getAllLedgerType();
 

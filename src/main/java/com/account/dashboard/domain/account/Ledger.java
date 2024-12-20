@@ -29,14 +29,10 @@ public class Ledger {
 	
 	String email;
 	
-	String address;
-	
-	String state;
-	
-	String country;
-	
-	String pin;
-	
+	String address;	
+	String state;	
+	String country;	
+	String pin;	
 	Date createDate;
 	
 	boolean isDeleted;
