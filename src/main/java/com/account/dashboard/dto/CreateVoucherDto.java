@@ -33,6 +33,15 @@ public class CreateVoucherDto {
 	Date createDate;
 	
 	String paymentType;
+	
+	
+	boolean isIGST;
+	String igst;
+	
+	boolean isCGSTSGST;
+	String cgst;
+	String sgst;
+
 
 	public String getCompanyName() {
 		return companyName;

@@ -30,15 +30,20 @@ public class Voucher {
 	@ManyToOne
 	VoucherType voucherType;
 	
-	boolean isCreditDebit;
-	
+	boolean isCreditDebit;	
 	String creditAmount ;
 	String debitAmount;
 	Date createDate;
-	
 	String paymentType;
-	
 	boolean isDeleted;
+	
+	// out side state
+	boolean isIGST;
+	String igst;
+	
+	boolean isCGSTSGST;
+	String cgst;
+	String sgst;
 
 	public Long getId() {
 		return id;
@@ -126,6 +131,46 @@ public class Voucher {
 
 	public void setDeleted(boolean isDeleted) {
 		this.isDeleted = isDeleted;
+	}
+
+	public boolean isIGST() {
+		return isIGST;
+	}
+
+	public String getIgst() {
+		return igst;
+	}
+
+	public boolean isCGSTSGST() {
+		return isCGSTSGST;
+	}
+
+	public String getCgst() {
+		return cgst;
+	}
+
+	public String getSgst() {
+		return sgst;
+	}
+
+	public void setIGST(boolean isIGST) {
+		this.isIGST = isIGST;
+	}
+
+	public void setIgst(String igst) {
+		this.igst = igst;
+	}
+
+	public void setCGSTSGST(boolean isCGSTSGST) {
+		this.isCGSTSGST = isCGSTSGST;
+	}
+
+	public void setCgst(String cgst) {
+		this.cgst = cgst;
+	}
+
+	public void setSgst(String sgst) {
+		this.sgst = sgst;
 	}
 	
 	

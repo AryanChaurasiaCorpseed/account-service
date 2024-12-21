@@ -41,10 +41,21 @@ public class VoucherServiceImpl implements VoucherService{
 		Boolean flag=false;
        Voucher v = new Voucher();
         v.setCompanyName(createVoucherDto.getCompanyName());
+        
         if(createVoucherDto.getCreditAmount()!=null ) {
         	v.setCreditDebit(true);
         	v.setCreditAmount(createVoucherDto.getCreditAmount());
+        	if(v.isCGSTSGST()) {
+        		v.setCGSTSGST(v.isCGSTSGST());
+        		v.setCgst(createVoucherDto.getCgst());
+        		v.setSgst(createVoucherDto.getSgst());
+        	}
+        	if(v.isIGST()) {
+        		v.setIGST(v.isIGST());
+        		v.setIgst(createVoucherDto.getIgst());
+        	}	
         }
+        
         if(createVoucherDto.getDebitAmount()!=null ) {
         	v.setCreditDebit(true);
         	v.setDebitAmount(createVoucherDto.getDebitAmount());
@@ -60,6 +71,7 @@ public class VoucherServiceImpl implements VoucherService{
         if(voucherType!=null &&voucherType.isPresent() && voucherType.get()!=null) {
             v.setVoucherType(voucherType.get());
         }
+        
         voucherRepository.save(v);
         flag=true;
 		return flag;
@@ -147,6 +159,13 @@ public class VoucherServiceImpl implements VoucherService{
 			map.put("voucherType", v.getVoucherType());
 			map.put("creditAmount", v.getCreditAmount());
 			map.put("debitAmount", v.getDebitAmount());
+			if(v.isCGSTSGST()) {
+				map.put("cgst", v.getCgst());
+				map.put("sgst", v.getSgst());
+			}
+			if(v.isIGST()) {
+				map.put("igst", v.getIgst());
+			}
 			res.add(map);
 			
 			if(v.isCreditDebit()) {
