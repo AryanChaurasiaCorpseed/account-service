@@ -37,6 +37,7 @@ public interface UrlsMapping {
 	public static final String UPDATE_LEDGER_TYPE=PREFIX+ "/ledgerType/updateLedgerType";
 	public static final String GET_ALL_LEDGER_TYPE=PREFIX+ "/ledgerType/getAllLedgerType";
 	public static final String DELETE_LEDGER_TYPE=PREFIX+ "/ledgerType/deleteLedgerType";
+	public static final String GET_ALL_LEDGER_TYPE_BY_ID=PREFIX+ "/ledgerType/getAllLedgerTypeById";
 
 	
 	//================================ Ledger ==========================================
@@ -58,6 +59,7 @@ public interface UrlsMapping {
 	public static final String GET_ALL_VOUCHER=PREFIX+ "/voucher/getAllVoucher";
 	public static final String GET_VOUCHER_AMOUNT=PREFIX+ "/voucher/getVoucherAmount";
 	public static final String GET_ALL_VOUCHER_BY_LEDGER_ID=PREFIX+ "/voucher/getAllVoucherByLedgerId";
+	public static final String GET_ALL_VOUCHER_IN_BETWEEN_DATE=PREFIX+ "/voucher/getAllVoucherInBetweenDate";
 
 	
 	//=============================== Bank Details ========================================

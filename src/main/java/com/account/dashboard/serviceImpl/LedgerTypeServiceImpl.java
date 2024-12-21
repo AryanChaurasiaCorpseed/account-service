@@ -92,6 +92,13 @@ public class LedgerTypeServiceImpl implements LedgerTypeService{
 		return flag;
 	}
 
+
+	@Override
+	public LedgerType getAllLedgerTypeById(Long id) {
+		LedgerType ledgerType = ledgerTypeRepository.findById(id).get();
+		return ledgerType;
+	}
+
 	
 	
 

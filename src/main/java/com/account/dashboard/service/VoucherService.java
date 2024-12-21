@@ -20,4 +20,6 @@ public interface VoucherService {
 
 	Map<String, Object> getAllVoucherByLedgerId(Long ledgerId);
 
+	Map<String, Object> getAllVoucherInBetween(String startDate, String endDate);
+
 }

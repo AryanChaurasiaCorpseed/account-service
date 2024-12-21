@@ -53,4 +53,10 @@ public class VoucherController {
 		Map<String,Object> res=voucherService.getAllVoucherByLedgerId(ledgerId);	
 		return res;
 	}
+	
+	@GetMapping(UrlsMapping.GET_ALL_VOUCHER_IN_BETWEEN_DATE)
+	public Map<String,Object> getAllVoucherInBetween(@RequestParam String startDate,@RequestParam String endDate){
+		Map<String,Object> res=voucherService.getAllVoucherInBetween(startDate,endDate);	
+		return res;
+	}
 }

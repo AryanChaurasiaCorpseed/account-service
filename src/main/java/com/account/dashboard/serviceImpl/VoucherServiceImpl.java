@@ -170,4 +170,51 @@ public class VoucherServiceImpl implements VoucherService{
 		return result;
 	}
 
+	@Override
+	public Map<String, Object> getAllVoucherInBetween(String startDate, String endDate) {
+		List<Voucher>voucherList=voucherRepository.findByIdInBetween(startDate,endDate);
+		Map<String,Object>result = new HashMap<>();
+		List<Map<String, Object>>res= new ArrayList<>();
+		 long totalCredit=0;
+	        long totalDebit=0;
+	        long totalAmount=0;
+		for(Voucher v:voucherList) {
+			Map<String,Object>map = new HashMap<>();
+			map.put("id", v.getId());
+			map.put("companyName", v.getCompanyName());
+			map.put("paymentType", v.getPaymentType());
+			map.put("createDate", v.getCreateDate());
+			
+			map.put("ledgerId", v.getLedger().getId());
+			map.put("ledgerName", v.getLedger().getName());
+			map.put("ledgerType", v.getLedger().getLedgerType());
+			map.put("isDebitCredit", v.isCreditDebit());
+
+			map.put("ledgerType", v.getLedgerType());
+			map.put("voucherType", v.getVoucherType());
+			map.put("creditAmount", v.getCreditAmount());
+			map.put("debitAmount", v.getDebitAmount());
+			res.add(map);
+			
+			if(v.isCreditDebit()) {
+        		long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+        		long creditAmount =Long.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
+        		totalCredit=totalCredit+creditAmount;
+        		totalDebit=totalDebit+debitAmount;
+
+        		totalAmount=totalAmount+debitAmount-creditAmount;
+        	}else {
+        		long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+        		totalDebit=totalDebit+debitAmount;
+        		totalAmount=totalAmount+debitAmount;
+        		
+        	}
+		}
+		result.put("result", res);
+		result.put("totalCredit", totalCredit);
+		result.put("totalDebit", totalDebit);
+		result .put("totalAmount", totalAmount);
+		return result;
+	}
+
 }
