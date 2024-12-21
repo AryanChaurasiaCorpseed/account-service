@@ -56,4 +56,6 @@ public class LedgerTypeController {
 		Boolean res=ledgerService.deleteLedgerType(id);	
 		return res;
 	}
+	
+	
 }

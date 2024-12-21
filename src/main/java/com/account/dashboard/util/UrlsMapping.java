@@ -68,6 +68,10 @@ public interface UrlsMapping {
 	public static final String GET_ALL_BANK_DETAILS=PREFIX+ "/ledgerType/getAllBankDetails";
 
 	
+	//================================= Statutory =========================================
+	public static final String ADD_STATUTORY_DETAILS=PREFIX+ "/statutory/addStatutoryDetails";
+	
+
 
 
 	
