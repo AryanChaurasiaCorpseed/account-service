@@ -36,7 +36,6 @@ public class Ledger {
 	Date createDate;
 	
 	boolean isDeleted;
-	   
 	
 	//hsn details
     boolean isHsnSac;
@@ -50,6 +49,9 @@ public class Ledger {
 	String gstRateDetails;
 	String taxabilityType;
 	String gstRates;
+	String igst; //other state
+	String cgst; // both are same state (cgst+sgst)
+	String sgst; // both are same state (cgst+sgst)
 	
 	// BankDetails
 	boolean isBankAccount;
@@ -260,4 +262,30 @@ public class Ledger {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
+
+	public String getIgst() {
+		return igst;
+	}
+
+	public String getCgst() {
+		return cgst;
+	}
+
+	public String getSgst() {
+		return sgst;
+	}
+
+	public void setIgst(String igst) {
+		this.igst = igst;
+	}
+
+	public void setCgst(String cgst) {
+		this.cgst = cgst;
+	}
+
+	public void setSgst(String sgst) {
+		this.sgst = sgst;
+	}
+	
+	
 }
