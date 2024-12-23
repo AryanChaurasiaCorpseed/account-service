@@ -1,7 +1,9 @@
 package com.account.dashboard.controller.ledger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,13 +26,13 @@ public class StatutoryController {
 		return res;
 	}
 	
-	@PostMapping(UrlsMapping.UPDATE_STATUTORY_DETAILS)
+	@PutMapping(UrlsMapping.UPDATE_STATUTORY_DETAILS)
 	public Boolean updateStatutoryDetails(@RequestBody CreateStatutoryDetails createStatutoryDetails){
 		Boolean res=statutoryService.updateStatutoryDetails(createStatutoryDetails);	
 		return res;
 	}
 	
-	@PostMapping(UrlsMapping.GET_STATUTORY_DETAILS)
+	@GetMapping(UrlsMapping.GET_STATUTORY_DETAILS)
 	public LedgerType getStatutoryDetailsById(@RequestParam Long id){
 		LedgerType res=statutoryService.getStatutoryDetailsById(id);	
 		return res;
