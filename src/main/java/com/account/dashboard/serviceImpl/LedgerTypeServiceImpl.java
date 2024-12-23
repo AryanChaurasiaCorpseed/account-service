@@ -36,13 +36,12 @@ public class LedgerTypeServiceImpl implements LedgerTypeService{
 		ledgerType.setName(createLedgerTypeDto.getName());
 		ledgerType.setDebitCredit(createLedgerTypeDto.isDebitCredit());
 		ledgerType.setSubLeadger(createLedgerTypeDto.isSubLeadger());
-        if(createLedgerTypeDto.isSubLeadger()) {
-    		ledgerType.setSubLeadger(createLedgerTypeDto.isSubLeadger());
+		
+        if(createLedgerTypeDto.getId()!=null && createLedgerTypeDto.getId()!=0) {
     		LedgerType lType =ledgerTypeRepository.findById(createLedgerTypeDto.getId()).get();
     		ledgerType.setLedgerType(lType);
-
         }else {
-    		ledgerType.setSubLeadger(createLedgerTypeDto.isSubLeadger());
+    		ledgerType.setLedgerType(null);
 		}
 		ledgerType.setUsedForCalculation(createLedgerTypeDto.isUsedForCalculation());
 		ledgerTypeRepository.save(ledgerType);

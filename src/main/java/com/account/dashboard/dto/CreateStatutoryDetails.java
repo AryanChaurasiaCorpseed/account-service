@@ -5,16 +5,16 @@ public class CreateStatutoryDetails {
 	//hsn details
     boolean isHsnSac;
 	String hsnSacDetails;
-	String HsnSac;
+	String classification;
+	String hsnSacData;
 	String hsnDescription;
 
 
 	// gst rate details
-	boolean isGstRateDetails;
+	boolean isGstRate;
 	String gstRateDetails;
 	String taxabilityType;
-	String gstRates;
-	
+	String gstRatesData;
 	
 	//Bank Details
 	
@@ -34,14 +34,17 @@ public class CreateStatutoryDetails {
 	public String getHsnSacDetails() {
 		return hsnSacDetails;
 	}
-	public String getHsnSac() {
-		return HsnSac;
+	public String getClassification() {
+		return classification;
+	}
+	public String getHsnSacData() {
+		return hsnSacData;
 	}
 	public String getHsnDescription() {
 		return hsnDescription;
 	}
-	public boolean isGstRateDetails() {
-		return isGstRateDetails;
+	public boolean isGstRate() {
+		return isGstRate;
 	}
 	public String getGstRateDetails() {
 		return gstRateDetails;
@@ -49,8 +52,8 @@ public class CreateStatutoryDetails {
 	public String getTaxabilityType() {
 		return taxabilityType;
 	}
-	public String getGstRates() {
-		return gstRates;
+	public String getGstRatesData() {
+		return gstRatesData;
 	}
 	public boolean isBankAccount() {
 		return isBankAccount;
@@ -82,14 +85,17 @@ public class CreateStatutoryDetails {
 	public void setHsnSacDetails(String hsnSacDetails) {
 		this.hsnSacDetails = hsnSacDetails;
 	}
-	public void setHsnSac(String hsnSac) {
-		HsnSac = hsnSac;
+	public void setClassification(String classification) {
+		this.classification = classification;
+	}
+	public void setHsnSacData(String hsnSacData) {
+		this.hsnSacData = hsnSacData;
 	}
 	public void setHsnDescription(String hsnDescription) {
 		this.hsnDescription = hsnDescription;
 	}
-	public void setGstRateDetails(boolean isGstRateDetails) {
-		this.isGstRateDetails = isGstRateDetails;
+	public void setGstRate(boolean isGstRate) {
+		this.isGstRate = isGstRate;
 	}
 	public void setGstRateDetails(String gstRateDetails) {
 		this.gstRateDetails = gstRateDetails;
@@ -97,8 +103,8 @@ public class CreateStatutoryDetails {
 	public void setTaxabilityType(String taxabilityType) {
 		this.taxabilityType = taxabilityType;
 	}
-	public void setGstRates(String gstRates) {
-		this.gstRates = gstRates;
+	public void setGstRatesData(String gstRatesData) {
+		this.gstRatesData = gstRatesData;
 	}
 	public void setBankAccount(boolean isBankAccount) {
 		this.isBankAccount = isBankAccount;
@@ -121,6 +127,7 @@ public class CreateStatutoryDetails {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
+	
 	
 	
 	

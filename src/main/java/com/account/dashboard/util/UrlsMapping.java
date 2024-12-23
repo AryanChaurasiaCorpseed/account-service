@@ -71,7 +71,9 @@ public interface UrlsMapping {
 	//================================= Statutory =========================================
 	public static final String ADD_STATUTORY_DETAILS=PREFIX+ "/statutory/addStatutoryDetails";
 	
+	public static final String UPDATE_STATUTORY_DETAILS=PREFIX+ "/statutory/updateStatutoryDetails";
 
+	public static final String GET_STATUTORY_DETAILS=PREFIX+ "/statutory/getStatutoryDetails";
 
 
 	

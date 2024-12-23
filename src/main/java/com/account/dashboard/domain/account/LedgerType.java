@@ -35,26 +35,28 @@ public class LedgerType {
 
 	@ManyToOne
 	LedgerType ledgerType; 
-	
+
 	Date createDate;
 
 
 	//hsn details
-    boolean isHsnSac;
+	boolean isHsnSac;
 	String hsnSacDetails;
-	String HsnSac;
+	String classification;
+	String hsnSacData;
 	String hsnDescription;
 
 
+
 	// gst rate details
-	boolean isGstRateDetails;
+	boolean isGstRate;
 	String gstRateDetails;
 	String taxabilityType;
-	String gstRates;
-	
-	
+	String gstRatesData;
+
+
 	//Bank Details
-	
+
 	boolean isBankAccount;
 	String accountHolderName;
 	String accountNo;
@@ -62,9 +64,9 @@ public class LedgerType {
 	String swiftCode;
 	String bankName;
 	String branch;
-	
+
 	boolean isDeleted;
-	
+
 
 
 
