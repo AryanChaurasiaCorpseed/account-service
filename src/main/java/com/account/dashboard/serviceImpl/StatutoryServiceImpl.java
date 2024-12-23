@@ -1,5 +1,6 @@
 package com.account.dashboard.serviceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,12 @@ public class StatutoryServiceImpl implements StatutoryService {
 	public LedgerType getStatutoryDetailsById(Long id) {
 		LedgerType ledgerType = ledgerTypeRepository.findById(id).get();
 		return ledgerType;
+	}
+
+	@Override
+	public List<LedgerType> getAllStatutoryDetailsById(Long currentUserId) {
+		List<LedgerType> ledgerList = ledgerTypeRepository.findAll();
+		return ledgerList;
 	}
 
 }

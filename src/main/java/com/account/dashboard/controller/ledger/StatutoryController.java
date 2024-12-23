@@ -1,5 +1,7 @@
 package com.account.dashboard.controller.ledger;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +37,13 @@ public class StatutoryController {
 	@GetMapping(UrlsMapping.GET_STATUTORY_DETAILS)
 	public LedgerType getStatutoryDetailsById(@RequestParam Long id){
 		LedgerType res=statutoryService.getStatutoryDetailsById(id);	
+		return res;
+	}
+	
+	
+	@GetMapping(UrlsMapping.GET_ALL_STATUTORY_DETAILS)
+	public List<LedgerType> getAllStatutoryDetailsById(@RequestParam Long currentUserId){
+		List<LedgerType> res=statutoryService.getAllStatutoryDetailsById(currentUserId);	
 		return res;
 	}
 }

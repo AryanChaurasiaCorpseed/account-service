@@ -74,7 +74,12 @@ public interface UrlsMapping {
 	public static final String UPDATE_STATUTORY_DETAILS=PREFIX+ "/statutory/updateStatutoryDetails";
 
 	public static final String GET_STATUTORY_DETAILS=PREFIX+ "/statutory/getStatutoryDetails";
+	public static final String GET_ALL_STATUTORY_DETAILS=PREFIX+ "/statutory/getAllStatutoryDetails";
 
+
+	
+	//==================================== organization ========================================
+	public static final String CREATE_ORGANIIZATION=PREFIX+ "/organization/createOrganization";
 
 	
 
