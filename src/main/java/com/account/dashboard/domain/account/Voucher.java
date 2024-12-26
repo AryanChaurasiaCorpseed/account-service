@@ -30,6 +30,9 @@ public class Voucher {
 	@ManyToOne
 	VoucherType voucherType;
 	
+	@ManyToOne
+	Ledger product;
+	
 	boolean isCreditDebit;	
 	String creditAmount ;
 	String debitAmount;

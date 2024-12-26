@@ -72,6 +72,11 @@ public class VoucherServiceImpl implements VoucherService{
             v.setVoucherType(voucherType.get());
         }
         
+        Optional<Ledger> product = ledgerRepository.findById(createVoucherDto.getProductId());
+        if(product!=null && product.isPresent()&&product.get()!=null) {
+            v.setProduct (product.get());
+        }    
+        
         voucherRepository.save(v);
         flag=true;
 		return flag;

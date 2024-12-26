@@ -26,6 +26,8 @@ public class CreateVoucherDto {
 	
 	long voucherTypeId;
 	
+	long productId;
+	
 	boolean isCreditDebit;
 	
 	String creditAmount ;
