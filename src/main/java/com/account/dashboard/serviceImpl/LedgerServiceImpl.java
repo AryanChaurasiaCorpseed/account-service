@@ -6,12 +6,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.account.dashboard.domain.Organization;
 import com.account.dashboard.domain.account.Ledger;
 import com.account.dashboard.domain.account.LedgerType;
 import com.account.dashboard.dto.LedgerDto;
 import com.account.dashboard.dto.UpdateLedgerDto;
 import com.account.dashboard.repository.LedgerRepository;
 import com.account.dashboard.repository.LedgerTypeRepository;
+import com.account.dashboard.repository.OrganizationRepository;
 import com.account.dashboard.service.LedgerService;
 @Service
 public class LedgerServiceImpl implements LedgerService{
@@ -21,6 +23,9 @@ public class LedgerServiceImpl implements LedgerService{
 
 	@Autowired
 	LedgerTypeRepository ledgerTypeRepository;
+	
+	@Autowired
+	OrganizationRepository organizationRepository;
 
 	@Override
 	public Boolean createLedger(LedgerDto ledgerDto) {
@@ -39,7 +44,6 @@ public class LedgerServiceImpl implements LedgerService{
 			l.setLedgerType(ledgerType.get());
 		}
 
-
 		if(ledgerDto.isHsnSac()) {
 			l.setHsnSacDetails(ledgerDto.getHsnSacDetails());
 			l.setHsnSac(ledgerDto.getHsnSac());
@@ -48,6 +52,31 @@ public class LedgerServiceImpl implements LedgerService{
 		if(ledgerDto.isGstRateDetails()) {
 			l.setGstRateDetails(ledgerDto.isGstRateDetails());
 			l.setGstRateDetails(ledgerDto.getGstRateDetails());
+			Organization org = organizationRepository.findByName("corpseed");
+			if(org!=null) {
+				String state = org.getState();
+				if(state.equalsIgnoreCase(ledgerDto.getState())) {
+					String gstRateDetails=ledgerDto.getGstRateDetails();
+					double gst = Double.parseDouble(gstRateDetails);
+					double cgst=gst/2;
+					double sgst=gst-cgst;
+//					ledgerDto.get
+				l.setCgst(cgst+"");
+				l.setIgst(sgst+"");
+				l.setGstRateDetails(gstRateDetails);
+				}else {
+					String gstRateDetails=ledgerDto.getGstRateDetails();
+
+					l.setGstRateDetails(gstRateDetails);
+					l.setIgst(gstRateDetails);
+
+
+				}
+			}else {
+				String gstRateDetails=ledgerDto.getGstRateDetails();
+				l.setGstRateDetails(gstRateDetails);
+				l.setIgst(gstRateDetails);
+			}
 			l.setTaxabilityType(ledgerDto.getTaxabilityType());
 			l.setGstRates(ledgerDto.getGstRates());
 		}

@@ -1,11 +1,17 @@
 package com.account.dashboard.controller.ledger;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.account.dashboard.domain.Organization;
 import com.account.dashboard.dto.CreateLedgerTypeDto;
+import com.account.dashboard.dto.OrganizationDto;
 import com.account.dashboard.util.UrlsMapping;
 import com.account.dashboard.service.OrganizationService;
 @RestController
@@ -15,8 +21,21 @@ public class OrganizationController {
 	OrganizationService organizationService;
 	
 	@PostMapping(UrlsMapping.CREATE_ORGANIIZATION)
-	public Boolean createOrganization(@RequestBody CreateLedgerTypeDto createLedgerTypeDto){
-		Boolean res=organizationService.createOrganization(createLedgerTypeDto);	
+	public Boolean createOrganization(@RequestBody OrganizationDto organizationDto) throws Exception{
+		Boolean res=organizationService.createOrganization(organizationDto);	
+		return res;
+	}
+	
+	
+	@GetMapping(UrlsMapping.GET_ORGANIIZATION_BY_ID)
+	public Organization getOrganizationById(@RequestParam Long id){
+		Organization res=organizationService.getOrganizationById(id);	
+		return res;
+	}
+	
+	@GetMapping(UrlsMapping.GET_ALL_ORGANIIZATION)
+	public List<Organization> getAllOrganization(){
+		List<Organization> res=organizationService.getAllOrganization();	
 		return null;
 	}
 }
