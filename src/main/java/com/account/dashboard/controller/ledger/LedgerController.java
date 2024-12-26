@@ -44,4 +44,10 @@ public class LedgerController {
 		return res;
 	}
 	
+	@GetMapping(UrlsMapping.GET_LEDGER_BY_ID)
+	public Ledger getLedgerById(@RequestParam Long id){
+		Ledger res=ledgerService.getLedgerById(id);	
+		return res;
+	}
+	
 }

@@ -119,6 +119,12 @@ public class LedgerServiceImpl implements LedgerService{
 		return flag;
 	}
 
+	@Override
+	public Ledger getLedgerById(Long id) {
+		Ledger ledger = ledgerRepository.findById(id).get();
+		return ledger;
+	}
+
 
 
 }

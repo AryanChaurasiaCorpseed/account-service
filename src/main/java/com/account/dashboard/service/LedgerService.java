@@ -16,4 +16,6 @@ public interface LedgerService {
 
 	Boolean updateLadger(UpdateLedgerDto updateLedgerDto);
 
+	Ledger getLedgerById(Long id);
+
 }

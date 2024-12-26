@@ -45,6 +45,7 @@ public interface UrlsMapping {
 	public static final String CREATE_LEDGER=PREFIX+ "/ledger/createLedger";
 	public static final String UPDATE_LEDGER=PREFIX+ "/ledger/updateLedger";
 	public static final String GET_ALL_LEDGER=PREFIX+ "/ledger/getAllLedger";
+	public static final String GET_LEDGER_BY_ID=PREFIX+ "/ledger/getLedgerById";
 
 	//================================ Voucher Type ==========================================
 
