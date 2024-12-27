@@ -62,11 +62,13 @@ public class LedgerServiceImpl implements LedgerService{
 					double sgst=gst-cgst;
 //					ledgerDto.get
 				l.setCgst(cgst+"");
-				l.setIgst(sgst+"");
+				l.setSgst(sgst+"");
+                l.setCgstSgstPrsent(true);
+
 				l.setGstRateDetails(gstRateDetails);
 				}else {
 					String gstRateDetails=ledgerDto.getGstRateDetails();
-
+                    l.setIgstPrsent(true);
 					l.setGstRateDetails(gstRateDetails);
 					l.setIgst(gstRateDetails);
 

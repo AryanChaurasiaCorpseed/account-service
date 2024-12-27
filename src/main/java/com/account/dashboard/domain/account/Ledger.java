@@ -49,6 +49,9 @@ public class Ledger {
 	String gstRateDetails;
 	String taxabilityType;
 	String gstRates;
+	boolean cgstSgstPrsent;
+	boolean igstPrsent;
+
 	String igst; //other state
 	String cgst; // both are same state (cgst+sgst)
 	String sgst; // both are same state (cgst+sgst)
@@ -285,6 +288,22 @@ public class Ledger {
 
 	public void setSgst(String sgst) {
 		this.sgst = sgst;
+	}
+
+	public boolean isCgstSgstPrsent() {
+		return cgstSgstPrsent;
+	}
+
+	public boolean isIgstPrsent() {
+		return igstPrsent;
+	}
+
+	public void setCgstSgstPrsent(boolean cgstSgstPrsent) {
+		this.cgstSgstPrsent = cgstSgstPrsent;
+	}
+
+	public void setIgstPrsent(boolean igstPrsent) {
+		this.igstPrsent = igstPrsent;
 	}
 	
 	
