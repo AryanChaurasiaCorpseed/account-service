@@ -39,5 +39,10 @@ public class OrganizationController {
 		return res;
 	}
 	
+	@GetMapping(UrlsMapping.GET_ALL_ORGANIIZATION_BY_NAME)
+	public Organization getAllOrganizationByName(@RequestParam String name){
+		Organization res=organizationService.getAllOrganizationByName(name);	
+		return res;
+	}
 	
 }

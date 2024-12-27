@@ -33,6 +33,7 @@ public class OrganizationServiceImpl implements OrganizationService{
 			organization.setState(organizationDto.getState());
 			organization.setCountry(organizationDto.getCountry());
 			organization.setPin(organizationDto.getPin());
+			organization.setDeleted(false);
 			organizationRepository.save(organization);
 		}else {
 			throw new Exception("Already Exit");
@@ -51,6 +52,12 @@ public class OrganizationServiceImpl implements OrganizationService{
 	public List<Organization> getAllOrganization() {
 		List<Organization> organizationList = organizationRepository.findAll();
 		return organizationList;
+	}
+
+	@Override
+	public Organization getAllOrganizationByName(String name) {
+		Organization organization = organizationRepository.findByName(name);
+		return organization;
 	}
 
 }

@@ -17,4 +17,6 @@ public interface OrganizationService {
 
 	List<Organization> getAllOrganization();
 
+	Organization getAllOrganizationByName(String name);
+
 }
