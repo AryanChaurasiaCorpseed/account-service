@@ -36,7 +36,7 @@ public class OrganizationController {
 	@GetMapping(UrlsMapping.GET_ALL_ORGANIIZATION)
 	public List<Organization> getAllOrganization(){
 		List<Organization> res=organizationService.getAllOrganization();	
-		return null;
+		return res;
 	}
 	
 	
