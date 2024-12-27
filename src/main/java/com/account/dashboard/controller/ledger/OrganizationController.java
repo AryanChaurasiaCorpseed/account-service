@@ -38,4 +38,6 @@ public class OrganizationController {
 		List<Organization> res=organizationService.getAllOrganization();	
 		return null;
 	}
+	
+	
 }

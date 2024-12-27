@@ -44,13 +44,13 @@ public class LedgerServiceImpl implements LedgerService{
 			l.setLedgerType(ledgerType.get());
 		}
 
-		if(ledgerDto.isHsnSac()) {
+		if(ledgerDto.isHsnSacPrsent()) {
 			l.setHsnSacDetails(ledgerDto.getHsnSacDetails());
 			l.setHsnSac(ledgerDto.getHsnSac());
 			l.setHsnDescription(ledgerDto.getHsnDescription());
 		}
-		if(ledgerDto.isGstRateDetails()) {
-			l.setGstRateDetails(ledgerDto.isGstRateDetails());
+		if(ledgerDto.isGstRateDetailPrsent()) {
+			l.setGstRateDetails(ledgerDto.isGstRateDetailPrsent());
 			l.setGstRateDetails(ledgerDto.getGstRateDetails());
 			Organization org = organizationRepository.findByName("corpseed");
 			if(org!=null) {
@@ -82,8 +82,8 @@ public class LedgerServiceImpl implements LedgerService{
 		}
 		//
 
-		if(ledgerDto.isBankAccount()){
-			l.setBankAccount(ledgerDto.isBankAccount());
+		if(ledgerDto.isBankAccountPrsent()){
+			l.setBankAccount(ledgerDto.isBankAccountPrsent());
 			l.setAccountHolderName(ledgerDto.getAccountHolderName());
 			l.setAccountNo(ledgerDto.getAccountNo());
 			l.setIfscCode(ledgerDto.getIfscCode());
