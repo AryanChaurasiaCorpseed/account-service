@@ -45,13 +45,13 @@ public class VoucherServiceImpl implements VoucherService{
         if(createVoucherDto.getCreditAmount()!=null ) {
         	v.setCreditDebit(true);
         	v.setCreditAmount(createVoucherDto.getCreditAmount());
-        	if(v.isCGSTSGST()) {
-        		v.setCGSTSGST(v.isCGSTSGST());
+        	if(createVoucherDto.isCgstIgstPrsent()) {
+        		v.setCGSTSGST(createVoucherDto.isCgstIgstPrsent());
         		v.setCgst(createVoucherDto.getCgst());
         		v.setSgst(createVoucherDto.getSgst());
         	}
-        	if(v.isIGST()) {
-        		v.setIGST(v.isIGST());
+        	if(createVoucherDto.isIgstPrsent()) {
+        		v.setIGST(createVoucherDto.isIgstPrsent());
         		v.setIgst(createVoucherDto.getIgst());
         	}	
         }
@@ -118,18 +118,72 @@ public class VoucherServiceImpl implements VoucherService{
         long totalDebit=0;
         long totalAmount=0;
         for(Voucher v:voucher) {
+//        	if(v.isCreditDebit()) {
+//        		long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+//        		long creditAmount =Long.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
+//        		totalCredit=totalCredit+creditAmount;
+//        		totalDebit=totalDebit+debitAmount;
+//
+//        		totalAmount=totalAmount+debitAmount-creditAmount;
+//        	}else {
+//        		long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+//        		totalDebit=totalDebit+debitAmount;
+//        		totalAmount=totalAmount+debitAmount;
+//        		
+//        	}
+        	
         	if(v.isCreditDebit()) {
         		long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
         		long creditAmount =Long.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
+        		
+
+        		
+        		if(v.getDebitAmount()!=null) {
+        			if(v.isIGST()) {
+                		long amount =Long.valueOf(v.getIgst()!=null?v.getIgst():"0");
+                		debitAmount=debitAmount+amount;
+        			}
+        			if(v.isCGSTSGST()) {
+                		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
+                		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
+                		debitAmount=debitAmount+a1+a2;
+
+        			}
+        		}else {
+        			if(v.isIGST()) {
+                		long amount =Long.valueOf(v.getIgst()!=null?v.getIgst():"0");
+                		creditAmount=creditAmount+amount;
+        			}
+        			if(v.isCGSTSGST()) {
+                		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
+                		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
+                		creditAmount=creditAmount+a1+a2;
+
+        			}
+        		}
         		totalCredit=totalCredit+creditAmount;
         		totalDebit=totalDebit+debitAmount;
 
-        		totalAmount=totalAmount+debitAmount-creditAmount;
+//        		totalAmount=totalAmount+debitAmount-creditAmount;
         	}else {
         		long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
-        		totalDebit=totalDebit+debitAmount;
-        		totalAmount=totalAmount+debitAmount;
+//        	
         		
+        		totalDebit=totalDebit+debitAmount;
+//        		totalAmount=totalAmount+debitAmount;
+        		if(v.isIGST()) {
+            		long amount =Long.valueOf(v.getIgst()!=null?v.getIgst():"0");
+            		debitAmount=debitAmount+amount;
+    			}
+    			if(v.isCGSTSGST()) {
+            		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
+            		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
+            		debitAmount=debitAmount+a1+a2;
+
+    			}
+    			
+        		totalAmount=totalAmount+debitAmount;
+
         	}
         }
         map.put("totalCredit", totalCredit);
@@ -187,7 +241,7 @@ public class VoucherServiceImpl implements VoucherService{
         			if(v.isCGSTSGST()) {
                 		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
                 		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
-                		creditAmount=creditAmount+a1+a2;
+                		debitAmount=debitAmount+a1+a2;
 
         			}
         		}else {

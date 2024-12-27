@@ -11,8 +11,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateVoucherDto {
@@ -37,86 +37,104 @@ public class CreateVoucherDto {
 	String paymentType;
 	
 	
-	boolean isIGST;
+	boolean igstPrsent;
 	String igst;
 	
-	boolean isCGSTSGST;
+	boolean cgstIgstPrsent;
 	String cgst;
 	String sgst;
-
-
 	public String getCompanyName() {
 		return companyName;
 	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
 	public long getLedgerId() {
 		return ledgerId;
 	}
-
-	public void setLedgerId(long ledgerId) {
-		this.ledgerId = ledgerId;
-	}
-
 	public long getLedgerTypeId() {
 		return ledgerTypeId;
 	}
-
-	public void setLedgerTypeId(long ledgerTypeId) {
-		this.ledgerTypeId = ledgerTypeId;
-	}
-
 	public long getVoucherTypeId() {
 		return voucherTypeId;
 	}
-
-	public void setVoucherTypeId(long voucherTypeId) {
-		this.voucherTypeId = voucherTypeId;
+	public long getProductId() {
+		return productId;
 	}
-
 	public boolean isCreditDebit() {
 		return isCreditDebit;
 	}
-
-	public void setCreditDebit(boolean isCreditDebit) {
-		this.isCreditDebit = isCreditDebit;
-	}
-
 	public String getCreditAmount() {
 		return creditAmount;
 	}
-
-	public void setCreditAmount(String creditAmount) {
-		this.creditAmount = creditAmount;
-	}
-
 	public String getDebitAmount() {
 		return debitAmount;
 	}
-
-	public void setDebitAmount(String debitAmount) {
-		this.debitAmount = debitAmount;
-	}
-
 	public Date getCreateDate() {
 		return createDate;
 	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
 	public String getPaymentType() {
 		return paymentType;
 	}
-
+	public boolean isIgstPrsent() {
+		return igstPrsent;
+	}
+	public String getIgst() {
+		return igst;
+	}
+	public boolean isCgstIgstPrsent() {
+		return cgstIgstPrsent;
+	}
+	public String getCgst() {
+		return cgst;
+	}
+	public String getSgst() {
+		return sgst;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public void setLedgerId(long ledgerId) {
+		this.ledgerId = ledgerId;
+	}
+	public void setLedgerTypeId(long ledgerTypeId) {
+		this.ledgerTypeId = ledgerTypeId;
+	}
+	public void setVoucherTypeId(long voucherTypeId) {
+		this.voucherTypeId = voucherTypeId;
+	}
+	public void setProductId(long productId) {
+		this.productId = productId;
+	}
+	public void setCreditDebit(boolean isCreditDebit) {
+		this.isCreditDebit = isCreditDebit;
+	}
+	public void setCreditAmount(String creditAmount) {
+		this.creditAmount = creditAmount;
+	}
+	public void setDebitAmount(String debitAmount) {
+		this.debitAmount = debitAmount;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 	public void setPaymentType(String paymentType) {
 		this.paymentType = paymentType;
 	}
+	public void setIgstPrsent(boolean igstPrsent) {
+		this.igstPrsent = igstPrsent;
+	}
+	public void setIgst(String igst) {
+		this.igst = igst;
+	}
+	public void setCgstIgstPrsent(boolean cgstIgstPrsent) {
+		this.cgstIgstPrsent = cgstIgstPrsent;
+	}
+	public void setCgst(String cgst) {
+		this.cgst = cgst;
+	}
+	public void setSgst(String sgst) {
+		this.sgst = sgst;
+	}
 
+    
 	
 	
 }
