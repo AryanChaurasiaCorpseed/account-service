@@ -3,7 +3,7 @@ package com.account.dashboard.dto;
 public class CreateStatutoryDetails {
 	Long id;
 	//hsn details
-    boolean isHsnSac;
+    boolean hsnSacPresent;
 	String hsnSacDetails;
 	String classification;
 	String hsnSacData;
@@ -11,14 +11,14 @@ public class CreateStatutoryDetails {
 
 
 	// gst rate details
-	boolean isGstRate;
+	boolean gstRateDetailPresent;
 	String gstRateDetails;
 	String taxabilityType;
 	String gstRatesData;
 	
 	//Bank Details
 	
-	boolean isBankAccount;
+	boolean bankAccountPresent;
 	String accountHolderName;
 	String accountNo;
 	String ifscCode;
@@ -28,8 +28,8 @@ public class CreateStatutoryDetails {
 	public Long getId() {
 		return id;
 	}
-	public boolean isHsnSac() {
-		return isHsnSac;
+	public boolean isHsnSacPresent() {
+		return hsnSacPresent;
 	}
 	public String getHsnSacDetails() {
 		return hsnSacDetails;
@@ -43,8 +43,8 @@ public class CreateStatutoryDetails {
 	public String getHsnDescription() {
 		return hsnDescription;
 	}
-	public boolean isGstRate() {
-		return isGstRate;
+	public boolean isGstRateDetailPresent() {
+		return gstRateDetailPresent;
 	}
 	public String getGstRateDetails() {
 		return gstRateDetails;
@@ -55,8 +55,8 @@ public class CreateStatutoryDetails {
 	public String getGstRatesData() {
 		return gstRatesData;
 	}
-	public boolean isBankAccount() {
-		return isBankAccount;
+	public boolean isBankAccountPresent() {
+		return bankAccountPresent;
 	}
 	public String getAccountHolderName() {
 		return accountHolderName;
@@ -79,8 +79,8 @@ public class CreateStatutoryDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setHsnSac(boolean isHsnSac) {
-		this.isHsnSac = isHsnSac;
+	public void setHsnSacPresent(boolean hsnSacPresent) {
+		this.hsnSacPresent = hsnSacPresent;
 	}
 	public void setHsnSacDetails(String hsnSacDetails) {
 		this.hsnSacDetails = hsnSacDetails;
@@ -94,8 +94,8 @@ public class CreateStatutoryDetails {
 	public void setHsnDescription(String hsnDescription) {
 		this.hsnDescription = hsnDescription;
 	}
-	public void setGstRate(boolean isGstRate) {
-		this.isGstRate = isGstRate;
+	public void setGstRateDetailPresent(boolean gstRateDetailPresent) {
+		this.gstRateDetailPresent = gstRateDetailPresent;
 	}
 	public void setGstRateDetails(String gstRateDetails) {
 		this.gstRateDetails = gstRateDetails;
@@ -106,8 +106,8 @@ public class CreateStatutoryDetails {
 	public void setGstRatesData(String gstRatesData) {
 		this.gstRatesData = gstRatesData;
 	}
-	public void setBankAccount(boolean isBankAccount) {
-		this.isBankAccount = isBankAccount;
+	public void setBankAccountPresent(boolean bankAccountPresent) {
+		this.bankAccountPresent = bankAccountPresent;
 	}
 	public void setAccountHolderName(String accountHolderName) {
 		this.accountHolderName = accountHolderName;
@@ -127,6 +127,7 @@ public class CreateStatutoryDetails {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
+	
 	
 	
 	

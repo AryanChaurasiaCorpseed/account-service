@@ -15,5 +15,8 @@ public interface VoucherRepository extends JpaRepository<Voucher, Long> {
 
 	@Query(value = "SELECT * FROM voucher v WHERE v.create_date BETWEEN :d1 AND :d2", nativeQuery = true)
 	List<Voucher> findByIdInBetween(String d1, String d2);
+	
+//	@Query(value = "SELECT * FROM voucher v WHERE v.create_date BETWEEN :d1 AND :d2 or create_date=:d3 or create_date ", nativeQuery = true)
+//	List<Voucher> findByIdInBetween(String d1, String d2 ,String d3,String d4);
 
 }
