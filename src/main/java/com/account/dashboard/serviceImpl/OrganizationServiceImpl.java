@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.account.dashboard.domain.Organization;
+import com.account.dashboard.domain.account.LedgerType;
 import com.account.dashboard.dto.CreateLedgerTypeDto;
 import com.account.dashboard.dto.OrganizationDto;
+import com.account.dashboard.dto.StatutoryOrganizationDto;
 import com.account.dashboard.repository.OrganizationRepository;
 import com.account.dashboard.service.OrganizationService;
 
@@ -58,6 +60,34 @@ public class OrganizationServiceImpl implements OrganizationService{
 	public Organization getAllOrganizationByName(String name) {
 		Organization organization = organizationRepository.findByName(name);
 		return organization;
+	}
+
+	@Override
+	public Boolean createStatutoryInOrganization(StatutoryOrganizationDto statutoryOrganizationDto) {
+		Boolean flag=false;
+		Organization organization = organizationRepository.findById(statutoryOrganizationDto.getId()).get();
+		organization.setHsnSacPresent(statutoryOrganizationDto.isHsnSacPresent());
+		organization.setHsnSacDetails(statutoryOrganizationDto.getHsnSacDetails());
+		organization.setHsnDescription(statutoryOrganizationDto.getHsnDescription());
+		organization.setHsnSacData(statutoryOrganizationDto.getHsnSacData());
+		organization.setClassification(statutoryOrganizationDto.getClassification());
+
+		organization.setGstRateDetailPresent(statutoryOrganizationDto.isGstRateDetailPresent());
+		organization.setGstRateDetails(statutoryOrganizationDto.getGstRateDetails());
+		organization.setTaxabilityType(statutoryOrganizationDto.getTaxabilityType());
+		organization.setGstRatesData(statutoryOrganizationDto.getGstRatesData());
+
+		organization.setBankAccountPresent(statutoryOrganizationDto.isBankAccountPresent());
+		organization.setAccountHolderName(statutoryOrganizationDto.getAccountHolderName());
+		organization.setAccountNo(statutoryOrganizationDto.getAccountNo());
+		organization.setIfscCode(statutoryOrganizationDto.getIfscCode());
+		organization.setSwiftCode(statutoryOrganizationDto.getSwiftCode());
+		organization.setBankName(statutoryOrganizationDto.getBankName());
+		organization.setBranch(statutoryOrganizationDto.getBranch());
+
+		organizationRepository.save(organization);
+		flag=true;
+		return flag;
 	}
 
 }

@@ -84,6 +84,7 @@ public interface UrlsMapping {
 	public static final String GET_ORGANIIZATION_BY_ID=PREFIX+ "/organization/getOrganizationById";
 	public static final String GET_ALL_ORGANIIZATION=PREFIX+ "/organization/getAllOrganization";
 	public static final String GET_ALL_ORGANIIZATION_BY_NAME=PREFIX+ "/organization/getAllOrganizationByName";
+	public static final String CREATE_STATUTORY_IN_ORGANIIZATION=PREFIX+ "/organization/createStatutoryInOrganization";
 
 	
 

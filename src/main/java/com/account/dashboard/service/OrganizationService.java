@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.account.dashboard.domain.Organization;
 import com.account.dashboard.dto.CreateLedgerTypeDto;
 import com.account.dashboard.dto.OrganizationDto;
+import com.account.dashboard.dto.StatutoryOrganizationDto;
 
 @Service
 public interface OrganizationService {
@@ -18,5 +19,7 @@ public interface OrganizationService {
 	List<Organization> getAllOrganization();
 
 	Organization getAllOrganizationByName(String name);
+
+	Boolean createStatutoryInOrganization(StatutoryOrganizationDto statutoryOrganizationDto);
 
 }

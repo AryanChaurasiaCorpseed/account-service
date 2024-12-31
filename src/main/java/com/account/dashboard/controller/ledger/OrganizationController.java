@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.account.dashboard.domain.Organization;
 import com.account.dashboard.dto.CreateLedgerTypeDto;
 import com.account.dashboard.dto.OrganizationDto;
+import com.account.dashboard.dto.StatutoryOrganizationDto;
 import com.account.dashboard.util.UrlsMapping;
 import com.account.dashboard.service.OrganizationService;
 @RestController
@@ -42,6 +43,12 @@ public class OrganizationController {
 	@GetMapping(UrlsMapping.GET_ALL_ORGANIIZATION_BY_NAME)
 	public Organization getAllOrganizationByName(@RequestParam String name){
 		Organization res=organizationService.getAllOrganizationByName(name);	
+		return res;
+	}
+	
+	@PostMapping(UrlsMapping.CREATE_STATUTORY_IN_ORGANIIZATION)
+	public Boolean createStatutoryInOrganization(@RequestBody StatutoryOrganizationDto statutoryOrganizationDto) throws Exception{
+		Boolean res=organizationService.createStatutoryInOrganization(statutoryOrganizationDto);	
 		return res;
 	}
 	
