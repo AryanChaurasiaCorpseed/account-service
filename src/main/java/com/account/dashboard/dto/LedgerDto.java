@@ -19,14 +19,14 @@ public class LedgerDto {
 	String pin;
 
 
-	boolean hsnSacPrsent;
+	boolean hsnSacPresent;
 	String hsnSacDetails;
 	String HsnSac;
 	String hsnDescription;
 
 
 	// gst rate details
-	boolean gstRateDetailPrsent;
+	boolean gstRateDetailPresent;
 	String gstRateDetails;
 	String taxabilityType;
 	String gstRates;
@@ -34,15 +34,13 @@ public class LedgerDto {
 
 	//Bank Details
 
-	boolean bankAccountPrsent;
+	boolean bankAccountPresent;
 	String accountHolderName;
 	String accountNo;
 	String ifscCode;
 	String swiftCode;
 	String bankName;
 	String branch;
-	
-	
 	public String getName() {
 		return name;
 	}
@@ -64,8 +62,8 @@ public class LedgerDto {
 	public String getPin() {
 		return pin;
 	}
-	public boolean isHsnSacPrsent() {
-		return hsnSacPrsent;
+	public boolean isHsnSacPresent() {
+		return hsnSacPresent;
 	}
 	public String getHsnSacDetails() {
 		return hsnSacDetails;
@@ -76,8 +74,8 @@ public class LedgerDto {
 	public String getHsnDescription() {
 		return hsnDescription;
 	}
-	public boolean isGstRateDetailPrsent() {
-		return gstRateDetailPrsent;
+	public boolean isGstRateDetailPresent() {
+		return gstRateDetailPresent;
 	}
 	public String getGstRateDetails() {
 		return gstRateDetails;
@@ -88,8 +86,8 @@ public class LedgerDto {
 	public String getGstRates() {
 		return gstRates;
 	}
-	public boolean isBankAccountPrsent() {
-		return bankAccountPrsent;
+	public boolean isBankAccountPresent() {
+		return bankAccountPresent;
 	}
 	public String getAccountHolderName() {
 		return accountHolderName;
@@ -130,8 +128,8 @@ public class LedgerDto {
 	public void setPin(String pin) {
 		this.pin = pin;
 	}
-	public void setHsnSacPrsent(boolean hsnSacPrsent) {
-		this.hsnSacPrsent = hsnSacPrsent;
+	public void setHsnSacPresent(boolean hsnSacPresent) {
+		this.hsnSacPresent = hsnSacPresent;
 	}
 	public void setHsnSacDetails(String hsnSacDetails) {
 		this.hsnSacDetails = hsnSacDetails;
@@ -142,8 +140,8 @@ public class LedgerDto {
 	public void setHsnDescription(String hsnDescription) {
 		this.hsnDescription = hsnDescription;
 	}
-	public void setGstRateDetailPrsent(boolean gstRateDetailPrsent) {
-		this.gstRateDetailPrsent = gstRateDetailPrsent;
+	public void setGstRateDetailPresent(boolean gstRateDetailPresent) {
+		this.gstRateDetailPresent = gstRateDetailPresent;
 	}
 	public void setGstRateDetails(String gstRateDetails) {
 		this.gstRateDetails = gstRateDetails;
@@ -154,8 +152,8 @@ public class LedgerDto {
 	public void setGstRates(String gstRates) {
 		this.gstRates = gstRates;
 	}
-	public void setBankAccountPrsent(boolean bankAccountPrsent) {
-		this.bankAccountPrsent = bankAccountPrsent;
+	public void setBankAccountPresent(boolean bankAccountPresent) {
+		this.bankAccountPresent = bankAccountPresent;
 	}
 	public void setAccountHolderName(String accountHolderName) {
 		this.accountHolderName = accountHolderName;
@@ -175,7 +173,6 @@ public class LedgerDto {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-	
 	
 	
 	

@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Table
 @Entity
-@Data
+//@Data
 public class Voucher {
 
 	@Id
@@ -41,142 +41,114 @@ public class Voucher {
 	boolean isDeleted;
 	
 	// out side state
-	boolean isIGST;
+	boolean igstPresent;
 	String igst;
 	
-	boolean isCGSTSGST;
+	boolean cgstSgstPresent;
 	String cgst;
 	String sgst;
-
 	public Long getId() {
 		return id;
 	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getCompanyName() {
 		return companyName;
 	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
 	public Ledger getLedger() {
 		return ledger;
 	}
-
-	public void setLedger(Ledger ledger) {
-		this.ledger = ledger;
-	}
-
 	public LedgerType getLedgerType() {
 		return ledgerType;
 	}
-
-	public void setLedgerType(LedgerType ledgerType) {
-		this.ledgerType = ledgerType;
-	}
-
 	public VoucherType getVoucherType() {
 		return voucherType;
 	}
-
-	public void setVoucherType(VoucherType voucherType) {
-		this.voucherType = voucherType;
+	public Ledger getProduct() {
+		return product;
 	}
-
 	public boolean isCreditDebit() {
 		return isCreditDebit;
 	}
-
-	public void setCreditDebit(boolean isCreditDebit) {
-		this.isCreditDebit = isCreditDebit;
-	}
-
 	public String getCreditAmount() {
 		return creditAmount;
 	}
-
-	public void setCreditAmount(String creditAmount) {
-		this.creditAmount = creditAmount;
-	}
-
 	public String getDebitAmount() {
 		return debitAmount;
 	}
-
-	public void setDebitAmount(String debitAmount) {
-		this.debitAmount = debitAmount;
-	}
-
 	public Date getCreateDate() {
 		return createDate;
 	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
 	public String getPaymentType() {
 		return paymentType;
 	}
-
-	public void setPaymentType(String paymentType) {
-		this.paymentType = paymentType;
-	}
-
 	public boolean isDeleted() {
 		return isDeleted;
 	}
-
-	public void setDeleted(boolean isDeleted) {
-		this.isDeleted = isDeleted;
+	public boolean isIgstPresent() {
+		return igstPresent;
 	}
-
-	public boolean isIGST() {
-		return isIGST;
-	}
-
 	public String getIgst() {
 		return igst;
 	}
-
-	public boolean isCGSTSGST() {
-		return isCGSTSGST;
+	public boolean isCgstSgstPresent() {
+		return cgstSgstPresent;
 	}
-
 	public String getCgst() {
 		return cgst;
 	}
-
 	public String getSgst() {
 		return sgst;
 	}
-
-	public void setIGST(boolean isIGST) {
-		this.isIGST = isIGST;
+	public void setId(Long id) {
+		this.id = id;
 	}
-
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public void setLedger(Ledger ledger) {
+		this.ledger = ledger;
+	}
+	public void setLedgerType(LedgerType ledgerType) {
+		this.ledgerType = ledgerType;
+	}
+	public void setVoucherType(VoucherType voucherType) {
+		this.voucherType = voucherType;
+	}
+	public void setProduct(Ledger product) {
+		this.product = product;
+	}
+	public void setCreditDebit(boolean isCreditDebit) {
+		this.isCreditDebit = isCreditDebit;
+	}
+	public void setCreditAmount(String creditAmount) {
+		this.creditAmount = creditAmount;
+	}
+	public void setDebitAmount(String debitAmount) {
+		this.debitAmount = debitAmount;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+	public void setIgstPresent(boolean igstPresent) {
+		this.igstPresent = igstPresent;
+	}
 	public void setIgst(String igst) {
 		this.igst = igst;
 	}
-
-	public void setCGSTSGST(boolean isCGSTSGST) {
-		this.isCGSTSGST = isCGSTSGST;
+	public void setCgstSgstPresent(boolean cgstSgstPresent) {
+		this.cgstSgstPresent = cgstSgstPresent;
 	}
-
 	public void setCgst(String cgst) {
 		this.cgst = cgst;
 	}
-
 	public void setSgst(String sgst) {
 		this.sgst = sgst;
 	}
-	
-	
 	
 	
 	

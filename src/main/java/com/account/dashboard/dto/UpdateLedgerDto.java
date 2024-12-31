@@ -17,14 +17,14 @@ public class UpdateLedgerDto {
 	String pin;
 
 
-	boolean isHsnSac;
+	boolean hsnSacPresent;
 	String hsnSacDetails;
 	String HsnSac;
 	String hsnDescription;
 
 
 	// gst rate details
-	boolean isGstRateDetails;
+	boolean gstRateDetailPresent;
 	String gstRateDetails;
 	String taxabilityType;
 	String gstRates;
@@ -32,7 +32,7 @@ public class UpdateLedgerDto {
 
 	//Bank Details
 
-	boolean isBankAccount;
+	boolean bankAccountPresent;
 	String accountHolderName;
 	String accountNo;
 	String ifscCode;
@@ -63,8 +63,8 @@ public class UpdateLedgerDto {
 	public String getPin() {
 		return pin;
 	}
-	public boolean isHsnSac() {
-		return isHsnSac;
+	public boolean isHsnSacPresent() {
+		return hsnSacPresent;
 	}
 	public String getHsnSacDetails() {
 		return hsnSacDetails;
@@ -75,8 +75,8 @@ public class UpdateLedgerDto {
 	public String getHsnDescription() {
 		return hsnDescription;
 	}
-	public boolean isGstRateDetails() {
-		return isGstRateDetails;
+	public boolean isGstRateDetailPresent() {
+		return gstRateDetailPresent;
 	}
 	public String getGstRateDetails() {
 		return gstRateDetails;
@@ -87,8 +87,8 @@ public class UpdateLedgerDto {
 	public String getGstRates() {
 		return gstRates;
 	}
-	public boolean isBankAccount() {
-		return isBankAccount;
+	public boolean isBankAccountPresent() {
+		return bankAccountPresent;
 	}
 	public String getAccountHolderName() {
 		return accountHolderName;
@@ -132,8 +132,8 @@ public class UpdateLedgerDto {
 	public void setPin(String pin) {
 		this.pin = pin;
 	}
-	public void setHsnSac(boolean isHsnSac) {
-		this.isHsnSac = isHsnSac;
+	public void setHsnSacPresent(boolean hsnSacPresent) {
+		this.hsnSacPresent = hsnSacPresent;
 	}
 	public void setHsnSacDetails(String hsnSacDetails) {
 		this.hsnSacDetails = hsnSacDetails;
@@ -144,8 +144,8 @@ public class UpdateLedgerDto {
 	public void setHsnDescription(String hsnDescription) {
 		this.hsnDescription = hsnDescription;
 	}
-	public void setGstRateDetails(boolean isGstRateDetails) {
-		this.isGstRateDetails = isGstRateDetails;
+	public void setGstRateDetailPresent(boolean gstRateDetailPresent) {
+		this.gstRateDetailPresent = gstRateDetailPresent;
 	}
 	public void setGstRateDetails(String gstRateDetails) {
 		this.gstRateDetails = gstRateDetails;
@@ -156,8 +156,8 @@ public class UpdateLedgerDto {
 	public void setGstRates(String gstRates) {
 		this.gstRates = gstRates;
 	}
-	public void setBankAccount(boolean isBankAccount) {
-		this.isBankAccount = isBankAccount;
+	public void setBankAccountPresent(boolean bankAccountPresent) {
+		this.bankAccountPresent = bankAccountPresent;
 	}
 	public void setAccountHolderName(String accountHolderName) {
 		this.accountHolderName = accountHolderName;
@@ -177,6 +177,7 @@ public class UpdateLedgerDto {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
+	
 	
 	
 	

@@ -44,13 +44,14 @@ public class LedgerServiceImpl implements LedgerService{
 			l.setLedgerType(ledgerType.get());
 		}
 
-		if(ledgerDto.isHsnSacPrsent()) {
+		if(ledgerDto.isHsnSacPresent()) {
 			l.setHsnSacDetails(ledgerDto.getHsnSacDetails());
+			l.setHsnSacPrsent(ledgerDto.isHsnSacPresent());
 			l.setHsnSac(ledgerDto.getHsnSac());
 			l.setHsnDescription(ledgerDto.getHsnDescription());
 		}
-		if(ledgerDto.isGstRateDetailPrsent()) {
-			l.setGstRateDetails(ledgerDto.isGstRateDetailPrsent());
+		if(ledgerDto.isGstRateDetailPresent()) {
+			l.setGstRateDetailPresent(ledgerDto.isGstRateDetailPresent());
 			l.setGstRateDetails(ledgerDto.getGstRateDetails());
 			Organization org = organizationRepository.findByName("corpseed");
 			if(org!=null) {
@@ -63,12 +64,12 @@ public class LedgerServiceImpl implements LedgerService{
 //					ledgerDto.get
 				l.setCgst(cgst+"");
 				l.setSgst(sgst+"");
-                l.setCgstSgstPrsent(true);
+                l.setCgstSgstPresent(true);
 
 				l.setGstRateDetails(gstRateDetails);
 				}else {
 					String gstRateDetails=ledgerDto.getGstRateDetails();
-                    l.setIgstPrsent(true);
+                    l.setIgstPresent(true);
 					l.setGstRateDetails(gstRateDetails);
 					l.setIgst(gstRateDetails);
 
@@ -84,8 +85,8 @@ public class LedgerServiceImpl implements LedgerService{
 		}
 		//
 
-		if(ledgerDto.isBankAccountPrsent()){
-			l.setBankAccount(ledgerDto.isBankAccountPrsent());
+		if(ledgerDto.isBankAccountPresent()){
+			l.setBankAccountPrsent(ledgerDto.isBankAccountPresent());
 			l.setAccountHolderName(ledgerDto.getAccountHolderName());
 			l.setAccountNo(ledgerDto.getAccountNo());
 			l.setIfscCode(ledgerDto.getIfscCode());
@@ -123,21 +124,23 @@ public class LedgerServiceImpl implements LedgerService{
 		}
 
 
-		if(updateLedgerDto.isHsnSac()) {
+		if(updateLedgerDto.isHsnSacPresent()) {
+			l.setHsnSacPrsent(updateLedgerDto.isHsnSacPresent());
+
 			l.setHsnSacDetails(updateLedgerDto.getHsnSacDetails());
 			l.setHsnSac(updateLedgerDto.getHsnSac());
 			l.setHsnDescription(updateLedgerDto.getHsnDescription());
 		}
-		if(updateLedgerDto.isGstRateDetails()) {
-			l.setGstRateDetails(updateLedgerDto.isGstRateDetails());
+		if(updateLedgerDto.isGstRateDetailPresent()) {
+			l.setGstRateDetailPresent(updateLedgerDto.isGstRateDetailPresent());
 			l.setGstRateDetails(updateLedgerDto.getGstRateDetails());
 			l.setTaxabilityType(updateLedgerDto.getTaxabilityType());
 			l.setGstRates(updateLedgerDto.getGstRates());
 		}
 		//
 
-		if(updateLedgerDto.isBankAccount()){
-			l.setBankAccount(updateLedgerDto.isBankAccount());
+		if(updateLedgerDto.isBankAccountPresent()){
+			l.setBankAccountPrsent(updateLedgerDto.isBankAccountPresent());
 			l.setAccountHolderName(updateLedgerDto.getAccountHolderName());
 			l.setAccountNo(updateLedgerDto.getAccountNo());
 			l.setIfscCode(updateLedgerDto.getIfscCode());

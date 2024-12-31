@@ -37,10 +37,10 @@ public class CreateVoucherDto {
 	String paymentType;
 	
 	
-	boolean igstPrsent;
+	boolean igstPresent;
 	String igst;
 	
-	boolean cgstIgstPrsent;
+	boolean cgstIgstPresent;
 	String cgst;
 	String sgst;
 	public String getCompanyName() {
@@ -73,14 +73,14 @@ public class CreateVoucherDto {
 	public String getPaymentType() {
 		return paymentType;
 	}
-	public boolean isIgstPrsent() {
-		return igstPrsent;
+	public boolean isIgstPresent() {
+		return igstPresent;
 	}
 	public String getIgst() {
 		return igst;
 	}
-	public boolean isCgstIgstPrsent() {
-		return cgstIgstPrsent;
+	public boolean isCgstIgstPresent() {
+		return cgstIgstPresent;
 	}
 	public String getCgst() {
 		return cgst;
@@ -118,14 +118,14 @@ public class CreateVoucherDto {
 	public void setPaymentType(String paymentType) {
 		this.paymentType = paymentType;
 	}
-	public void setIgstPrsent(boolean igstPrsent) {
-		this.igstPrsent = igstPrsent;
+	public void setIgstPresent(boolean igstPresent) {
+		this.igstPresent = igstPresent;
 	}
 	public void setIgst(String igst) {
 		this.igst = igst;
 	}
-	public void setCgstIgstPrsent(boolean cgstIgstPrsent) {
-		this.cgstIgstPrsent = cgstIgstPrsent;
+	public void setCgstIgstPresent(boolean cgstIgstPresent) {
+		this.cgstIgstPresent = cgstIgstPresent;
 	}
 	public void setCgst(String cgst) {
 		this.cgst = cgst;
@@ -133,8 +133,5 @@ public class CreateVoucherDto {
 	public void setSgst(String sgst) {
 		this.sgst = sgst;
 	}
-
-    
-	
 	
 }

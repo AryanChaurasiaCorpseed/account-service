@@ -45,13 +45,13 @@ public class VoucherServiceImpl implements VoucherService{
         if(createVoucherDto.getCreditAmount()!=null ) {
         	v.setCreditDebit(true);
         	v.setCreditAmount(createVoucherDto.getCreditAmount());
-        	if(createVoucherDto.isCgstIgstPrsent()) {
-        		v.setCGSTSGST(createVoucherDto.isCgstIgstPrsent());
+        	if(createVoucherDto.isCgstIgstPresent()) {
+        		v.setCgstSgstPresent(createVoucherDto.isCgstIgstPresent());
         		v.setCgst(createVoucherDto.getCgst());
         		v.setSgst(createVoucherDto.getSgst());
         	}
-        	if(createVoucherDto.isIgstPrsent()) {
-        		v.setIGST(createVoucherDto.isIgstPrsent());
+        	if(createVoucherDto.isIgstPresent()) {
+        		v.setIgstPresent(createVoucherDto.isIgstPresent());
         		v.setIgst(createVoucherDto.getIgst());
         	}	
         }
@@ -139,22 +139,22 @@ public class VoucherServiceImpl implements VoucherService{
 
         		
         		if(v.getDebitAmount()!=null) {
-        			if(v.isIGST()) {
+        			if(v.isIgstPresent()) {
                 		long amount =Long.valueOf(v.getIgst()!=null?v.getIgst():"0");
                 		debitAmount=debitAmount+amount;
         			}
-        			if(v.isCGSTSGST()) {
+        			if(v.isCgstSgstPresent()) {
                 		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
                 		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
                 		debitAmount=debitAmount+a1+a2;
 
         			}
         		}else {
-        			if(v.isIGST()) {
+        			if(v.isIgstPresent()) {
                 		long amount =Long.valueOf(v.getIgst()!=null?v.getIgst():"0");
                 		creditAmount=creditAmount+amount;
         			}
-        			if(v.isCGSTSGST()) {
+        			if(v.isCgstSgstPresent()) {
                 		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
                 		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
                 		creditAmount=creditAmount+a1+a2;
@@ -171,11 +171,11 @@ public class VoucherServiceImpl implements VoucherService{
         		
         		totalDebit=totalDebit+debitAmount;
 //        		totalAmount=totalAmount+debitAmount;
-        		if(v.isIGST()) {
+        		if(v.isIgstPresent()) {
             		long amount =Long.valueOf(v.getIgst()!=null?v.getIgst():"0");
             		debitAmount=debitAmount+amount;
     			}
-    			if(v.isCGSTSGST()) {
+    			if(v.isCgstSgstPresent()) {
             		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
             		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
             		debitAmount=debitAmount+a1+a2;
@@ -218,11 +218,11 @@ public class VoucherServiceImpl implements VoucherService{
 			map.put("voucherType", v.getVoucherType());
 			map.put("creditAmount", v.getCreditAmount());
 			map.put("debitAmount", v.getDebitAmount());
-			if(v.isCGSTSGST()) {
+			if(v.isCgstSgstPresent()) {
 				map.put("cgst", v.getCgst());
 				map.put("sgst", v.getSgst());
 			}
-			if(v.isIGST()) {
+			if(v.isIgstPresent()) {
 				map.put("igst", v.getIgst());
 			}
 			res.add(map);
@@ -234,22 +234,22 @@ public class VoucherServiceImpl implements VoucherService{
 
         		
         		if(v.getDebitAmount()!=null) {
-        			if(v.isIGST()) {
+        			if(v.isIgstPresent()) {
                 		long amount =Long.valueOf(v.getIgst()!=null?v.getIgst():"0");
                 		debitAmount=debitAmount+amount;
         			}
-        			if(v.isCGSTSGST()) {
+        			if(v.isCgstSgstPresent()) {
                 		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
                 		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
                 		debitAmount=debitAmount+a1+a2;
 
         			}
         		}else {
-        			if(v.isIGST()) {
+        			if(v.isIgstPresent()) {
                 		long amount =Long.valueOf(v.getIgst()!=null?v.getIgst():"0");
                 		creditAmount=creditAmount+amount;
         			}
-        			if(v.isCGSTSGST()) {
+        			if(v.isCgstSgstPresent()) {
                 		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
                 		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
                 		creditAmount=creditAmount+a1+a2;
@@ -266,11 +266,11 @@ public class VoucherServiceImpl implements VoucherService{
         		
         		totalDebit=totalDebit+debitAmount;
 //        		totalAmount=totalAmount+debitAmount;
-        		if(v.isIGST()) {
+        		if(v.isIgstPresent()) {
             		long amount =Long.valueOf(v.getIgst()!=null?v.getIgst():"0");
             		debitAmount=debitAmount+amount;
     			}
-    			if(v.isCGSTSGST()) {
+    			if(v.isCgstSgstPresent()) {
             		long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
             		long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
             		debitAmount=debitAmount+a1+a2;

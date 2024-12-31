@@ -21,18 +21,18 @@ public class StatutoryServiceImpl implements StatutoryService {
 	public Boolean createLedgerType(CreateStatutoryDetails createStatutoryDetails) {
 		Boolean flag=false;
 		LedgerType ledgerType = ledgerTypeRepository.findById(createStatutoryDetails.getId()).get();
-		ledgerType.setHsnSac(createStatutoryDetails.isHsnSac());
+		ledgerType.setHsnSacPresent(createStatutoryDetails.isHsnSac());
 		ledgerType.setHsnSacDetails(createStatutoryDetails.getHsnSacDetails());
 		ledgerType.setHsnDescription(createStatutoryDetails.getHsnDescription());
 		ledgerType.setHsnSacData(createStatutoryDetails.getHsnSacData());
 		ledgerType.setClassification(createStatutoryDetails.getClassification());
 
-		ledgerType.setGstRate(createStatutoryDetails.isGstRate());
+		ledgerType.setGstRateDetailPresent(createStatutoryDetails.isGstRate());
 		ledgerType.setGstRateDetails(createStatutoryDetails.getGstRateDetails());
 		ledgerType.setTaxabilityType(createStatutoryDetails.getTaxabilityType());
 		ledgerType.setGstRatesData(createStatutoryDetails.getGstRatesData());
 
-		ledgerType.setBankAccount(createStatutoryDetails.isBankAccount());
+		ledgerType.setBankAccountPresent(createStatutoryDetails.isBankAccount());
 		ledgerType.setAccountHolderName(createStatutoryDetails.getAccountHolderName());
 		ledgerType.setAccountNo(createStatutoryDetails.getAccountNo());
 		ledgerType.setIfscCode(createStatutoryDetails.getIfscCode());
@@ -49,18 +49,18 @@ public class StatutoryServiceImpl implements StatutoryService {
 	public Boolean updateStatutoryDetails(CreateStatutoryDetails createStatutoryDetails) {
 		Boolean flag=false;
 		LedgerType ledgerType = ledgerTypeRepository.findById(createStatutoryDetails.getId()).get();
-		ledgerType.setHsnSac(createStatutoryDetails.isHsnSac());
+		ledgerType.setHsnSacPresent(createStatutoryDetails.isHsnSac());
 		ledgerType.setHsnSacDetails(createStatutoryDetails.getHsnSacDetails());
 		ledgerType.setHsnDescription(createStatutoryDetails.getHsnDescription());
 		ledgerType.setHsnSacData(createStatutoryDetails.getHsnSacData());
 		ledgerType.setClassification(createStatutoryDetails.getClassification());
 
-		ledgerType.setGstRate(createStatutoryDetails.isGstRate());
+		ledgerType.setGstRateDetailPresent(createStatutoryDetails.isGstRate());
 		ledgerType.setGstRateDetails(createStatutoryDetails.getGstRateDetails());
 		ledgerType.setTaxabilityType(createStatutoryDetails.getTaxabilityType());
 		ledgerType.setGstRatesData(createStatutoryDetails.getGstRatesData());
 
-		ledgerType.setBankAccount(createStatutoryDetails.isBankAccount());
+		ledgerType.setBankAccountPresent(createStatutoryDetails.isBankAccount());
 		ledgerType.setAccountHolderName(createStatutoryDetails.getAccountHolderName());
 		ledgerType.setAccountNo(createStatutoryDetails.getAccountNo());
 		ledgerType.setIfscCode(createStatutoryDetails.getIfscCode());
