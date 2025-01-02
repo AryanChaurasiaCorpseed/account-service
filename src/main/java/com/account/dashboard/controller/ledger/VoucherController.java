@@ -59,4 +59,10 @@ public class VoucherController {
 		Map<String,Object> res=voucherService.getAllVoucherInBetween(startDate,endDate);	
 		return res;
 	}
+	
+	@GetMapping(UrlsMapping.GET_ALL_VOUCHER_BY_GROUP)
+	public Map<String,Object> getAllVoucherByGroup(@RequestParam Long id){
+		Map<String,Object> res=voucherService.getAllVoucherByGroup(id);	
+		return res;
+	}
 }

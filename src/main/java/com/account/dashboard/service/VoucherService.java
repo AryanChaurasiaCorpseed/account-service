@@ -22,4 +22,6 @@ public interface VoucherService {
 
 	Map<String, Object> getAllVoucherInBetween(String startDate, String endDate);
 
+	Map<String, Object> getAllVoucherByGroup(Long id);
+
 }
