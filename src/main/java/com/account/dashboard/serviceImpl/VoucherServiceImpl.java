@@ -262,7 +262,7 @@ public class VoucherServiceImpl implements VoucherService{
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
 
-				//        		totalAmount=totalAmount+debitAmount-creditAmount;
+				        		totalAmount=totalAmount+debitAmount-creditAmount;
 			}else {
 				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				//        	
