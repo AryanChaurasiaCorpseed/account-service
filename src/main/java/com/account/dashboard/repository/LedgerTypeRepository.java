@@ -14,4 +14,6 @@ public interface LedgerTypeRepository extends JpaRepository<LedgerType, Long> {
 	@Query(value = "SELECT * FROM ledger_type l WHERE l.is_deleted =:b", nativeQuery = true)
 	List<LedgerType> findAllByIsDeleted(boolean b);
 
+	LedgerType findByName(String paymentType);
+
 }

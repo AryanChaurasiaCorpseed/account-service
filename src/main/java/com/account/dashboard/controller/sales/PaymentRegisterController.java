@@ -5,21 +5,59 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.account.dashboard.domain.PaymentRegister;
 import com.account.dashboard.domain.account.Voucher;
+import com.account.dashboard.dto.CreateAccountData;
+import com.account.dashboard.dto.CreateAmountDto;
+import com.account.dashboard.dto.UpdatePaymentDto;
 import com.account.dashboard.service.PaymentRegisterService;
 import com.account.dashboard.util.UrlsMapping;
 
-@Controller
+
+@RestController
 public class PaymentRegisterController {
 	
 	@Autowired
 	PaymentRegisterService paymentRegisterService;
 
-	@GetMapping(UrlsMapping.CREATE_PAYMENT_REGISTER)
-	public List<PaymentRegister> createPaymentRegister(){
-		List<PaymentRegister> res=paymentRegisterService.createPaymentRegister();	
+	@PostMapping(UrlsMapping.CREATE_PAYMENT_REGISTER)
+	public PaymentRegister createPaymentRegister(@RequestBody CreateAmountDto createAmountDto){
+		PaymentRegister res=paymentRegisterService.createPaymentRegister(createAmountDto);	
+		return res;
+		
+	}
+	
+	@GetMapping(UrlsMapping.GET_ALL_PAYMENT_REGISTER)
+	public List<PaymentRegister> getAllPaymentRegister(){
+		List<PaymentRegister> res=paymentRegisterService.getAllPaymentRegister();	
+		return res;
+		
+	}
+	
+	@PutMapping(UrlsMapping.UPDATE_PAYMENT_REGISTER)
+	public Boolean updatePaymentRegister(@RequestBody UpdatePaymentDto updatePaymentDto){
+		Boolean res=paymentRegisterService.updatePaymentRegister(updatePaymentDto);	
+		return res;
+		
+	}
+	
+	
+	@GetMapping(UrlsMapping.PAYMENT_APPROVE)
+	public Boolean paymentApproveAndDisapproved(@RequestBody UpdatePaymentDto updatePaymentDto){
+		Boolean res=paymentRegisterService.paymentApproveAndDisapproved(updatePaymentDto);	
+		return res;
+		
+	}
+	
+	@GetMapping(UrlsMapping.GET_PAYMENT_REGISTER_BY_ID)
+	public PaymentRegister getPaymentRegisterById(@RequestParam long id){
+		PaymentRegister res=paymentRegisterService.getPaymentRegisterById(id);	
 		return res;
 		
 	}

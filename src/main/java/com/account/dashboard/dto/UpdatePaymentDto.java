@@ -1,48 +1,37 @@
-package com.account.dashboard.domain;
+package com.account.dashboard.dto;
 
 import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+public class UpdatePaymentDto {
 
-@Table
-@Entity
-@Getter
-@Setter
-@Data
-public class PaymentRegister {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	Long id;
-	
+
+	private Long id;
+
 	private Long leadId;
 	private Long estimateId;
-	
-	private String billingQuantity;//partial ,full ,milestone
-	private String paymentType;//Sales,
-	
+
+	private String billingQuantity;
+	private String paymentType;
+
 
 	private Long createdById;
 	private String transactionId;
 	private String serviceName;
-	
+
 	private String  govermentfees;
-	private String govermentGst;	
+	private String govermentGst;
+
 	private String professionalFees;
-	private String profesionalGst;	
+	private String profesionalGst;
+
 	private String serviceCharge;
 	private String serviceGst;
-    private String otherFees;
-    private String otherGst;
-	
+
+	private String otherFees;
+	private String otherGst;
+
 	private String UploadReceipt;
 	private String totalAmount;
 	private String remark;
@@ -51,12 +40,14 @@ public class PaymentRegister {
 	private List<String>doc;
 
 	String companyName;
-	String updateDate;
-	private Long approvedById;
-	private Date approveDate;
+
+	
 	
 	public Long getId() {
 		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public Long getLeadId() {
 		return leadId;
@@ -122,18 +113,7 @@ public class PaymentRegister {
 	public String getCompanyName() {
 		return companyName;
 	}
-	public String getUpdateDate() {
-		return updateDate;
-	}
-	public Long getApprovedById() {
-		return approvedById;
-	}
-	public Date getApproveDate() {
-		return approveDate;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+
 	public void setLeadId(Long leadId) {
 		this.leadId = leadId;
 	}
@@ -198,24 +178,18 @@ public class PaymentRegister {
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
-	public void setUpdateDate(String updateDate) {
-		this.updateDate = updateDate;
-	}
-	public void setApprovedById(Long approvedById) {
-		this.approvedById = approvedById;
-	}
-	public void setApproveDate(Date approveDate) {
-		this.approveDate = approveDate;
-	}
+
 	public String getTransactionId() {
 		return transactionId;
 	}
 	public void setTransactionId(String transactionId) {
 		this.transactionId = transactionId;
 	}
-    
+
 	
-	
-    
-    
+
+
+
+
+
 }

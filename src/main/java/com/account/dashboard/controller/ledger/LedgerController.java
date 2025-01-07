@@ -23,8 +23,7 @@ public class LedgerController {
 	
 	@Autowired
 	LedgerService ledgerService;
-	
-	
+
 	
 	@PostMapping(UrlsMapping.CREATE_LEDGER)
 	public Boolean createLedger(@RequestBody LedgerDto ledgerDto){
