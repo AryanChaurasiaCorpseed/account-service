@@ -14,9 +14,9 @@ import lombok.Setter;
 
 @Table
 @Entity
-@Getter
-@Setter
-@Data
+//@Getter
+//@Setter
+//@Data
 public class PaymentRegister {
 	
 	@Id
@@ -29,11 +29,13 @@ public class PaymentRegister {
 	private String billingQuantity;//partial ,full ,milestone
 	private String paymentType;//Sales,
 	
+	boolean tdsPercent;
+	int tdsPresent;
 
 	private Long createdById;
 	private String transactionId;
 	private String serviceName;
-	
+
 	private String  govermentfees;
 	private String govermentGst;	
 	private String professionalFees;
@@ -43,12 +45,11 @@ public class PaymentRegister {
     private String otherFees;
     private String otherGst;
 	
-	private String UploadReceipt;
 	private String totalAmount;
 	private String remark;
 	private Date paymentDate;
 	private String estimateNo;
-	private List<String>doc;
+//	private List<FileData> UploadReceipt;
 
 	String companyName;
 	String updateDate;
@@ -101,9 +102,7 @@ public class PaymentRegister {
 	public String getOtherGst() {
 		return otherGst;
 	}
-	public String getUploadReceipt() {
-		return UploadReceipt;
-	}
+	
 	public String getTotalAmount() {
 		return totalAmount;
 	}
@@ -116,9 +115,7 @@ public class PaymentRegister {
 	public String getEstimateNo() {
 		return estimateNo;
 	}
-	public List<String> getDoc() {
-		return doc;
-	}
+
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -177,9 +174,7 @@ public class PaymentRegister {
 	public void setOtherGst(String otherGst) {
 		this.otherGst = otherGst;
 	}
-	public void setUploadReceipt(String uploadReceipt) {
-		UploadReceipt = uploadReceipt;
-	}
+
 	public void setTotalAmount(String totalAmount) {
 		this.totalAmount = totalAmount;
 	}
@@ -192,9 +187,7 @@ public class PaymentRegister {
 	public void setEstimateNo(String estimateNo) {
 		this.estimateNo = estimateNo;
 	}
-	public void setDoc(List<String> doc) {
-		this.doc = doc;
-	}
+
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
@@ -213,6 +206,20 @@ public class PaymentRegister {
 	public void setTransactionId(String transactionId) {
 		this.transactionId = transactionId;
 	}
+	public boolean isTdsPercent() {
+		return tdsPercent;
+	}
+	public int getTdsPresent() {
+		return tdsPresent;
+	}
+	
+	public void setTdsPercent(boolean tdsPercent) {
+		this.tdsPercent = tdsPercent;
+	}
+	public void setTdsPresent(int tdsPresent) {
+		this.tdsPresent = tdsPresent;
+	}
+	
     
 	
 	
