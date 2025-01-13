@@ -22,7 +22,7 @@ public class BankStatementServiceImpl implements BankStatementService{
 
 	@Autowired
 	BankStatementRepository bankStatementRepository;
-	
+
 	@Autowired
 	PaymentRegisterRepository paymentRegisterRepository;
 	@Override
@@ -56,21 +56,48 @@ public class BankStatementServiceImpl implements BankStatementService{
 		return result;
 	}
 
-	
+
 	@Override
-	public Boolean addRegisterAmountInBankStatement(Long bankstatementId, Long registerAmountId) {
+	public Boolean addRegisterAmountInBankStatement(Long bankstatementId, Long registerAmountId) throws Exception {
 		Boolean flag=false;
 		BankStatement bankStatement = bankStatementRepository.findById(bankstatementId).get();
 		PaymentRegister paymentRegister = paymentRegisterRepository.findById(registerAmountId).get();
 		Double d = Double.valueOf(paymentRegister.getTotalAmount());
 		if(bankStatement.getLeftAmount()>0 && bankStatement.getLeftAmount()>d) {
-			double leftAmount=bankStatement.getLeftAmount()-d;
-			bankStatement.setLeftAmount(leftAmount);
-			bankStatementRepository.save(bankStatement);
-			flag=true;
+			if(bankStatement.getTransactionId().equals(paymentRegister.getTransactionId())) {
+
+
+				double leftAmount=bankStatement.getLeftAmount()-d;
+				bankStatement.setLeftAmount(leftAmount);
+				List<PaymentRegister> paymentList = bankStatement.getPaymentRegister();
+				paymentList.add(paymentRegister);
+				bankStatementRepository.save(bankStatement);
+				flag=true;
+			}else {
+				throw new Exception("transaction id not match please check");
+			}
 		}
 		return flag;
-		
+
+	}
+	@Override
+	public List<Map<String, Object>> getAllBankStatements() {
+		List<BankStatement> bankStatements = bankStatementRepository.findAll();
+		List<Map<String, Object>>result = new ArrayList<>();
+		for(BankStatement b:bankStatements) {
+			Map<String, Object>map = new HashMap<>();
+			map.put("id", b.getId());
+			map.put("name", b.getName());
+			map.put("transaction", b.getTransactionId());
+			map.put("createDate", b.getCreateDate());
+			map.put("leftAmount", b.getLeftAmount());
+			map.put("paymentDate", b.getPaymentDate());
+			map.put("updateDate", b.getUpdateDate());
+			map.put("paymentRegister", b.getPaymentRegister());
+
+			result.add(map);
+		}
+		return result;
 	}
 
 }

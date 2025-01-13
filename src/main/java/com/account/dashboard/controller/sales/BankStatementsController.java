@@ -38,8 +38,15 @@ public class BankStatementsController {
 		
 	}
 	
+	@GetMapping(UrlsMapping.GET_ALL_BANK_STATEMENTS)
+	public List<Map<String,Object>> getAllBankStatements(){
+		List<Map<String,Object>> res=bankStatementService.getAllBankStatements();	
+		return res;
+		
+	}
+	
 	@PostMapping(UrlsMapping.ADD_REGISTER_AMOUNT_IN_BANK_STATEMENTS)
-	public Boolean addRegisterAmountInBankStatement(@RequestParam Long bankstatementId,@RequestParam Long registerAmountId){
+	public Boolean addRegisterAmountInBankStatement(@RequestParam Long bankstatementId,@RequestParam Long registerAmountId) throws Exception{
 		Boolean res=bankStatementService.addRegisterAmountInBankStatement(bankstatementId,registerAmountId);	
 		return res;
 		

@@ -15,6 +15,8 @@ public interface BankStatementService {
 
 	List<Map<String, Object>> getUnUsedBankStatements();
 
-	Boolean addRegisterAmountInBankStatement(Long bankstatementId, Long registerAmountId);
+	Boolean addRegisterAmountInBankStatement(Long bankstatementId, Long registerAmountId) throws Exception;
+
+	List<Map<String, Object>> getAllBankStatements();
 
 }
