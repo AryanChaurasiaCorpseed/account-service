@@ -38,16 +38,16 @@ public class PaymentRegister {
 	private String transactionId;
 	private String serviceName;
 
-	private String  govermentfees;
-	private String govermentGst;	
-	private String professionalFees;
-	private String profesionalGst;	
-	private String serviceCharge;
-	private String serviceGst;
-    private String otherFees;
-    private String otherGst;
+	private double  govermentfees;
+	private double govermentGst;	
+	private double professionalFees;
+	private double profesionalGst;	
+	private double serviceCharge;
+	private double serviceGst;
+    private double otherFees;
+    private double otherGst;
 	
-	private String totalAmount;
+	private double totalAmount;
 	private String remark;
 	private Date paymentDate;
 	private String estimateNo;
@@ -62,7 +62,6 @@ public class PaymentRegister {
 	String updateDate;
 	private Long approvedById;
 	private Date approveDate;
-	
 	public Long getId() {
 		return id;
 	}
@@ -78,41 +77,49 @@ public class PaymentRegister {
 	public String getPaymentType() {
 		return paymentType;
 	}
+	public boolean isTdsPercent() {
+		return tdsPercent;
+	}
+	public int getTdsPresent() {
+		return tdsPresent;
+	}
+	public String getRegisterBy() {
+		return registerBy;
+	}
 	public Long getCreatedById() {
 		return createdById;
 	}
-
+	public String getTransactionId() {
+		return transactionId;
+	}
 	public String getServiceName() {
 		return serviceName;
 	}
-	public String getGovermentfees() {
+	public double getGovermentfees() {
 		return govermentfees;
 	}
-	public String getGovermentGst() {
+	public double getGovermentGst() {
 		return govermentGst;
 	}
-	public String getProfessionalFees() {
+	public double getProfessionalFees() {
 		return professionalFees;
 	}
-	public String getProfesionalGst() {
+	public double getProfesionalGst() {
 		return profesionalGst;
 	}
-	public String getServiceCharge() {
+	public double getServiceCharge() {
 		return serviceCharge;
 	}
-	public String getServiceGst() {
+	public double getServiceGst() {
 		return serviceGst;
 	}
-	public String getOtherFees() {
+	public double getOtherFees() {
 		return otherFees;
 	}
-	public String getOtherGst() {
+	public double getOtherGst() {
 		return otherGst;
 	}
-	
-	public String getTotalAmount() {
-		return totalAmount;
-	}
+
 	public String getRemark() {
 		return remark;
 	}
@@ -122,7 +129,18 @@ public class PaymentRegister {
 	public String getEstimateNo() {
 		return estimateNo;
 	}
-
+	public int getDocPersent() {
+		return docPersent;
+	}
+	public int getFilingPersent() {
+		return filingPersent;
+	}
+	public int getLiasoningPersent() {
+		return liasoningPersent;
+	}
+	public int getCertificatePersent() {
+		return certificatePersent;
+	}
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -150,40 +168,47 @@ public class PaymentRegister {
 	public void setPaymentType(String paymentType) {
 		this.paymentType = paymentType;
 	}
+	public void setTdsPercent(boolean tdsPercent) {
+		this.tdsPercent = tdsPercent;
+	}
+	public void setTdsPresent(int tdsPresent) {
+		this.tdsPresent = tdsPresent;
+	}
+	public void setRegisterBy(String registerBy) {
+		this.registerBy = registerBy;
+	}
 	public void setCreatedById(Long createdById) {
 		this.createdById = createdById;
 	}
-
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
+	}
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
 	}
-	public void setGovermentfees(String govermentfees) {
+	public void setGovermentfees(double govermentfees) {
 		this.govermentfees = govermentfees;
 	}
-	public void setGovermentGst(String govermentGst) {
+	public void setGovermentGst(double govermentGst) {
 		this.govermentGst = govermentGst;
 	}
-	public void setProfessionalFees(String professionalFees) {
+	public void setProfessionalFees(double professionalFees) {
 		this.professionalFees = professionalFees;
 	}
-	public void setProfesionalGst(String profesionalGst) {
+	public void setProfesionalGst(double profesionalGst) {
 		this.profesionalGst = profesionalGst;
 	}
-	public void setServiceCharge(String serviceCharge) {
+	public void setServiceCharge(double serviceCharge) {
 		this.serviceCharge = serviceCharge;
 	}
-	public void setServiceGst(String serviceGst) {
+	public void setServiceGst(double serviceGst) {
 		this.serviceGst = serviceGst;
 	}
-	public void setOtherFees(String otherFees) {
+	public void setOtherFees(double otherFees) {
 		this.otherFees = otherFees;
 	}
-	public void setOtherGst(String otherGst) {
+	public void setOtherGst(double otherGst) {
 		this.otherGst = otherGst;
-	}
-
-	public void setTotalAmount(String totalAmount) {
-		this.totalAmount = totalAmount;
 	}
 	public void setRemark(String remark) {
 		this.remark = remark;
@@ -193,50 +218,6 @@ public class PaymentRegister {
 	}
 	public void setEstimateNo(String estimateNo) {
 		this.estimateNo = estimateNo;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-	public void setUpdateDate(String updateDate) {
-		this.updateDate = updateDate;
-	}
-	public void setApprovedById(Long approvedById) {
-		this.approvedById = approvedById;
-	}
-	public void setApproveDate(Date approveDate) {
-		this.approveDate = approveDate;
-	}
-	public String getTransactionId() {
-		return transactionId;
-	}
-	public void setTransactionId(String transactionId) {
-		this.transactionId = transactionId;
-	}
-	public boolean isTdsPercent() {
-		return tdsPercent;
-	}
-	public int getTdsPresent() {
-		return tdsPresent;
-	}
-	
-	public void setTdsPercent(boolean tdsPercent) {
-		this.tdsPercent = tdsPercent;
-	}
-	public void setTdsPresent(int tdsPresent) {
-		this.tdsPresent = tdsPresent;
-	}
-	public int getDocPersent() {
-		return docPersent;
-	}
-	public int getFilingPersent() {
-		return filingPersent;
-	}
-	public int getLiasoningPersent() {
-		return liasoningPersent;
-	}
-	public int getCertificatePersent() {
-		return certificatePersent;
 	}
 	public void setDocPersent(int docPersent) {
 		this.docPersent = docPersent;
@@ -250,14 +231,24 @@ public class PaymentRegister {
 	public void setCertificatePersent(int certificatePersent) {
 		this.certificatePersent = certificatePersent;
 	}
-	public String getRegisterBy() {
-		return registerBy;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
-	public void setRegisterBy(String registerBy) {
-		this.registerBy = registerBy;
+	public void setUpdateDate(String updateDate) {
+		this.updateDate = updateDate;
 	}
-	
-    
+	public void setApprovedById(Long approvedById) {
+		this.approvedById = approvedById;
+	}
+	public void setApproveDate(Date approveDate) {
+		this.approveDate = approveDate;
+	}
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
 	
 	
     

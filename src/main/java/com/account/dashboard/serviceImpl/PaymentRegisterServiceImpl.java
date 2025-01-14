@@ -172,30 +172,30 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 				String state = org.getState();
 				String eState=feignLeadClient.get("state").toString();
 				if(state.equalsIgnoreCase(eState)) {
-					String gstRateDetails=updatePaymentDto.getProfesionalGst();//gst percent from company
-					double gst = Double.parseDouble(gstRateDetails);
+					double gstRateDetails=updatePaymentDto.getProfesionalGst();//gst percent from company
+					double gst =gstRateDetails;
 					double cgst=gst/2;
 					double sgst=gst-cgst;
 					l.setCgst(cgst+"");
 					l.setSgst(sgst+"");
 					l.setCgstSgstPresent(true);
 
-					l.setGstRateDetails(gstRateDetails);
+					l.setGstRateDetails(gstRateDetails+"");
 				}else {
-					String gstRateDetails=updatePaymentDto.getProfesionalGst();//gst percent from company
+					double gstRateDetails=updatePaymentDto.getProfesionalGst();//gst percent from company
 					l.setIgstPresent(true);
-					l.setGstRateDetails(gstRateDetails);
-					l.setIgst(gstRateDetails);
+					l.setGstRateDetails(gstRateDetails+"");
+					l.setIgst(gstRateDetails+"");
 
 
 				}
 			}else {
-				String gstRateDetails=updatePaymentDto.getProfesionalGst();//gst percent from company
-				l.setGstRateDetails(gstRateDetails);
-				l.setIgst(gstRateDetails);
+				double gstRateDetails=updatePaymentDto.getProfesionalGst();//gst percent from company
+				l.setGstRateDetails(gstRateDetails+"");
+				l.setIgst(gstRateDetails+"");
 			}
 			//					l.setTaxabilityType(ledgerDto.getTaxabilityType());
-			l.setGstRates(updatePaymentDto.getProfesionalGst());
+			l.setGstRates(updatePaymentDto.getProfesionalGst()+"");
 		}
 
 
@@ -228,16 +228,25 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 				Ledger ledger = ledgerRepository.findByName(updatePaymentDto.getCompanyName());
 				if(ledger!=null) {
 					Voucher v =new Voucher();
-					long govermentfees =Long.valueOf(updatePaymentDto.getGovermentfees()!=null?updatePaymentDto.getGovermentfees():"0");
-					long govermentGst =Long.valueOf(updatePaymentDto.getGovermentGst()!=null?updatePaymentDto.getGovermentGst():"0");
-					long professionalFees =Long.valueOf(updatePaymentDto.getProfessionalFees()!=null?updatePaymentDto.getProfessionalFees():"0");
-					long professionalGst =Long.valueOf(updatePaymentDto.getProfesionalGst()!=null?updatePaymentDto.getProfesionalGst():"0");
-					long serviceCharge =Long.valueOf(updatePaymentDto.getServiceCharge()!=null?updatePaymentDto.getServiceCharge():"0");
-					long getServiceGst =Long.valueOf(updatePaymentDto.getServiceGst()!=null?updatePaymentDto.getServiceGst():"0");
-					long otherFees =Long.valueOf(updatePaymentDto.getOtherFees()!=null?updatePaymentDto.getOtherFees():"0");
-					long otherGst =Long.valueOf(updatePaymentDto.getOtherGst()!=null?updatePaymentDto.getOtherGst():"0");
-					long totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
-					long totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
+//					long govermentfees =Long.valueOf(updatePaymentDto.getGovermentfees()!=null?updatePaymentDto.getGovermentfees():"0");
+//					long govermentGst =Long.valueOf(updatePaymentDto.getGovermentGst()!=null?updatePaymentDto.getGovermentGst():"0");
+//					long professionalFees =Long.valueOf(updatePaymentDto.getProfessionalFees()!=null?updatePaymentDto.getProfessionalFees():"0");
+//					long professionalGst =Long.valueOf(updatePaymentDto.getProfesionalGst()!=null?updatePaymentDto.getProfesionalGst():"0");
+//					long serviceCharge =Long.valueOf(updatePaymentDto.getServiceCharge()!=null?updatePaymentDto.getServiceCharge():"0");
+//					long getServiceGst =Long.valueOf(updatePaymentDto.getServiceGst()!=null?updatePaymentDto.getServiceGst():"0");
+//					long otherFees =Long.valueOf(updatePaymentDto.getOtherFees()!=null?updatePaymentDto.getOtherFees():"0");
+//					long otherGst =Long.valueOf(updatePaymentDto.getOtherGst()!=null?updatePaymentDto.getOtherGst():"0");
+					double govermentfees =updatePaymentDto.getGovermentfees();
+					double govermentGst =updatePaymentDto.getGovermentGst();;
+					double professionalFees =updatePaymentDto.getProfessionalFees();
+					double professionalGst =updatePaymentDto.getProfesionalGst();
+					double serviceCharge =updatePaymentDto.getServiceCharge();
+					double getServiceGst =updatePaymentDto.getServiceGst();
+					double otherFees =updatePaymentDto.getOtherFees();
+					double otherGst =updatePaymentDto.getOtherGst();
+
+					double totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
+					double totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
 					v.setDebitAmount(totalDebit+"");
 					v.setIgstPresent(true);//cgst+sgst concept
 					v.setIgst(totaDebitGst+"");			
@@ -246,16 +255,16 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 					voucherRepository.save(v);
 				}else {
 					Voucher v =new Voucher();
-					long govermentfees =Long.valueOf(updatePaymentDto.getGovermentfees()!=null?updatePaymentDto.getGovermentfees():"0");
-					long govermentGst =Long.valueOf(updatePaymentDto.getGovermentGst()!=null?updatePaymentDto.getGovermentGst():"0");
-					long professionalFees =Long.valueOf(updatePaymentDto.getProfessionalFees()!=null?updatePaymentDto.getProfessionalFees():"0");
-					long professionalGst =Long.valueOf(updatePaymentDto.getProfesionalGst()!=null?updatePaymentDto.getProfesionalGst():"0");
-					long serviceCharge =Long.valueOf(updatePaymentDto.getServiceCharge()!=null?updatePaymentDto.getServiceCharge():"0");
-					long getServiceGst =Long.valueOf(updatePaymentDto.getServiceGst()!=null?updatePaymentDto.getServiceGst():"0");
-					long otherFees =Long.valueOf(updatePaymentDto.getOtherFees()!=null?updatePaymentDto.getOtherFees():"0");
-					long otherGst =Long.valueOf(updatePaymentDto.getOtherGst()!=null?updatePaymentDto.getOtherGst():"0");
-					long totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
-					long totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
+					double govermentfees =updatePaymentDto.getGovermentfees();
+					double govermentGst =updatePaymentDto.getGovermentGst();
+					double professionalFees =updatePaymentDto.getProfessionalFees();
+					double professionalGst =updatePaymentDto.getProfesionalGst();
+					double serviceCharge =updatePaymentDto.getServiceCharge();
+					double getServiceGst =updatePaymentDto.getServiceGst();
+					double otherFees =updatePaymentDto.getOtherFees();
+					double otherGst =updatePaymentDto.getOtherGst();
+					double totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
+					double totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
 					v.setDebitAmount(totalDebit+"");
 					v.setIgstPresent(true);//cgst+sgst concept
 					v.setIgst(totaDebitGst+"");
@@ -281,16 +290,16 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 				Ledger l=createLedgerData(feignLeadClient,updatePaymentDto);
 
 				Voucher v =new Voucher();
-				long govermentfees =Long.valueOf(updatePaymentDto.getGovermentfees()!=null?updatePaymentDto.getGovermentfees():"0");
-				long govermentGst =Long.valueOf(updatePaymentDto.getGovermentGst()!=null?updatePaymentDto.getGovermentGst():"0");
-				long professionalFees =Long.valueOf(updatePaymentDto.getProfessionalFees()!=null?updatePaymentDto.getProfessionalFees():"0");
-				long professionalGst =Long.valueOf(updatePaymentDto.getProfesionalGst()!=null?updatePaymentDto.getProfesionalGst():"0");
-				long serviceCharge =Long.valueOf(updatePaymentDto.getServiceCharge()!=null?updatePaymentDto.getServiceCharge():"0");
-				long getServiceGst =Long.valueOf(updatePaymentDto.getServiceGst()!=null?updatePaymentDto.getServiceGst():"0");
-				long otherFees =Long.valueOf(updatePaymentDto.getOtherFees()!=null?updatePaymentDto.getOtherFees():"0");
-				long otherGst =Long.valueOf(updatePaymentDto.getOtherGst()!=null?updatePaymentDto.getOtherGst():"0");
-				long totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
-				long totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
+				double govermentfees =updatePaymentDto.getGovermentfees();
+				double govermentGst =updatePaymentDto.getGovermentGst();
+				double professionalFees =updatePaymentDto.getProfessionalFees();
+				double professionalGst =updatePaymentDto.getProfesionalGst();
+				double serviceCharge =updatePaymentDto.getServiceCharge();
+				double getServiceGst =updatePaymentDto.getServiceGst();
+				double otherFees =updatePaymentDto.getOtherFees();
+				double otherGst =updatePaymentDto.getOtherGst();
+				double totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
+				double totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
 				v.setDebitAmount(totalDebit+"");
 				v.setIgstPresent(true);//cgst+sgst concept
 				v.setIgst(totaDebitGst+"");
@@ -332,16 +341,16 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 			Ledger ledger = ledgerRepository.findByName(updatePaymentDto.getCompanyName());
 
 			Voucher v =new Voucher();
-			long govermentfees =Long.valueOf(updatePaymentDto.getGovermentfees()!=null?updatePaymentDto.getGovermentfees():"0");
-			long govermentGst =Long.valueOf(updatePaymentDto.getGovermentGst()!=null?updatePaymentDto.getGovermentGst():"0");
-			long professionalFees =Long.valueOf(updatePaymentDto.getProfessionalFees()!=null?updatePaymentDto.getProfessionalFees():"0");
-			long professionalGst =Long.valueOf(updatePaymentDto.getProfesionalGst()!=null?updatePaymentDto.getProfesionalGst():"0");
-			long serviceCharge =Long.valueOf(updatePaymentDto.getServiceCharge()!=null?updatePaymentDto.getServiceCharge():"0");
-			long getServiceGst =Long.valueOf(updatePaymentDto.getServiceGst()!=null?updatePaymentDto.getServiceGst():"0");
-			long otherFees =Long.valueOf(updatePaymentDto.getOtherFees()!=null?updatePaymentDto.getOtherFees():"0");
-			long otherGst =Long.valueOf(updatePaymentDto.getOtherGst()!=null?updatePaymentDto.getOtherGst():"0");
-			long totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
-			long totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
+			double govermentfees =updatePaymentDto.getGovermentfees();
+			double govermentGst =updatePaymentDto.getGovermentGst();
+			double professionalFees =updatePaymentDto.getProfessionalFees();
+			double professionalGst =updatePaymentDto.getProfesionalGst();
+			double serviceCharge =updatePaymentDto.getServiceCharge();
+			double getServiceGst =updatePaymentDto.getServiceGst();
+			double otherFees =updatePaymentDto.getOtherFees();
+			double otherGst =updatePaymentDto.getOtherGst();
+			double totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
+			double totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
 			v.setDebitAmount(totalDebit+"");
 			v.setIgstPresent(true);//cgst+sgst concept
 			v.setIgst(totaDebitGst+"");			
@@ -357,16 +366,16 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 				if(ledger!=null) {
 
 					Voucher v =new Voucher();
-					long govermentfees =Long.valueOf(updatePaymentDto.getGovermentfees()!=null?updatePaymentDto.getGovermentfees():"0");
-					long govermentGst =Long.valueOf(updatePaymentDto.getGovermentGst()!=null?updatePaymentDto.getGovermentGst():"0");
-					long professionalFees =Long.valueOf(updatePaymentDto.getProfessionalFees()!=null?updatePaymentDto.getProfessionalFees():"0");
-					long professionalGst =Long.valueOf(updatePaymentDto.getProfesionalGst()!=null?updatePaymentDto.getProfesionalGst():"0");
-					long serviceCharge =Long.valueOf(updatePaymentDto.getServiceCharge()!=null?updatePaymentDto.getServiceCharge():"0");
-					long getServiceGst =Long.valueOf(updatePaymentDto.getServiceGst()!=null?updatePaymentDto.getServiceGst():"0");
-					long otherFees =Long.valueOf(updatePaymentDto.getOtherFees()!=null?updatePaymentDto.getOtherFees():"0");
-					long otherGst =Long.valueOf(updatePaymentDto.getOtherGst()!=null?updatePaymentDto.getOtherGst():"0");
-					long totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
-					long totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
+					double govermentfees =updatePaymentDto.getGovermentfees();
+					double govermentGst =updatePaymentDto.getGovermentGst();
+					double professionalFees =updatePaymentDto.getProfessionalFees();
+					double professionalGst =updatePaymentDto.getProfesionalGst();
+					double serviceCharge =updatePaymentDto.getProfesionalGst();
+					double getServiceGst =updatePaymentDto.getServiceGst();
+					double otherFees =updatePaymentDto.getOtherFees();
+					double otherGst =updatePaymentDto.getOtherGst();
+					double totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
+					double totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
 					v.setDebitAmount(totalDebit+"");
 					v.setIgstPresent(true);//cgst+sgst concept
 					v.setIgst(totaDebitGst+"");			
@@ -378,16 +387,16 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 					Ledger l=createLedgerData(feignLeadClient,updatePaymentDto);
 
 					Voucher v =new Voucher();
-					long govermentfees =Long.valueOf(updatePaymentDto.getGovermentfees()!=null?updatePaymentDto.getGovermentfees():"0");
-					long govermentGst =Long.valueOf(updatePaymentDto.getGovermentGst()!=null?updatePaymentDto.getGovermentGst():"0");
-					long professionalFees =Long.valueOf(updatePaymentDto.getProfessionalFees()!=null?updatePaymentDto.getProfessionalFees():"0");
-					long professionalGst =Long.valueOf(updatePaymentDto.getProfesionalGst()!=null?updatePaymentDto.getProfesionalGst():"0");
-					long serviceCharge =Long.valueOf(updatePaymentDto.getServiceCharge()!=null?updatePaymentDto.getServiceCharge():"0");
-					long getServiceGst =Long.valueOf(updatePaymentDto.getServiceGst()!=null?updatePaymentDto.getServiceGst():"0");
-					long otherFees =Long.valueOf(updatePaymentDto.getOtherFees()!=null?updatePaymentDto.getOtherFees():"0");
-					long otherGst =Long.valueOf(updatePaymentDto.getOtherGst()!=null?updatePaymentDto.getOtherGst():"0");
-					long totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
-					long totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
+					double govermentfees =updatePaymentDto.getGovermentfees();
+					double govermentGst =updatePaymentDto.getGovermentGst();
+					double professionalFees =updatePaymentDto.getProfessionalFees();
+					double professionalGst =updatePaymentDto.getProfesionalGst();
+					double serviceCharge =updatePaymentDto.getServiceCharge();
+					double getServiceGst =updatePaymentDto.getServiceGst();
+					double otherFees =updatePaymentDto.getOtherFees();
+					double otherGst =updatePaymentDto.getOtherGst();
+					double totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
+					double totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
 					v.setDebitAmount(totalDebit+"");
 					v.setIgstPresent(true);//cgst+sgst concept
 					v.setIgst(totaDebitGst+"");			
