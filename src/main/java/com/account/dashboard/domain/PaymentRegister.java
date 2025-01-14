@@ -39,14 +39,21 @@ public class PaymentRegister {
 	private String serviceName;
 
 	private double  govermentfees;
-	private double govermentGst;	
+	private double govermentGst;
+	private int govermentGstPercent;
+
 	private double professionalFees;
-	private double profesionalGst;	
+	private double profesionalGst;
+	private int profesionalGstPercent;
+
 	private double serviceCharge;
 	private double serviceGst;
+	private int serviceGstPercent;
+	
     private double otherFees;
     private double otherGst;
-	
+    private int otherGstPercent;
+    
 	private double totalAmount;
 	private String remark;
 	private Date paymentDate;
@@ -249,8 +256,30 @@ public class PaymentRegister {
 	public void setTotalAmount(double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
+	public int getGovermentGstPercent() {
+		return govermentGstPercent;
+	}
+	public int getProfesionalGstPercent() {
+		return profesionalGstPercent;
+	}
+	public int getServiceGstPercent() {
+		return serviceGstPercent;
+	}
+	public int getOtherGstPercent() {
+		return otherGstPercent;
+	}
+	public void setGovermentGstPercent(int govermentGstPercent) {
+		this.govermentGstPercent = govermentGstPercent;
+	}
+	public void setProfesionalGstPercent(int profesionalGstPercent) {
+		this.profesionalGstPercent = profesionalGstPercent;
+	}
+	public void setServiceGstPercent(int serviceGstPercent) {
+		this.serviceGstPercent = serviceGstPercent;
+	}
+	public void setOtherGstPercent(int otherGstPercent) {
+		this.otherGstPercent = otherGstPercent;
+	}
 	
-	
-    
     
 }

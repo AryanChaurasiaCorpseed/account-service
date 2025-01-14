@@ -21,16 +21,20 @@ public class CreateAmountDto {
 
 	private double  govermentfees;
 	private double govermentGst;
-
+	private int govermentGstPercent;
+	
 	private double professionalFees;
 	private double profesionalGst;
+	private int profesionalGstPercent;
 
 	private double serviceCharge;
 	private double serviceGst;
+	private int serviceGstPercent;
 
 	private double otherFees;
 	private double otherGst;
-	
+	private int otherGstPercent;
+
 	int docPersent;
 	int filingPersent;
 	int liasoningPersent;
@@ -260,6 +264,38 @@ public class CreateAmountDto {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
+	}
+
+	public int getGovermentGstPercent() {
+		return govermentGstPercent;
+	}
+
+	public double getProfesionalGstPercent() {
+		return profesionalGstPercent;
+	}
+
+	public double getServiceGstPercent() {
+		return serviceGstPercent;
+	}
+
+	public double getOtherGstPercent() {
+		return otherGstPercent;
+	}
+
+	public void setGovermentGstPercent(int govermentGstPercent) {
+		this.govermentGstPercent = govermentGstPercent;
+	}
+
+	public void setProfesionalGstPercent(double profesionalGstPercent) {
+		this.profesionalGstPercent = profesionalGstPercent;
+	}
+
+	public void setServiceGstPercent(double serviceGstPercent) {
+		this.serviceGstPercent = serviceGstPercent;
+	}
+
+	public void setOtherGstPercent(double otherGstPercent) {
+		this.otherGstPercent = otherGstPercent;
 	}
 
 	

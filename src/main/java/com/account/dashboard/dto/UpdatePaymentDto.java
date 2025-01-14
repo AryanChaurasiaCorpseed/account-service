@@ -23,15 +23,19 @@ public class UpdatePaymentDto {
 
 	private double  govermentfees;
 	private double govermentGst;
+	private double govermentGstPercent;
 
 	private double professionalFees;
 	private double profesionalGst;
+	private double profesionalGstPercent;
 
 	private double serviceCharge;
 	private double serviceGst;
+	private double serviceGstPercent;
 
 	private double otherFees;
 	private double otherGst;
+	private double otherGstPercent;
 
 	private String UploadReceipt;
 	private double totalAmount;
@@ -214,7 +218,32 @@ public class UpdatePaymentDto {
 	public void setCertificatePersent(int certificatePersent) {
 		this.certificatePersent = certificatePersent;
 	}
-
+	public double getGovermentGstPercent() {
+		return govermentGstPercent;
+	}
+	public double getProfesionalGstPercent() {
+		return profesionalGstPercent;
+	}
+	public double getServiceGstPercent() {
+		return serviceGstPercent;
+	}
+	public double getOtherGstPercent() {
+		return otherGstPercent;
+	}
+	public void setGovermentGstPercent(double govermentGstPercent) {
+		this.govermentGstPercent = govermentGstPercent;
+	}
+	public void setProfesionalGstPercent(double profesionalGstPercent) {
+		this.profesionalGstPercent = profesionalGstPercent;
+	}
+	public void setServiceGstPercent(double serviceGstPercent) {
+		this.serviceGstPercent = serviceGstPercent;
+	}
+	public void setOtherGstPercent(double otherGstPercent) {
+		this.otherGstPercent = otherGstPercent;
+	}
+     
+	
 	
 	
 
