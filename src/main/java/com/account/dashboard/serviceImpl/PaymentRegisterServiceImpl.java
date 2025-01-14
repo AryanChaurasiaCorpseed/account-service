@@ -88,6 +88,8 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		paymentRegister.setEstimateNo(createAmountDto.getEstimateNo());
 //		paymentRegister.setDoc(createAmountDto.getDoc());
 		paymentRegister.setCompanyName(createAmountDto.getCompanyName());
+		
+		paymentRegister.setRegisterBy(createAmountDto.getRegisterBy());
 
 		paymentRegister.setDocPersent(createAmountDto.getDocPersent());
 		paymentRegister.setFilingPersent(createAmountDto.getFilingPersent());
@@ -130,6 +132,13 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		paymentRegister.setEstimateNo(updatePaymentDto.getEstimateNo());
 //		paymentRegister.setDoc(updatePaymentDto.getDoc());
 		paymentRegister.setCompanyName(updatePaymentDto.getCompanyName());
+		
+		paymentRegister.setRegisterBy(updatePaymentDto.getRegisterBy());
+
+		paymentRegister.setDocPersent(updatePaymentDto.getDocPersent());
+		paymentRegister.setFilingPersent(updatePaymentDto.getFilingPersent());
+		paymentRegister.setLiasoningPersent(updatePaymentDto.getLiasoningPersent());
+		paymentRegister.setCertificatePersent(updatePaymentDto.getCertificatePersent());
 		paymentRegisterRepository.save(paymentRegister);
 		flag=true;
 		return flag;
@@ -215,7 +224,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 
 		LedgerType group = ledgerTypeRepository.findByName(updatePaymentDto.getPaymentType());
 		if(group!=null) {
-			if(updatePaymentDto.getPaymentType().equals("SALES")) {
+			if(updatePaymentDto.getRegisterBy().equals("SALES")) {
 				Ledger ledger = ledgerRepository.findByName(updatePaymentDto.getCompanyName());
 				if(ledger!=null) {
 					Voucher v =new Voucher();

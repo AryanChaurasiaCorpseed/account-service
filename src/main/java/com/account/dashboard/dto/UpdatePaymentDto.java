@@ -15,6 +15,7 @@ public class UpdatePaymentDto {
 	private String billingQuantity;
 	private String paymentType;
 
+	private String registerBy;
 
 	private Long createdById;
 	private String transactionId;
@@ -40,6 +41,11 @@ public class UpdatePaymentDto {
 	private List<String>doc;
 
 	String companyName;
+	
+	int docPersent;
+	int filingPersent;
+	int liasoningPersent;
+	int certificatePersent;
 
 	
 	
@@ -184,6 +190,36 @@ public class UpdatePaymentDto {
 	}
 	public void setTransactionId(String transactionId) {
 		this.transactionId = transactionId;
+	}
+	public String getRegisterBy() {
+		return registerBy;
+	}
+	public int getDocPersent() {
+		return docPersent;
+	}
+	public int getFilingPersent() {
+		return filingPersent;
+	}
+	public int getLiasoningPersent() {
+		return liasoningPersent;
+	}
+	public int getCertificatePersent() {
+		return certificatePersent;
+	}
+	public void setRegisterBy(String registerBy) {
+		this.registerBy = registerBy;
+	}
+	public void setDocPersent(int docPersent) {
+		this.docPersent = docPersent;
+	}
+	public void setFilingPersent(int filingPersent) {
+		this.filingPersent = filingPersent;
+	}
+	public void setLiasoningPersent(int liasoningPersent) {
+		this.liasoningPersent = liasoningPersent;
+	}
+	public void setCertificatePersent(int certificatePersent) {
+		this.certificatePersent = certificatePersent;
 	}
 
 	

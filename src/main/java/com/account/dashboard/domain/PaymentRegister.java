@@ -31,6 +31,8 @@ public class PaymentRegister {
 	
 	boolean tdsPercent;
 	int tdsPresent;
+	
+	String registerBy;
 
 	private Long createdById;
 	private String transactionId;
@@ -247,6 +249,12 @@ public class PaymentRegister {
 	}
 	public void setCertificatePersent(int certificatePersent) {
 		this.certificatePersent = certificatePersent;
+	}
+	public String getRegisterBy() {
+		return registerBy;
+	}
+	public void setRegisterBy(String registerBy) {
+		this.registerBy = registerBy;
 	}
 	
     

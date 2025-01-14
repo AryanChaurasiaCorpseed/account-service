@@ -12,7 +12,8 @@ public class CreateAmountDto {
 
 	private String billingQuantity;
 	private String paymentType;
-
+    
+	private String registerBy;
 
 	private Long createdById;
 	private String transactionId;
@@ -205,7 +206,14 @@ public class CreateAmountDto {
 	public void setCertificatePersent(int certificatePersent) {
 		this.certificatePersent = certificatePersent;
 	}
+	public String getRegisterBy() {
+		return registerBy;
+	}
+	public void setRegisterBy(String registerBy) {
+		this.registerBy = registerBy;
+	}
 
+	 
 	
 
 
