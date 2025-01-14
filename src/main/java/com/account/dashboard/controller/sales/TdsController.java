@@ -15,10 +15,10 @@ public class TdsController {
     @Autowired
     TdsService tdsService;
 
-	@PostMapping(UrlsMapping.CREATE_TDS)
-	public BankStatement createTds(@RequestBody createTds createBankStatementDto){
-		BankStatement res=tdsService.createTds(createBankStatementDto);	
-		return res;
-		
-	}
+//	@PostMapping(UrlsMapping.CREATE_TDS)
+//	public BankStatement createTds(@RequestBody createTds createBankStatementDto){
+//		BankStatement res=tdsService.createTds(createBankStatementDto);	
+//		return res;
+//		
+//	}
 }

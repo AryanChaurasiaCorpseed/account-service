@@ -29,6 +29,12 @@ public class CreateAmountDto {
 
 	private String otherFees;
 	private String otherGst;
+	
+	int docPersent;
+	int filingPersent;
+	int liasoningPersent;
+	int certificatePersent;
+
 
 	private String UploadReceipt;
 	private String totalAmount;
@@ -174,6 +180,30 @@ public class CreateAmountDto {
 	}
 	public void setTransactionId(String transactionId) {
 		this.transactionId = transactionId;
+	}
+	public int getDocPersent() {
+		return docPersent;
+	}
+	public int getFilingPersent() {
+		return filingPersent;
+	}
+	public int getLiasoningPersent() {
+		return liasoningPersent;
+	}
+	public int getCertificatePersent() {
+		return certificatePersent;
+	}
+	public void setDocPersent(int docPersent) {
+		this.docPersent = docPersent;
+	}
+	public void setFilingPersent(int filingPersent) {
+		this.filingPersent = filingPersent;
+	}
+	public void setLiasoningPersent(int liasoningPersent) {
+		this.liasoningPersent = liasoningPersent;
+	}
+	public void setCertificatePersent(int certificatePersent) {
+		this.certificatePersent = certificatePersent;
 	}
 
 	

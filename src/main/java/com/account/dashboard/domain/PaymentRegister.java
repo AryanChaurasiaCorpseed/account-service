@@ -50,6 +50,11 @@ public class PaymentRegister {
 	private Date paymentDate;
 	private String estimateNo;
 //	private List<FileData> UploadReceipt;
+	
+	int docPersent;
+	int filingPersent;
+	int liasoningPersent;
+	int certificatePersent;
 
 	String companyName;
 	String updateDate;
@@ -218,6 +223,30 @@ public class PaymentRegister {
 	}
 	public void setTdsPresent(int tdsPresent) {
 		this.tdsPresent = tdsPresent;
+	}
+	public int getDocPersent() {
+		return docPersent;
+	}
+	public int getFilingPersent() {
+		return filingPersent;
+	}
+	public int getLiasoningPersent() {
+		return liasoningPersent;
+	}
+	public int getCertificatePersent() {
+		return certificatePersent;
+	}
+	public void setDocPersent(int docPersent) {
+		this.docPersent = docPersent;
+	}
+	public void setFilingPersent(int filingPersent) {
+		this.filingPersent = filingPersent;
+	}
+	public void setLiasoningPersent(int liasoningPersent) {
+		this.liasoningPersent = liasoningPersent;
+	}
+	public void setCertificatePersent(int certificatePersent) {
+		this.certificatePersent = certificatePersent;
 	}
 	
     

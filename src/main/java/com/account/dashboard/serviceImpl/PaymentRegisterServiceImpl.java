@@ -88,6 +88,11 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		paymentRegister.setEstimateNo(createAmountDto.getEstimateNo());
 //		paymentRegister.setDoc(createAmountDto.getDoc());
 		paymentRegister.setCompanyName(createAmountDto.getCompanyName());
+
+		paymentRegister.setDocPersent(createAmountDto.getDocPersent());
+		paymentRegister.setFilingPersent(createAmountDto.getFilingPersent());
+		paymentRegister.setLiasoningPersent(createAmountDto.getLiasoningPersent());
+		paymentRegister.setCertificatePersent(createAmountDto.getCertificatePersent());
 		paymentRegisterRepository.save(paymentRegister);
 		return paymentRegister;
 	}
