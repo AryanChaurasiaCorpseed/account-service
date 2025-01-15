@@ -49,6 +49,9 @@ public class CreateAmountDto {
 	private List<String>doc;
 
 	String companyName;
+	
+	boolean tdsPresent;
+	double tdsPercent;
 
 	public Long getLeadId() {
 		return leadId;

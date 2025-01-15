@@ -29,8 +29,8 @@ public class PaymentRegister {
 	private String billingQuantity;//partial ,full ,milestone
 	private String paymentType;//Sales,
 	
-	boolean tdsPercent;
-	int tdsPresent;
+	boolean tdsPresent;
+	int tdsPercent;
 	
 	String registerBy;
 
@@ -84,12 +84,7 @@ public class PaymentRegister {
 	public String getPaymentType() {
 		return paymentType;
 	}
-	public boolean isTdsPercent() {
-		return tdsPercent;
-	}
-	public int getTdsPresent() {
-		return tdsPresent;
-	}
+	
 	public String getRegisterBy() {
 		return registerBy;
 	}
@@ -175,12 +170,7 @@ public class PaymentRegister {
 	public void setPaymentType(String paymentType) {
 		this.paymentType = paymentType;
 	}
-	public void setTdsPercent(boolean tdsPercent) {
-		this.tdsPercent = tdsPercent;
-	}
-	public void setTdsPresent(int tdsPresent) {
-		this.tdsPresent = tdsPresent;
-	}
+	
 	public void setRegisterBy(String registerBy) {
 		this.registerBy = registerBy;
 	}
@@ -279,6 +269,18 @@ public class PaymentRegister {
 	}
 	public void setOtherGstPercent(int otherGstPercent) {
 		this.otherGstPercent = otherGstPercent;
+	}
+	public boolean isTdsPresent() {
+		return tdsPresent;
+	}
+	public int getTdsPercent() {
+		return tdsPercent;
+	}
+	public void setTdsPresent(boolean tdsPresent) {
+		this.tdsPresent = tdsPresent;
+	}
+	public void setTdsPercent(int tdsPercent) {
+		this.tdsPercent = tdsPercent;
 	}
 	
     

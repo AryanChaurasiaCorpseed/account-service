@@ -84,14 +84,14 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		paymentRegister.setOtherFees(createAmountDto.getOtherFees());
 		paymentRegister.setOtherGst(createAmountDto.getOtherGst());
 		paymentRegister.setOtherGstPercent(createAmountDto.getOtherGstPercent());
-//		paymentRegister.setUploadReceipt(createAmountDto.getUploadReceipt());
+		//		paymentRegister.setUploadReceipt(createAmountDto.getUploadReceipt());
 		paymentRegister.setTotalAmount(createAmountDto.getTotalAmount());
 		paymentRegister.setRemark(createAmountDto.getRemark());
 		paymentRegister.setPaymentDate(createAmountDto.getPaymentDate());
 		paymentRegister.setEstimateNo(createAmountDto.getEstimateNo());
-//		paymentRegister.setDoc(createAmountDto.getDoc());
+		//		paymentRegister.setDoc(createAmountDto.getDoc());
 		paymentRegister.setCompanyName(createAmountDto.getCompanyName());
-		
+
 		paymentRegister.setRegisterBy(createAmountDto.getRegisterBy());
 
 		paymentRegister.setDocPersent(createAmountDto.getDocPersent());
@@ -128,14 +128,14 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 
 		paymentRegister.setOtherFees(updatePaymentDto.getOtherFees());
 		paymentRegister.setOtherGst(updatePaymentDto.getOtherGst());
-//		paymentRegister.setUploadReceipt(updatePaymentDto.getUploadReceipt());
+		//		paymentRegister.setUploadReceipt(updatePaymentDto.getUploadReceipt());
 		paymentRegister.setTotalAmount(updatePaymentDto.getTotalAmount());
 		paymentRegister.setRemark(updatePaymentDto.getRemark());
 		paymentRegister.setPaymentDate(updatePaymentDto.getPaymentDate());
 		paymentRegister.setEstimateNo(updatePaymentDto.getEstimateNo());
-//		paymentRegister.setDoc(updatePaymentDto.getDoc());
+		//		paymentRegister.setDoc(updatePaymentDto.getDoc());
 		paymentRegister.setCompanyName(updatePaymentDto.getCompanyName());
-		
+
 		paymentRegister.setRegisterBy(updatePaymentDto.getRegisterBy());
 
 		paymentRegister.setDocPersent(updatePaymentDto.getDocPersent());
@@ -231,14 +231,14 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 				Ledger ledger = ledgerRepository.findByName(updatePaymentDto.getCompanyName());
 				if(ledger!=null) {
 					Voucher v =new Voucher();
-//					long govermentfees =Long.valueOf(updatePaymentDto.getGovermentfees()!=null?updatePaymentDto.getGovermentfees():"0");
-//					long govermentGst =Long.valueOf(updatePaymentDto.getGovermentGst()!=null?updatePaymentDto.getGovermentGst():"0");
-//					long professionalFees =Long.valueOf(updatePaymentDto.getProfessionalFees()!=null?updatePaymentDto.getProfessionalFees():"0");
-//					long professionalGst =Long.valueOf(updatePaymentDto.getProfesionalGst()!=null?updatePaymentDto.getProfesionalGst():"0");
-//					long serviceCharge =Long.valueOf(updatePaymentDto.getServiceCharge()!=null?updatePaymentDto.getServiceCharge():"0");
-//					long getServiceGst =Long.valueOf(updatePaymentDto.getServiceGst()!=null?updatePaymentDto.getServiceGst():"0");
-//					long otherFees =Long.valueOf(updatePaymentDto.getOtherFees()!=null?updatePaymentDto.getOtherFees():"0");
-//					long otherGst =Long.valueOf(updatePaymentDto.getOtherGst()!=null?updatePaymentDto.getOtherGst():"0");
+					//					long govermentfees =Long.valueOf(updatePaymentDto.getGovermentfees()!=null?updatePaymentDto.getGovermentfees():"0");
+					//					long govermentGst =Long.valueOf(updatePaymentDto.getGovermentGst()!=null?updatePaymentDto.getGovermentGst():"0");
+					//					long professionalFees =Long.valueOf(updatePaymentDto.getProfessionalFees()!=null?updatePaymentDto.getProfessionalFees():"0");
+					//					long professionalGst =Long.valueOf(updatePaymentDto.getProfesionalGst()!=null?updatePaymentDto.getProfesionalGst():"0");
+					//					long serviceCharge =Long.valueOf(updatePaymentDto.getServiceCharge()!=null?updatePaymentDto.getServiceCharge():"0");
+					//					long getServiceGst =Long.valueOf(updatePaymentDto.getServiceGst()!=null?updatePaymentDto.getServiceGst():"0");
+					//					long otherFees =Long.valueOf(updatePaymentDto.getOtherFees()!=null?updatePaymentDto.getOtherFees():"0");
+					//					long otherGst =Long.valueOf(updatePaymentDto.getOtherGst()!=null?updatePaymentDto.getOtherGst():"0");
 					double govermentfees =updatePaymentDto.getGovermentfees();
 					double govermentGst =updatePaymentDto.getGovermentGst();;
 					double professionalFees =updatePaymentDto.getProfessionalFees();
@@ -255,6 +255,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 					v.setIgst(totaDebitGst+"");			
 					v.setLedger(ledger);
 					v.setEstimateId(updatePaymentDto.getEstimateId());
+
 					voucherRepository.save(v);
 				}else {
 					Voucher v =new Voucher();
@@ -515,11 +516,124 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 			invoiceData.setSecondaryContactemails(feignLeadClient.get("secondaryContactEmails").toString());
 			invoiceData.setSecondaryContactNo(feignLeadClient.get("secondaryContactContactNo").toString());
 		}
-		
-		
+
+
 		invoiceDataRepository.save(invoiceData);
 
 		return true;
+	}
+
+	public Boolean paymentApproveAndDisapprovedV3(Long paymentRegisterId ,Long estimateId) {
+		Boolean flag=false;
+		//		Organization organization = organizationRepository.findByName("corpseed");
+		Map<String, Object> feignLeadClient = LeadFeignClient.getEstimateById(estimateId);
+		String ledgerName = (String)feignLeadClient.get("companyName");
+
+		List<Voucher> voucherList=voucherRepository.findByEstimateId(estimateId);
+		PaymentRegister paymentRegister = paymentRegisterRepository.findById(paymentRegisterId).get();
+		if(voucherList!=null) {  // Already created
+			Ledger ledger = ledgerRepository.findByName(ledgerName);
+
+			Organization organization = organizationRepository.findByName("corpseed");
+			String totalEstimateAmount = (String)feignLeadClient.get("totalAmount");
+
+			//			Voucher serviceFees = new Voucher();
+			//			
+			//			serviceFees.setDebitAmount(totalEstimateAmount);
+			//			Ledger product = ledgerRepository.findByName(paymentRegister.getServiceName());
+			//			serviceFees.setProduct(product);
+
+
+			Voucher v =new Voucher();
+			double govermentfees =paymentRegister.getGovermentfees();
+			double govermentGst =paymentRegister.getGovermentGst();
+			double professionalFees =paymentRegister.getProfessionalFees();
+			double professionalGst =paymentRegister.getProfesionalGst();
+			double serviceCharge =paymentRegister.getServiceCharge();
+			double getServiceGst =paymentRegister.getServiceGst();
+			double otherFees =paymentRegister.getOtherFees();
+			double otherGst =paymentRegister.getOtherGst();
+			double totalCredit=govermentfees+professionalFees+serviceCharge+otherFees;
+			double totalCreditGst = govermentGst+professionalGst+getServiceGst+otherGst;
+			String org=(String)feignLeadClient.get("state");
+			v.setCreditAmount(totalCredit+"");
+			if(organization.getState().equals(v)) {
+				double cgst=totalCreditGst/2;
+				double sgst=totalCreditGst/2;
+				v.setCgstSgstPresent(true);
+				v.setCgst(cgst+"");
+				v.setSgst(sgst+"");
+			}else {
+				v.setIgstPresent(false);
+				v.setIgst(totalCreditGst+"");
+			}
+			// tds 
+			// ========================== total amount =============================================
+			//			v.setDebitAmount(totalDebit+"");
+			//			v.setIgstPresent(true);//cgst+sgst concept
+			//			v.setIgst(totaDebitGst+"");			
+			v.setLedger(ledger);
+			v.setEstimateId(paymentRegister.getEstimateId());
+			voucherRepository.save(v);
+
+			if(paymentRegister.isTdsPresent()) {
+				int tdsPercent = paymentRegister.getTdsPercent();
+
+			}
+
+
+			flag=true;
+		}else {
+			LedgerType group = ledgerTypeRepository.findByName(paymentRegister.getRegisterBy());
+
+			if(group!=null) {
+				Ledger ledger = ledgerRepository.findByName(ledgerName);
+				if(ledger!=null) {
+
+					Voucher v =new Voucher();
+					double govermentfees =paymentRegister.getGovermentfees();
+					double govermentGst =paymentRegister.getGovermentGst();
+					double professionalFees =paymentRegister.getProfessionalFees();
+					double professionalGst =paymentRegister.getProfesionalGst();
+					double serviceCharge =paymentRegister.getProfesionalGst();
+					double getServiceGst =paymentRegister.getServiceGst();
+					double otherFees =paymentRegister.getOtherFees();
+					double otherGst =paymentRegister.getOtherGst();
+					double totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
+					double totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
+					v.setDebitAmount(totalDebit+"");
+					v.setIgstPresent(true);//cgst+sgst concept
+					v.setIgst(totaDebitGst+"");			
+					v.setLedger(ledger);
+					v.setEstimateId(paymentRegister.getEstimateId());
+					voucherRepository.save(v);
+					flag=true;
+				}else {
+					Ledger l=createLedgerData(feignLeadClient,updatePaymentDto);
+
+					Voucher v =new Voucher();
+					double govermentfees =updatePaymentDto.getGovermentfees();
+					double govermentGst =updatePaymentDto.getGovermentGst();
+					double professionalFees =updatePaymentDto.getProfessionalFees();
+					double professionalGst =updatePaymentDto.getProfesionalGst();
+					double serviceCharge =updatePaymentDto.getServiceCharge();
+					double getServiceGst =updatePaymentDto.getServiceGst();
+					double otherFees =updatePaymentDto.getOtherFees();
+					double otherGst =updatePaymentDto.getOtherGst();
+					double totalDebit=govermentfees+professionalFees+serviceCharge+otherFees;
+					double totaDebitGst = govermentGst+professionalGst+getServiceGst+otherGst;
+					v.setDebitAmount(totalDebit+"");
+					v.setIgstPresent(true);//cgst+sgst concept
+					v.setIgst(totaDebitGst+"");			
+					v.setLedger(ledger);
+					v.setEstimateId(updatePaymentDto.getEstimateId());
+					voucherRepository.save(v);
+					flag=true;
+				}	
+			}			
+		}
+		return false;
+
 	}
 
 
