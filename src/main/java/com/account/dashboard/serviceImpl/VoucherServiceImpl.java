@@ -167,7 +167,7 @@ public class VoucherServiceImpl implements VoucherService{
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
 
-				//        		totalAmount=totalAmount+debitAmount-creditAmount;
+				        		totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
 				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				//        	
@@ -185,7 +185,7 @@ public class VoucherServiceImpl implements VoucherService{
 
 				}
 
-				totalAmount=totalAmount+debitAmount;
+				totalAmount=totalAmount-debitAmount;
 
 			}
 		}
@@ -262,7 +262,7 @@ public class VoucherServiceImpl implements VoucherService{
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
 
-				        		totalAmount=totalAmount+debitAmount-creditAmount;
+				        		totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
 				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				//        	
@@ -280,7 +280,7 @@ public class VoucherServiceImpl implements VoucherService{
 
 				}
 
-				totalAmount=totalAmount+debitAmount;
+				totalAmount=totalAmount-debitAmount;
 
 			}
 		}
@@ -339,11 +339,11 @@ public class VoucherServiceImpl implements VoucherService{
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
 
-				totalAmount=totalAmount+debitAmount-creditAmount;
+				totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
 				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				totalDebit=totalDebit+debitAmount;
-				totalAmount=totalAmount+debitAmount;
+				totalAmount=totalAmount-debitAmount;
 
 			}
 		}
@@ -387,11 +387,11 @@ public class VoucherServiceImpl implements VoucherService{
 				long creditAmount =Long.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
-				totalAmount=totalAmount+debitAmount-creditAmount;
+				totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
 				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				totalDebit=totalDebit+debitAmount;
-				totalAmount=totalAmount+debitAmount;
+				totalAmount=totalAmount-debitAmount;
 
 			}
 		}
