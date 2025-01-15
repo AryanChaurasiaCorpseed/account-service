@@ -90,12 +90,20 @@ public class CreateAmountDto {
 		return govermentGst;
 	}
 
+	public int getGovermentGstPercent() {
+		return govermentGstPercent;
+	}
+
 	public double getProfessionalFees() {
 		return professionalFees;
 	}
 
 	public double getProfesionalGst() {
 		return profesionalGst;
+	}
+
+	public int getProfesionalGstPercent() {
+		return profesionalGstPercent;
 	}
 
 	public double getServiceCharge() {
@@ -106,12 +114,20 @@ public class CreateAmountDto {
 		return serviceGst;
 	}
 
+	public int getServiceGstPercent() {
+		return serviceGstPercent;
+	}
+
 	public double getOtherFees() {
 		return otherFees;
 	}
 
 	public double getOtherGst() {
 		return otherGst;
+	}
+
+	public int getOtherGstPercent() {
+		return otherGstPercent;
 	}
 
 	public int getDocPersent() {
@@ -198,12 +214,20 @@ public class CreateAmountDto {
 		this.govermentGst = govermentGst;
 	}
 
+	public void setGovermentGstPercent(int govermentGstPercent) {
+		this.govermentGstPercent = govermentGstPercent;
+	}
+
 	public void setProfessionalFees(double professionalFees) {
 		this.professionalFees = professionalFees;
 	}
 
 	public void setProfesionalGst(double profesionalGst) {
 		this.profesionalGst = profesionalGst;
+	}
+
+	public void setProfesionalGstPercent(int profesionalGstPercent) {
+		this.profesionalGstPercent = profesionalGstPercent;
 	}
 
 	public void setServiceCharge(double serviceCharge) {
@@ -214,12 +238,20 @@ public class CreateAmountDto {
 		this.serviceGst = serviceGst;
 	}
 
+	public void setServiceGstPercent(int serviceGstPercent) {
+		this.serviceGstPercent = serviceGstPercent;
+	}
+
 	public void setOtherFees(double otherFees) {
 		this.otherFees = otherFees;
 	}
 
 	public void setOtherGst(double otherGst) {
 		this.otherGst = otherGst;
+	}
+
+	public void setOtherGstPercent(int otherGstPercent) {
+		this.otherGstPercent = otherGstPercent;
 	}
 
 	public void setDocPersent(int docPersent) {
@@ -266,37 +298,6 @@ public class CreateAmountDto {
 		this.companyName = companyName;
 	}
 
-	public int getGovermentGstPercent() {
-		return govermentGstPercent;
-	}
-
-	public double getProfesionalGstPercent() {
-		return profesionalGstPercent;
-	}
-
-	public double getServiceGstPercent() {
-		return serviceGstPercent;
-	}
-
-	public double getOtherGstPercent() {
-		return otherGstPercent;
-	}
-
-	public void setGovermentGstPercent(int govermentGstPercent) {
-		this.govermentGstPercent = govermentGstPercent;
-	}
-
-	public void setProfesionalGstPercent(double profesionalGstPercent) {
-		this.profesionalGstPercent = profesionalGstPercent;
-	}
-
-	public void setServiceGstPercent(double serviceGstPercent) {
-		this.serviceGstPercent = serviceGstPercent;
-	}
-
-	public void setOtherGstPercent(double otherGstPercent) {
-		this.otherGstPercent = otherGstPercent;
-	}
-
+    
 	
 }

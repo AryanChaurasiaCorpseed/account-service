@@ -1,28 +1,18 @@
-package com.account.dashboard.domain;
+package com.account.dashboard.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-@Table
-@Entity
-public class TdsDetail {
+import lombok.Data;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	Long id;
-	String tdsType; // payable,reciveable
+//@Data
+public class CreateTdsDto {
+	
 	String organization;
 	String totalPaymentAmount;
+	String tdsType; // payable,reciveable
 	int tdsPrecent;
 	Long projectId;
 	String paymentRegisterId;
 	String tdsAmount;
 	
-	public Long getId() {
-		return id;
-	}
 	public String getOrganization() {
 		return organization;
 	}
@@ -40,9 +30,6 @@ public class TdsDetail {
 	}
 	public String getTdsAmount() {
 		return tdsAmount;
-	}
-	public void setId(Long id) {
-		this.id = id;
 	}
 	public void setOrganization(String organization) {
 		this.organization = organization;
@@ -62,7 +49,12 @@ public class TdsDetail {
 	public void setTdsAmount(String tdsAmount) {
 		this.tdsAmount = tdsAmount;
 	}
-	
+	public String getTdsType() {
+		return tdsType;
+	}
+	public void setTdsType(String tdsType) {
+		this.tdsType = tdsType;
+	}
 	
 	
 }

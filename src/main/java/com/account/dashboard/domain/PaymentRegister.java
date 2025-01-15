@@ -44,7 +44,7 @@ public class PaymentRegister {
 
 	private double professionalFees;
 	private double profesionalGst;
-	private int profesionalGstPercent;
+	private int professionalGstPercent;
 
 	private double serviceCharge;
 	private double serviceGst;
@@ -259,8 +259,8 @@ public class PaymentRegister {
 	public int getGovermentGstPercent() {
 		return govermentGstPercent;
 	}
-	public int getProfesionalGstPercent() {
-		return profesionalGstPercent;
+	public int getProfessionalGstPercent() {
+		return professionalGstPercent;
 	}
 	public int getServiceGstPercent() {
 		return serviceGstPercent;
@@ -271,8 +271,8 @@ public class PaymentRegister {
 	public void setGovermentGstPercent(int govermentGstPercent) {
 		this.govermentGstPercent = govermentGstPercent;
 	}
-	public void setProfesionalGstPercent(int profesionalGstPercent) {
-		this.profesionalGstPercent = profesionalGstPercent;
+	public void setProfessionalGstPercent(int professionalGstPercent) {
+		this.professionalGstPercent = professionalGstPercent;
 	}
 	public void setServiceGstPercent(int serviceGstPercent) {
 		this.serviceGstPercent = serviceGstPercent;

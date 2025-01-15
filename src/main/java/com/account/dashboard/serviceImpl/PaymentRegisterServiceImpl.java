@@ -75,12 +75,15 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		paymentRegister.setServiceName(createAmountDto.getServiceName());
 		paymentRegister.setGovermentfees(createAmountDto.getGovermentfees());
 		paymentRegister.setGovermentGst(createAmountDto.getGovermentGst());
+		paymentRegister.setGovermentGstPercent(createAmountDto.getGovermentGstPercent());
 		paymentRegister.setProfessionalFees(createAmountDto.getProfessionalFees());
 		paymentRegister.setProfesionalGst(createAmountDto.getProfesionalGst());
+		paymentRegister.setProfessionalGstPercent(createAmountDto.getProfesionalGstPercent());
 		paymentRegister.setServiceCharge(createAmountDto.getServiceCharge());		
 
 		paymentRegister.setOtherFees(createAmountDto.getOtherFees());
 		paymentRegister.setOtherGst(createAmountDto.getOtherGst());
+		paymentRegister.setOtherGstPercent(createAmountDto.getOtherGstPercent());
 //		paymentRegister.setUploadReceipt(createAmountDto.getUploadReceipt());
 		paymentRegister.setTotalAmount(createAmountDto.getTotalAmount());
 		paymentRegister.setRemark(createAmountDto.getRemark());
