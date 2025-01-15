@@ -14,11 +14,11 @@ public class TdsDetail {
 	Long id;
 	String tdsType; // payable,reciveable
 	String organization;
-	String totalPaymentAmount;
+	double totalPaymentAmount;
 	int tdsPrecent;
 	Long projectId;
 	String paymentRegisterId;
-	String tdsAmount;
+	double tdsAmount;
 	
 	public Long getId() {
 		return id;
@@ -26,9 +26,7 @@ public class TdsDetail {
 	public String getOrganization() {
 		return organization;
 	}
-	public String getTotalPaymentAmount() {
-		return totalPaymentAmount;
-	}
+	
 	public int getTdsPrecent() {
 		return tdsPrecent;
 	}
@@ -38,18 +36,14 @@ public class TdsDetail {
 	public String getPaymentRegisterId() {
 		return paymentRegisterId;
 	}
-	public String getTdsAmount() {
-		return tdsAmount;
-	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
 	public void setOrganization(String organization) {
 		this.organization = organization;
 	}
-	public void setTotalPaymentAmount(String totalPaymentAmount) {
-		this.totalPaymentAmount = totalPaymentAmount;
-	}
+	
 	public void setTdsPrecent(int tdsPrecent) {
 		this.tdsPrecent = tdsPrecent;
 	}
@@ -59,9 +53,25 @@ public class TdsDetail {
 	public void setPaymentRegisterId(String paymentRegisterId) {
 		this.paymentRegisterId = paymentRegisterId;
 	}
-	public void setTdsAmount(String tdsAmount) {
+	public String getTdsType() {
+		return tdsType;
+	}
+	public double getTotalPaymentAmount() {
+		return totalPaymentAmount;
+	}
+	public double getTdsAmount() {
+		return tdsAmount;
+	}
+	public void setTdsType(String tdsType) {
+		this.tdsType = tdsType;
+	}
+	public void setTotalPaymentAmount(double totalPaymentAmount) {
+		this.totalPaymentAmount = totalPaymentAmount;
+	}
+	public void setTdsAmount(double tdsAmount) {
 		this.tdsAmount = tdsAmount;
 	}
+     
 	
 	
 	

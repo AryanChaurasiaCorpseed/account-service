@@ -6,18 +6,22 @@ import lombok.Data;
 public class CreateTdsDto {
 	
 	String organization;
-	String totalPaymentAmount;
+	double totalPaymentAmount;
 	String tdsType; // payable,reciveable
 	int tdsPrecent;
 	Long projectId;
 	String paymentRegisterId;
-	String tdsAmount;
+	double tdsAmount;
+	
 	
 	public String getOrganization() {
 		return organization;
 	}
-	public String getTotalPaymentAmount() {
+	public double getTotalPaymentAmount() {
 		return totalPaymentAmount;
+	}
+	public String getTdsType() {
+		return tdsType;
 	}
 	public int getTdsPrecent() {
 		return tdsPrecent;
@@ -28,14 +32,17 @@ public class CreateTdsDto {
 	public String getPaymentRegisterId() {
 		return paymentRegisterId;
 	}
-	public String getTdsAmount() {
+	public double getTdsAmount() {
 		return tdsAmount;
 	}
 	public void setOrganization(String organization) {
 		this.organization = organization;
 	}
-	public void setTotalPaymentAmount(String totalPaymentAmount) {
+	public void setTotalPaymentAmount(double totalPaymentAmount) {
 		this.totalPaymentAmount = totalPaymentAmount;
+	}
+	public void setTdsType(String tdsType) {
+		this.tdsType = tdsType;
 	}
 	public void setTdsPrecent(int tdsPrecent) {
 		this.tdsPrecent = tdsPrecent;
@@ -46,14 +53,8 @@ public class CreateTdsDto {
 	public void setPaymentRegisterId(String paymentRegisterId) {
 		this.paymentRegisterId = paymentRegisterId;
 	}
-	public void setTdsAmount(String tdsAmount) {
+	public void setTdsAmount(double tdsAmount) {
 		this.tdsAmount = tdsAmount;
-	}
-	public String getTdsType() {
-		return tdsType;
-	}
-	public void setTdsType(String tdsType) {
-		this.tdsType = tdsType;
 	}
 	
 	
