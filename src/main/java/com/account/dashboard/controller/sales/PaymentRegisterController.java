@@ -61,4 +61,18 @@ public class PaymentRegisterController {
 		return res;
 		
 	}
+	
+//	@PutMapping(UrlsMapping.UPDATE_PAYMENT_REGISTER)
+//	public Boolean paymentAppro(@RequestBody UpdatePaymentDto updatePaymentDto){
+//		Boolean res=paymentRegisterService.updatePaymentRegister(updatePaymentDto);	
+//		return res;
+//		
+//	}
+//	
+	@PutMapping(UrlsMapping.PAYMENT_APPROVE_V2)
+	public Boolean paymentApproveAndDisapprovedv2(@RequestParam Long paymentRegisterId ,@RequestParam Long estimateId){
+		Boolean res=paymentRegisterService.paymentApproveAndDisapprovedV3(paymentRegisterId,estimateId);	
+		return res;
+		
+	}
 }

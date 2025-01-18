@@ -21,4 +21,6 @@ public interface PaymentRegisterService {
 
 	PaymentRegister getPaymentRegisterById(long id);
 
+	Boolean paymentApproveAndDisapprovedV3(Long paymentRegisterId, Long estimateId);
+
 }

@@ -34,6 +34,7 @@ public class BankStatementServiceImpl implements BankStatementService{
 		bankStatement.setLeftAmount(createBankStatementDto.getTotalAmount());
 		bankStatement.setCreateDate(new Date());
 		bankStatement.setTransactionId(createBankStatementDto.getTransactionId());
+		bankStatement.setTotalAmount(createBankStatementDto.getTotalAmount());
 		bankStatement.setUpdateDate(new Date());
 		bankStatementRepository.save(bankStatement);
 		return bankStatement;
@@ -49,6 +50,8 @@ public class BankStatementServiceImpl implements BankStatementService{
 			map.put("transaction", b.getTransactionId());
 			map.put("createDate", b.getCreateDate());
 			map.put("leftAmount", b.getLeftAmount());
+			map.put("totalAmount", b.getTotalAmount());
+
 			map.put("paymentDate", b.getPaymentDate());
 			map.put("updateDate", b.getUpdateDate());
 			result.add(map);
@@ -91,6 +94,8 @@ public class BankStatementServiceImpl implements BankStatementService{
 			map.put("transaction", b.getTransactionId());
 			map.put("createDate", b.getCreateDate());
 			map.put("leftAmount", b.getLeftAmount());
+			map.put("totalAmount", b.getTotalAmount());
+
 			map.put("paymentDate", b.getPaymentDate());
 			map.put("updateDate", b.getUpdateDate());
 			map.put("paymentRegister", b.getPaymentRegister());

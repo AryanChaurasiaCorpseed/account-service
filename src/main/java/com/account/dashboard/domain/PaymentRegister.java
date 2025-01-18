@@ -29,8 +29,7 @@ public class PaymentRegister {
 	private String billingQuantity;//partial ,full ,milestone
 	private String paymentType;//Sales,
 	
-	boolean tdsPresent;
-	int tdsPercent;
+
 	
 	String registerBy;
 
@@ -45,6 +44,10 @@ public class PaymentRegister {
 	private double professionalFees;
 	private double profesionalGst;
 	private int professionalGstPercent;
+	
+	boolean tdsPresent;
+	private double tdsAmount;
+	private int tdsPercent;
 
 	private double serviceCharge;
 	private double serviceGst;
@@ -281,6 +284,12 @@ public class PaymentRegister {
 	}
 	public void setTdsPercent(int tdsPercent) {
 		this.tdsPercent = tdsPercent;
+	}
+	public double getTdsAmount() {
+		return tdsAmount;
+	}
+	public void setTdsAmount(double tdsAmount) {
+		this.tdsAmount = tdsAmount;
 	}
 	
     

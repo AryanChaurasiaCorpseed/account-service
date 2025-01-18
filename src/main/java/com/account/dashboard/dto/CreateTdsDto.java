@@ -12,7 +12,7 @@ public class CreateTdsDto {
 	Long projectId;
 	String paymentRegisterId;
 	double tdsAmount;
-	
+	Long ledgerId;
 	
 	public String getOrganization() {
 		return organization;
@@ -56,6 +56,13 @@ public class CreateTdsDto {
 	public void setTdsAmount(double tdsAmount) {
 		this.tdsAmount = tdsAmount;
 	}
+	public Long getLedgerId() {
+		return ledgerId;
+	}
+	public void setLedgerId(Long ledgerId) {
+		this.ledgerId = ledgerId;
+	}
+	
 	
 	
 }

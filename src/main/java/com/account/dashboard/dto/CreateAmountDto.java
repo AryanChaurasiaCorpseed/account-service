@@ -52,6 +52,8 @@ public class CreateAmountDto {
 	
 	boolean tdsPresent;
 	double tdsPercent;
+	
+	
 
 	public Long getLeadId() {
 		return leadId;
@@ -299,6 +301,22 @@ public class CreateAmountDto {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
+	}
+
+	public boolean isTdsPresent() {
+		return tdsPresent;
+	}
+
+	public double getTdsPercent() {
+		return tdsPercent;
+	}
+
+	public void setTdsPresent(boolean tdsPresent) {
+		this.tdsPresent = tdsPresent;
+	}
+
+	public void setTdsPercent(double tdsPercent) {
+		this.tdsPercent = tdsPercent;
 	}
 
     

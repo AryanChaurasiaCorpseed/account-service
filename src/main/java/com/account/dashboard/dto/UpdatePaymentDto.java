@@ -24,6 +24,9 @@ public class UpdatePaymentDto {
 	private double  govermentfees;
 	private double govermentGst;
 	private double govermentGstPercent;
+	
+	boolean tdsPresent;
+	double tdsPercent;
 
 	private double professionalFees;
 	private double profesionalGst;
@@ -241,6 +244,18 @@ public class UpdatePaymentDto {
 	}
 	public void setOtherGstPercent(double otherGstPercent) {
 		this.otherGstPercent = otherGstPercent;
+	}
+	public boolean isTdsPresent() {
+		return tdsPresent;
+	}
+	public double getTdsPercent() {
+		return tdsPercent;
+	}
+	public void setTdsPresent(boolean tdsPresent) {
+		this.tdsPresent = tdsPresent;
+	}
+	public void setTdsPercent(double tdsPercent) {
+		this.tdsPercent = tdsPercent;
 	}
      
 	
