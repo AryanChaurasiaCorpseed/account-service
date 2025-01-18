@@ -80,6 +80,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 	public PaymentRegister createPaymentRegister(CreateAmountDto createAmountDto) {
 
 		PaymentRegister paymentRegister= new PaymentRegister();
+		paymentRegister.setStatus("initiated");
 		paymentRegister.setEstimateId(createAmountDto.getEstimateId());
 		paymentRegister.setBillingQuantity(createAmountDto.getBillingQuantity());
 		paymentRegister.setPaymentType(createAmountDto.getPaymentType());
@@ -980,6 +981,13 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		}
 		return flag;
 
+	}
+
+
+	@Override
+	public List<PaymentRegister> getPaymentRegisterByEstimateId(long id) {
+		List<PaymentRegister>paymentRegisterList= paymentRegisterRepository.findAllByEstimateId(id);
+		return paymentRegisterList;
 	}
 
 

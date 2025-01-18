@@ -95,6 +95,7 @@ public interface UrlsMapping {
 
 		public static final String PAYMENT_APPROVE=PREFIX+ "/paymentRegister/paymentApprove";
 		public static final String GET_PAYMENT_REGISTER_BY_ID=PREFIX+ "/paymentRegister/getPaymentRegisterById";
+		public static final String GET_PAYMENT_REGISTER_BY_ESTIMATE_ID=PREFIX+ "/paymentRegister/getPaymentRegisterByEstimateId";
 
 		
 	//====================================  BankStatements ===========================================

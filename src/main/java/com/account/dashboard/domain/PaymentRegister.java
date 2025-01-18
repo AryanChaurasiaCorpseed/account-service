@@ -61,6 +61,7 @@ public class PaymentRegister {
 	private String remark;
 	private Date paymentDate;
 	private String estimateNo;
+	String status;
 //	private List<FileData> UploadReceipt;
 	
 	int docPersent;
@@ -290,6 +291,12 @@ public class PaymentRegister {
 	}
 	public void setTdsAmount(double tdsAmount) {
 		this.tdsAmount = tdsAmount;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
     

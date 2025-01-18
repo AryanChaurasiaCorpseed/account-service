@@ -23,4 +23,6 @@ public interface PaymentRegisterService {
 
 	Boolean paymentApproveAndDisapprovedV3(Long paymentRegisterId, Long estimateId);
 
+	List<PaymentRegister> getPaymentRegisterByEstimateId(long id);
+
 }

@@ -75,4 +75,12 @@ public class PaymentRegisterController {
 		return res;
 		
 	}
+	
+	
+	@GetMapping(UrlsMapping.GET_PAYMENT_REGISTER_BY_ESTIMATE_ID)
+	public List<PaymentRegister> getPaymentRegisterByEstimateId(@RequestParam long id){
+		List<PaymentRegister> res=paymentRegisterService.getPaymentRegisterByEstimateId(id);	
+		return res;
+		
+	}
 }
