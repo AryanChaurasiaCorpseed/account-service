@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.account.dashboard.domain.InvoiceData;
 import com.account.dashboard.domain.PaymentRegister;
 import com.account.dashboard.dto.CreateAmountDto;
 import com.account.dashboard.dto.UpdatePaymentDto;
@@ -24,5 +25,9 @@ public interface PaymentRegisterService {
 	Boolean paymentApproveAndDisapprovedV3(Long paymentRegisterId, Long estimateId);
 
 	List<PaymentRegister> getPaymentRegisterByEstimateId(long id);
+
+	Boolean createInvoice(Long id);
+
+	InvoiceData getInvoice(Long id);
 
 }

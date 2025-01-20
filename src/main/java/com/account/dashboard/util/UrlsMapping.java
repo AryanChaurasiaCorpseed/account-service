@@ -92,10 +92,11 @@ public interface UrlsMapping {
 		public static final String GET_ALL_PAYMENT_REGISTER=PREFIX+ "/paymentRegister/getAllPaymentRegister";
 		public static final String UPDATE_PAYMENT_REGISTER=PREFIX+ "/paymentRegister/updatePaymentRegister";
 		public static final String PAYMENT_APPROVE_V2=PREFIX+ "/paymentRegister/paymentApproveV2";
-
 		public static final String PAYMENT_APPROVE=PREFIX+ "/paymentRegister/paymentApprove";
 		public static final String GET_PAYMENT_REGISTER_BY_ID=PREFIX+ "/paymentRegister/getPaymentRegisterById";
 		public static final String GET_PAYMENT_REGISTER_BY_ESTIMATE_ID=PREFIX+ "/paymentRegister/getPaymentRegisterByEstimateId";
+		public static final String CREATE_INVOICE=PREFIX+ "/paymentRegister/createInvoice";
+		public static final String GET_INVOICE=PREFIX+ "/paymentRegister/getInvoice";
 
 		
 	//====================================  BankStatements ===========================================

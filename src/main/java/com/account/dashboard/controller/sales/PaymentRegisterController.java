@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.account.dashboard.domain.InvoiceData;
 import com.account.dashboard.domain.PaymentRegister;
 import com.account.dashboard.domain.account.Voucher;
 import com.account.dashboard.dto.CreateAccountData;
@@ -80,6 +81,21 @@ public class PaymentRegisterController {
 	@GetMapping(UrlsMapping.GET_PAYMENT_REGISTER_BY_ESTIMATE_ID)
 	public List<PaymentRegister> getPaymentRegisterByEstimateId(@RequestParam long id){
 		List<PaymentRegister> res=paymentRegisterService.getPaymentRegisterByEstimateId(id);	
+		return res;
+		
+	}
+	
+	@PutMapping(UrlsMapping.CREATE_INVOICE)
+	public Boolean createInvoice(@RequestParam Long id){
+		Boolean res=paymentRegisterService.createInvoice(id);	
+		return res;
+		
+	}
+	
+	
+	@PutMapping(UrlsMapping.GET_INVOICE)
+	public InvoiceData getInvoice(@RequestParam Long id){
+		InvoiceData res=paymentRegisterService.getInvoice(id);	
 		return res;
 		
 	}
