@@ -86,6 +86,8 @@ public interface UrlsMapping {
 	public static final String GET_ALL_ORGANIIZATION=PREFIX+ "/organization/getAllOrganization";
 	public static final String GET_ALL_ORGANIIZATION_BY_NAME=PREFIX+ "/organization/getAllOrganizationByName";
 	public static final String CREATE_STATUTORY_IN_ORGANIIZATION=PREFIX+ "/organization/createStatutoryInOrganization";
+	public static final String ADD_BANK_ACCOUNT_IN_ORGANIIZATION=PREFIX+ "/organization/addBankAccountInOrganization";
+	public static final String GET_ALL_BANK_ACCOUNT_BY_ORGANIZATION=PREFIX+ "/organization/getAllBankAccountByOrganization";
 
 	//==================================== Payment Register ========================================
 		public static final String CREATE_PAYMENT_REGISTER=PREFIX+ "/paymentRegister/createPaymentRegister";
@@ -97,6 +99,7 @@ public interface UrlsMapping {
 		public static final String GET_PAYMENT_REGISTER_BY_ESTIMATE_ID=PREFIX+ "/paymentRegister/getPaymentRegisterByEstimateId";
 		public static final String CREATE_INVOICE=PREFIX+ "/paymentRegister/createInvoice";
 		public static final String GET_INVOICE=PREFIX+ "/paymentRegister/getInvoice";
+		public static final String LEFT_AMOUNT=PREFIX+ "/paymentRegister/leftAmount";
 
 		
 	//====================================  BankStatements ===========================================

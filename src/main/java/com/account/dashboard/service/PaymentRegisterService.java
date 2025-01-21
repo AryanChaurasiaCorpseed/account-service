@@ -1,6 +1,7 @@
 package com.account.dashboard.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,7 @@ public interface PaymentRegisterService {
 	Boolean createInvoice(Long id);
 
 	InvoiceData getInvoice(Long id);
+
+	Map<String, Integer> leftAmount(Long id);
 
 }

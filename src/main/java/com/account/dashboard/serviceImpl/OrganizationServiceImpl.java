@@ -1,5 +1,6 @@
 package com.account.dashboard.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -7,11 +8,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.account.dashboard.domain.BankAccount;
 import com.account.dashboard.domain.Organization;
 import com.account.dashboard.domain.account.LedgerType;
+import com.account.dashboard.dto.BankAccountDto;
 import com.account.dashboard.dto.CreateLedgerTypeDto;
 import com.account.dashboard.dto.OrganizationDto;
 import com.account.dashboard.dto.StatutoryOrganizationDto;
+import com.account.dashboard.repository.BankAccountRepository;
 import com.account.dashboard.repository.OrganizationRepository;
 import com.account.dashboard.service.OrganizationService;
 
@@ -21,6 +25,9 @@ public class OrganizationServiceImpl implements OrganizationService{
 
 	@Autowired
 	OrganizationRepository  organizationRepository;
+	
+	@Autowired
+	BankAccountRepository bankAccountRepository;
 
 	@Override
 	public Boolean createOrganization(OrganizationDto organizationDto) throws Exception {
@@ -88,6 +95,32 @@ public class OrganizationServiceImpl implements OrganizationService{
 		organizationRepository.save(organization);
 		flag=true;
 		return flag;
+	}
+
+	@Override
+	public Boolean addBankAccountInOrganization(BankAccountDto bankAccountDto) {
+		Boolean flag = false;
+		Organization organization = organizationRepository.findById(bankAccountDto.getBankAccountId()).get();
+		BankAccount bankAccount = new BankAccount();
+		bankAccount.setAccountHolderName(bankAccountDto.getAccountHolderName());
+		bankAccount.setAccountNo(bankAccountDto.getAccountNo());
+		bankAccount.setBranch(bankAccountDto.getBranch());
+		bankAccount.setIfscCode(bankAccountDto.getIfscCode());
+		bankAccount.setSwiftCode(bankAccountDto.getSwiftCode());
+		bankAccountRepository.save(bankAccount);
+		
+		List<BankAccount>list = organization.getOrganizationBankAccount();
+		list.add(bankAccount);
+		organization.setOrganizationBankAccount(list);
+		organizationRepository.save(organization);
+		flag=true;
+		return flag;
+	}
+
+	@Override
+	public List<BankAccount> getAllBankAccountByOrganization(Long organizationId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

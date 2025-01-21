@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.account.dashboard.domain.BankAccount;
 import com.account.dashboard.domain.Organization;
+import com.account.dashboard.dto.BankAccountDto;
 import com.account.dashboard.dto.CreateLedgerTypeDto;
 import com.account.dashboard.dto.OrganizationDto;
 import com.account.dashboard.dto.StatutoryOrganizationDto;
@@ -49,6 +51,20 @@ public class OrganizationController {
 	@PostMapping(UrlsMapping.CREATE_STATUTORY_IN_ORGANIIZATION)
 	public Boolean createStatutoryInOrganization(@RequestBody StatutoryOrganizationDto statutoryOrganizationDto) throws Exception{
 		Boolean res=organizationService.createStatutoryInOrganization(statutoryOrganizationDto);	
+		return res;
+	}
+	
+	@PostMapping(UrlsMapping.ADD_BANK_ACCOUNT_IN_ORGANIIZATION)
+	public Boolean addBankAccountInOrganization(@RequestBody BankAccountDto bankAccountDto) throws Exception{
+		Boolean res=organizationService.addBankAccountInOrganization(bankAccountDto);	
+		return res;
+	}
+	
+	
+
+	@GetMapping(UrlsMapping.GET_ALL_BANK_ACCOUNT_BY_ORGANIZATION)
+	public List<BankAccount> getAllBankAccountByOrganization(@RequestParam Long organizationId ) throws Exception{
+		List<BankAccount> res=organizationService.getAllBankAccountByOrganization(organizationId);	
 		return res;
 	}
 	

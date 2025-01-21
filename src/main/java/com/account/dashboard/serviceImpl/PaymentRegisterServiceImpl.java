@@ -536,7 +536,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		invoiceData.setPrimaryContactId(estimateId);
 
 		invoiceData.setProductName(feignLeadClient.get("productName").toString());
-
+		invoiceData.setEstimateId(estimateId);
 
 		String assignee = feignLeadClient.get("assigneeIds").toString();
 		Long assigneeId=Long.parseLong(assignee);
@@ -977,6 +977,19 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 	public InvoiceData getInvoice(Long id) {
 		InvoiceData invoiceData = invoiceDataRepository.findById(id).get();
 		return invoiceData;
+	}
+
+
+	@Override
+	public Map<String, Integer> leftAmount(Long id) {
+		String status="approved";
+		List<PaymentRegister>paymentRegister=paymentRegisterRepository.findAllByEstimateId(id,status);
+		double totalRegisterAmount=0;
+		for(PaymentRegister pr: paymentRegister ) {
+			totalRegisterAmount=totalRegisterAmount+pr.getTotalAmount();
+		}
+		
+		return null;
 	}
 
 

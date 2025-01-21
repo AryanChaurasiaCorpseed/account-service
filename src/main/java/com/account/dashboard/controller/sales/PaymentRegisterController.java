@@ -1,6 +1,7 @@
 package com.account.dashboard.controller.sales;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -99,4 +100,12 @@ public class PaymentRegisterController {
 		return res;
 		
 	}
+	
+	@GetMapping(UrlsMapping.LEFT_AMOUNT)
+	public Map<String,Integer> leftAmount(@RequestParam Long id){
+		Map<String,Integer> res=paymentRegisterService.leftAmount(id);	
+		return res;
+		
+	}
+	
 }
