@@ -114,5 +114,10 @@ public interface UrlsMapping {
 		public static final String CREATE_TDS=PREFIX+ "/tds/createTds";
 		public static final String GET_ALL_TDS=PREFIX+ "/tds/getAllTds";
 		public static final String GET_ALL_TDS_COUNT=PREFIX+ "/tds/getAllTdsCount";
+		
+	// = ==========================================  File Upload = = = = =     = == = = = = = == == = = = = 	
+		
+		public static final String UPLOAD_IMAGE_TO_FILE=PREFIX+"/upload/uploadimageToFileSystem";
+		public static final String GET_IMAGE_TO_FILE=PREFIX+"/upload/getImageToFileSystem";
 
 }
