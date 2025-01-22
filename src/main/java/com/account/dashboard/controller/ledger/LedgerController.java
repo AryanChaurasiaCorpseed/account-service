@@ -49,4 +49,10 @@ public class LedgerController {
 		return res;
 	}
 	
+	@GetMapping(UrlsMapping.GLOBAL_SEARCH_LEDGER)
+	public List<Ledger> globalSearchLedger(@RequestParam String name){
+		List<Ledger> res=ledgerService.globalSearchLedger(name);	
+		return res;
+	}
+	
 }
