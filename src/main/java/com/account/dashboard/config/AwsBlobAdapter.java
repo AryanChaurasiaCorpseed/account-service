@@ -16,6 +16,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 @Service
 public class AwsBlobAdapter {
 
+	
 
     @Autowired
     AmazonS3 amazonS3Client;
