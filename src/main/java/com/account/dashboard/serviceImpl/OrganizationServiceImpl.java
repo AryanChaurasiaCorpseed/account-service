@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -119,8 +120,8 @@ public class OrganizationServiceImpl implements OrganizationService{
 
 	@Override
 	public List<BankAccount> getAllBankAccountByOrganization(Long organizationId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<BankAccount> bankAccountList = organizationRepository.findById(organizationId).get().getOrganizationBankAccount();
+	    return bankAccountList;
 	}
 
 }
