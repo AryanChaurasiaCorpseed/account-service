@@ -22,4 +22,7 @@ public interface LedgerTypeService {
 
 	LedgerType getAllLedgerTypeById(Long id);
 
+
+	List<LedgerType> groupSearchApi(String name);
+
 }

@@ -38,6 +38,7 @@ public interface UrlsMapping {
 	public static final String GET_ALL_LEDGER_TYPE=PREFIX+ "/ledgerType/getAllLedgerType";
 	public static final String DELETE_LEDGER_TYPE=PREFIX+ "/ledgerType/deleteLedgerType";
 	public static final String GET_ALL_LEDGER_TYPE_BY_ID=PREFIX+ "/ledgerType/getAllLedgerTypeById";
+	public static final String GROUP_SEARCH_API=PREFIX+ "/ledgerType/groupSearchApi";
 
 	
 	//================================ Ledger ==========================================
