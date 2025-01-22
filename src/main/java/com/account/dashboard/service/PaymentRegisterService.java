@@ -33,4 +33,6 @@ public interface PaymentRegisterService {
 
 	Map<String, Integer> leftAmount(Long id);
 
+	List<PaymentRegister> getAllPaymentRegisterByStatus(String status);
+
 }

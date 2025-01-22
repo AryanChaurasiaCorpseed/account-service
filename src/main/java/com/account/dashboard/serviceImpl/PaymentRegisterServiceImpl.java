@@ -1,5 +1,6 @@
 package com.account.dashboard.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -990,6 +991,18 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		}
 		
 		return null;
+	}
+
+
+	@Override
+	public List<PaymentRegister> getAllPaymentRegisterByStatus(String status) {
+		List<PaymentRegister>paymentRegister=new ArrayList<>();
+		if(status!=null) {
+			paymentRegister=paymentRegisterRepository.findAllByEstimateId(status);
+		}else {
+			paymentRegister=paymentRegisterRepository.findAll();
+		}
+		return paymentRegister;
 	}
 
 

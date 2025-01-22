@@ -108,4 +108,11 @@ public class PaymentRegisterController {
 		
 	}
 	
+	@GetMapping(UrlsMapping.GET_ALL_PAYMENT_REGISTER_BY_STATUS)
+	public List<PaymentRegister> getAllPaymentRegisterByStatus(@RequestParam String status){
+		List<PaymentRegister> res=paymentRegisterService.getAllPaymentRegisterByStatus(status);	
+		return res;
+		
+	}
+	
 }

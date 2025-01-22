@@ -100,6 +100,7 @@ public interface UrlsMapping {
 		public static final String CREATE_INVOICE=PREFIX+ "/paymentRegister/createInvoice";
 		public static final String GET_INVOICE=PREFIX+ "/paymentRegister/getInvoice";
 		public static final String LEFT_AMOUNT=PREFIX+ "/paymentRegister/leftAmount";
+		public static final String GET_ALL_PAYMENT_REGISTER_BY_STATUS=PREFIX+ "/paymentRegister/getAllPaymentRegisterByStatus";
 
 		
 	//====================================  BankStatements ===========================================
