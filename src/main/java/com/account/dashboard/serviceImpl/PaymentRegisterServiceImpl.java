@@ -1006,6 +1006,17 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 	}
 
 
+	@Override
+	public Boolean paymentDisapproved(Long id) {
+		Boolean flag=false;
+		PaymentRegister payment = paymentRegisterRepository.findById(id).get();
+		payment.setStatus("disapproved");
+		paymentRegisterRepository.save(payment);
+		flag=true;
+		return flag;
+	}
+
+
 
 
 

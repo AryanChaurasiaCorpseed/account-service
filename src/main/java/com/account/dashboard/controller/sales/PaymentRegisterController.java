@@ -57,6 +57,13 @@ public class PaymentRegisterController {
 		
 	}
 	
+	@PutMapping(UrlsMapping.PAYMENT_DISSAPPROVE)
+	public Boolean paymentDisapproved(@RequestBody Long id){
+		Boolean res=paymentRegisterService.paymentDisapproved(id);	
+		return res;
+		
+	}
+	
 	@GetMapping(UrlsMapping.GET_PAYMENT_REGISTER_BY_ID)
 	public PaymentRegister getPaymentRegisterById(@RequestParam long id){
 		PaymentRegister res=paymentRegisterService.getPaymentRegisterById(id);	

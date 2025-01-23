@@ -35,4 +35,6 @@ public interface PaymentRegisterService {
 
 	List<PaymentRegister> getAllPaymentRegisterByStatus(String status);
 
+	Boolean paymentDisapproved(Long id);
+
 }
