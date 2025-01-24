@@ -34,6 +34,8 @@ import com.account.dashboard.repository.VoucherRepository;
 import com.account.dashboard.repository.VoucherTypeRepo;
 import com.account.dashboard.service.PaymentRegisterService;
 
+import jakarta.transaction.Transactional;
+
 
 
 @Service
@@ -100,6 +102,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 			double profFees=onePercent*actualProfPercetage;
 			paymentRegister.setProfessionalFees(profFees);
 			paymentRegister.setTdsPresent(true);
+			paymentRegister.setTdsPercent(createAmountDto.getTdsPercent());
 			paymentRegister.setTdsAmount(tdsAmount);
 		}else {
 			paymentRegister.setProfessionalFees(createAmountDto.getProfessionalFees());
@@ -701,6 +704,15 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 				tdsRegister.setCreditDebit(true);
 				tdsRegister.setCreateDate(new Date());
 				tdsRegister.setCreditAmount(paymentRegister.getTdsAmount()+"");
+				Ledger l = ledgerRepository.findByName(paymentRegister.getCompanyName());
+				if(l!=null) {
+					tdsRegister.setLedger(l);
+				}else {
+					l=new Ledger();
+					l.setName(paymentRegister.getCompanyName());
+					ledgerRepository.save(l);
+					tdsRegister.setLedger(l);
+				}
 				tdsRegister.setCreateDate(new Date());
 				tdsRegister.setLedger(ledger);
 				tdsRegister.setEstimateId(estimateId);
@@ -721,7 +733,9 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 				CreateTdsDto createTdsDto= new CreateTdsDto();
 				createTdsDto.setOrganization(paymentRegister.getCompanyName());
 				createTdsDto.setPaymentRegisterId(paymentRegister.getTransactionId());
-				createTdsDto.setLedgerId(ledger.getId());
+				if(ledger!=null) {
+					createTdsDto.setLedgerId(ledger.getId());
+				}
 				createTdsDto.setTdsAmount(paymentRegister.getTdsAmount());
 				createTdsDto.setTdsPrecent(paymentRegister.getTdsPercent());
 				createTdsDto.setTdsType("receivable");
@@ -754,15 +768,15 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 				totalAmountRegister.setLedger(ledger);
 				Ledger prod =ledgerRepository.findByName(paymentRegister.getServiceName());
 				if(prod!=null) {
-					totalAmountRegister.setProduct(prod);
-
+					totalAmountRegister.setLedger(prod);
 				}else {
 					prod=new Ledger();
 					prod.setName(paymentRegister.getServiceName());
 					ledgerRepository.save(prod);
-					totalAmountRegister.setProduct(prod);
-
+					totalAmountRegister.setLedger(prod);
 				}
+				
+				
 				totalAmountRegister.setLedger(ledger);
 				Ledger p = ledgerRepository.findByName(paymentRegister.getServiceName());
 				if(p!=null) {
@@ -772,6 +786,8 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 					p =new Ledger();
 					p.setName(paymentRegister.getServiceName());
 					ledgerRepository.save(p);
+					totalAmountRegister.setProduct(p);
+
 				}
 				
 				totalAmountRegister.setProduct(p);
@@ -920,6 +936,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 
 					}
 					v.setEstimateId(paymentRegister.getEstimateId());
+					System.out.println("tttttttttttttttttttttttttttt");
 
 					voucherRepository.save(v);   
 
@@ -950,12 +967,16 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 						CreateTdsDto createTdsDto= new CreateTdsDto();
 						createTdsDto.setOrganization(paymentRegister.getCompanyName());
 						createTdsDto.setPaymentRegisterId(paymentRegister.getTransactionId());
-						createTdsDto.setLedgerId(ledger.getId());
+						if(ledger!=null) {
+							createTdsDto.setLedgerId(ledger.getId());
+						}
 						createTdsDto.setTdsAmount(paymentRegister.getTdsAmount());
 						createTdsDto.setTdsPrecent(paymentRegister.getTdsPercent());
 						createTdsDto.setTdsType("receivable");
 						createTdsDto.setTotalPaymentAmount(paymentRegister.getProfessionalFees()+paymentRegister.getTdsAmount());
 						tdsServiceImpl.createTds(createTdsDto);
+						System.out.println("tnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+
 					}
 
 					flag=true;
@@ -1016,7 +1037,18 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		return flag;
 	}
 
-
+	@Transactional
+	public Boolean allPaymentApprovedV3(Long id) {
+		Boolean flag=false;
+		PaymentRegister paymentRegister = paymentRegisterRepository.findById(id).get();
+		Boolean invoice = createInvoice(paymentRegister.getEstimateId());
+		Boolean payment = paymentApproveAndDisapprovedV3(paymentRegister.getId() ,paymentRegister.getEstimateId());
+	    if(invoice && payment) {
+	    	flag=true;
+	    }
+	    return flag;
+	}
+//    ̥
 
 
 

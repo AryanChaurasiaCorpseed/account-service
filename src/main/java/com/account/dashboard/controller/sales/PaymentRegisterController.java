@@ -122,4 +122,11 @@ public class PaymentRegisterController {
 		
 	}
 	
+	@PutMapping(UrlsMapping.PAYMENT_APPROVE_V3)
+	public Boolean paymentApproveAndDisapprovedv3(@RequestParam Long paymentRegisterId ,@RequestParam Long estimateId){
+		Boolean res=paymentRegisterService.allPaymentApprovedV3(paymentRegisterId);	
+		return res;
+		
+	}
+	
 }

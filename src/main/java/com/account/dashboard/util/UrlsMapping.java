@@ -104,6 +104,7 @@ public interface UrlsMapping {
 		public static final String LEFT_AMOUNT=PREFIX+ "/paymentRegister/leftAmount";
 		public static final String GET_ALL_PAYMENT_REGISTER_BY_STATUS=PREFIX+ "/paymentRegister/getAllPaymentRegisterByStatus";
 		public static final String PAYMENT_DISSAPPROVE=PREFIX+ "/paymentRegister/paymentDissapprove";
+		public static final String PAYMENT_APPROVE_V3=PREFIX+ "/paymentRegister/paymentApproveV3";
 
 		
 	//====================================  BankStatements ===========================================

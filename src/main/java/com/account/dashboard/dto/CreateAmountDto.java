@@ -51,7 +51,7 @@ public class CreateAmountDto {
 	String companyName;
 	
 	boolean tdsPresent;
-	double tdsPercent;
+	int tdsPercent;
 	
 	
 
@@ -307,18 +307,19 @@ public class CreateAmountDto {
 		return tdsPresent;
 	}
 
-	public double getTdsPercent() {
-		return tdsPercent;
-	}
-
 	public void setTdsPresent(boolean tdsPresent) {
 		this.tdsPresent = tdsPresent;
 	}
 
-	public void setTdsPercent(double tdsPercent) {
+	public int getTdsPercent() {
+		return tdsPercent;
+	}
+
+	public void setTdsPercent(int tdsPercent) {
 		this.tdsPercent = tdsPercent;
 	}
 
+     
     
 	
 }

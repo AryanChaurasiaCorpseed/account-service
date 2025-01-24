@@ -37,4 +37,6 @@ public interface PaymentRegisterService {
 
 	Boolean paymentDisapproved(Long id);
 
+	Boolean allPaymentApprovedV3(Long paymentRegisterId);
+
 }
