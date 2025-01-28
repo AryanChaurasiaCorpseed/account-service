@@ -23,8 +23,7 @@ public class LedgerController {
 	
 	@Autowired
 	LedgerService ledgerService;
-	
-	
+
 	
 	@PostMapping(UrlsMapping.CREATE_LEDGER)
 	public Boolean createLedger(@RequestBody LedgerDto ledgerDto){
@@ -47,6 +46,12 @@ public class LedgerController {
 	@GetMapping(UrlsMapping.GET_LEDGER_BY_ID)
 	public Ledger getLedgerById(@RequestParam Long id){
 		Ledger res=ledgerService.getLedgerById(id);	
+		return res;
+	}
+	
+	@GetMapping(UrlsMapping.GLOBAL_SEARCH_LEDGER)
+	public List<Ledger> globalSearchLedger(@RequestParam String name){
+		List<Ledger> res=ledgerService.globalSearchLedger(name);	
 		return res;
 	}
 	

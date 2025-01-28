@@ -159,6 +159,12 @@ public class LedgerServiceImpl implements LedgerService{
 		return ledger;
 	}
 
+	@Override
+	public List<Ledger> globalSearchLedger(String name) {
+		List<Ledger> ledger=ledgerRepository.findByNameLike(name);
+		return ledger;
+	}
+
 
 
 }

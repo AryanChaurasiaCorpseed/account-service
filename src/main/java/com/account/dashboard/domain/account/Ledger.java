@@ -27,6 +27,11 @@ public class Ledger {
 	@ManyToOne
 	LedgerType ledgerType;
 	
+	String source;//sales
+	Long estimateId;
+	Long companyId;
+	
+	
 	String email;
 	
 	String address;	
@@ -243,6 +248,24 @@ public class Ledger {
 	}
 	public void setBranch(String branch) {
 		this.branch = branch;
+	}
+	public String getSource() {
+		return source;
+	}
+	public Long getEstimateId() {
+		return estimateId;
+	}
+	public Long getCompanyId() {
+		return companyId;
+	}
+	public void setSource(String source) {
+		this.source = source;
+	}
+	public void setEstimateId(Long estimateId) {
+		this.estimateId = estimateId;
+	}
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
 	}
 	
 	

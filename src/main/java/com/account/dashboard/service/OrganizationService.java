@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.account.dashboard.domain.BankAccount;
 import com.account.dashboard.domain.Organization;
+import com.account.dashboard.dto.BankAccountDto;
 import com.account.dashboard.dto.CreateLedgerTypeDto;
 import com.account.dashboard.dto.OrganizationDto;
 import com.account.dashboard.dto.StatutoryOrganizationDto;
@@ -21,5 +23,9 @@ public interface OrganizationService {
 	Organization getAllOrganizationByName(String name);
 
 	Boolean createStatutoryInOrganization(StatutoryOrganizationDto statutoryOrganizationDto);
+
+	Boolean addBankAccountInOrganization(BankAccountDto bankAccountDto);
+
+	List<BankAccount> getAllBankAccountByOrganization(Long organizationId);
 
 }

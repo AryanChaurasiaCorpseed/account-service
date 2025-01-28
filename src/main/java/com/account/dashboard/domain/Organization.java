@@ -3,10 +3,15 @@ package com.account.dashboard.domain;
 import java.util.Date;
 import java.util.List;
 
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.Getter;
@@ -14,9 +19,9 @@ import lombok.Setter;
 
 @Table
 @Entity
-@Getter
-@Setter
-@Data
+//@Getter
+//@Setter
+//@Data
 public class Organization {
 	
 	@Id
@@ -59,6 +64,13 @@ public class Organization {
 	String swiftCode;
 	String bankName;
 	String branch;
+	
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="organization_bank_account",joinColumns = {@JoinColumn(name="organization_id",referencedColumnName="id",nullable=true)},
+			inverseJoinColumns = {@JoinColumn(name="organization_bank_account_id"
+					+ "",referencedColumnName = "id",nullable=true,unique=false)})
+	List<BankAccount>organizationBankAccount;
 
 	public Long getId() {
 		return id;
@@ -209,6 +221,12 @@ public class Organization {
 	}
 	public void setBranch(String branch) {
 		this.branch = branch;
+	}
+	public List<BankAccount> getOrganizationBankAccount() {
+		return organizationBankAccount;
+	}
+	public void setOrganizationBankAccount(List<BankAccount> organizationBankAccount) {
+		this.organizationBankAccount = organizationBankAccount;
 	}
 	
 	

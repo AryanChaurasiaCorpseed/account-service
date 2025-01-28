@@ -57,5 +57,11 @@ public class LedgerTypeController {
 		return res;
 	}
 	
+	@GetMapping(UrlsMapping.GROUP_SEARCH_API)
+	public List<LedgerType> groupSearchApi(@RequestParam String name){
+		List<LedgerType> res=ledgerService.groupSearchApi(name);	
+		return res;
+	}
+	
 	
 }

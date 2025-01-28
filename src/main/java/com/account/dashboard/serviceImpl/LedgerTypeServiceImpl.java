@@ -98,6 +98,14 @@ public class LedgerTypeServiceImpl implements LedgerTypeService{
 		return ledgerType;
 	}
 
+
+
+	@Override
+	public List<LedgerType> groupSearchApi(String name) {
+		List<LedgerType>ledgerType=ledgerTypeRepository.findByNameGlobal(name);
+		return ledgerType;
+	}
+
 	
 	
 

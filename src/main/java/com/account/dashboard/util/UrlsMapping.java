@@ -38,6 +38,7 @@ public interface UrlsMapping {
 	public static final String GET_ALL_LEDGER_TYPE=PREFIX+ "/ledgerType/getAllLedgerType";
 	public static final String DELETE_LEDGER_TYPE=PREFIX+ "/ledgerType/deleteLedgerType";
 	public static final String GET_ALL_LEDGER_TYPE_BY_ID=PREFIX+ "/ledgerType/getAllLedgerTypeById";
+	public static final String GROUP_SEARCH_API=PREFIX+ "/ledgerType/groupSearchApi";
 
 	
 	//================================ Ledger ==========================================
@@ -46,6 +47,7 @@ public interface UrlsMapping {
 	public static final String UPDATE_LEDGER=PREFIX+ "/ledger/updateLedger";
 	public static final String GET_ALL_LEDGER=PREFIX+ "/ledger/getAllLedger";
 	public static final String GET_LEDGER_BY_ID=PREFIX+ "/ledger/getLedgerById";
+	public static final String GLOBAL_SEARCH_LEDGER=PREFIX+ "/ledger/globalSearchLedger";
 
 	//================================ Voucher Type ==========================================
 
@@ -86,7 +88,38 @@ public interface UrlsMapping {
 	public static final String GET_ALL_ORGANIIZATION=PREFIX+ "/organization/getAllOrganization";
 	public static final String GET_ALL_ORGANIIZATION_BY_NAME=PREFIX+ "/organization/getAllOrganizationByName";
 	public static final String CREATE_STATUTORY_IN_ORGANIIZATION=PREFIX+ "/organization/createStatutoryInOrganization";
+	public static final String ADD_BANK_ACCOUNT_IN_ORGANIIZATION=PREFIX+ "/organization/addBankAccountInOrganization";
+	public static final String GET_ALL_BANK_ACCOUNT_BY_ORGANIZATION=PREFIX+ "/organization/getAllBankAccountByOrganization";
 
-	
+	//==================================== Payment Register ========================================
+		public static final String CREATE_PAYMENT_REGISTER=PREFIX+ "/paymentRegister/createPaymentRegister";
+		public static final String GET_ALL_PAYMENT_REGISTER=PREFIX+ "/paymentRegister/getAllPaymentRegister";
+		public static final String UPDATE_PAYMENT_REGISTER=PREFIX+ "/paymentRegister/updatePaymentRegister";
+		public static final String PAYMENT_APPROVE_V2=PREFIX+ "/paymentRegister/paymentApproveV2";
+		public static final String PAYMENT_APPROVE=PREFIX+ "/paymentRegister/paymentApprove";
+		public static final String GET_PAYMENT_REGISTER_BY_ID=PREFIX+ "/paymentRegister/getPaymentRegisterById";
+		public static final String GET_PAYMENT_REGISTER_BY_ESTIMATE_ID=PREFIX+ "/paymentRegister/getPaymentRegisterByEstimateId";
+		public static final String CREATE_INVOICE=PREFIX+ "/paymentRegister/createInvoice";
+		public static final String GET_INVOICE=PREFIX+ "/paymentRegister/getInvoice";
+		public static final String LEFT_AMOUNT=PREFIX+ "/paymentRegister/leftAmount";
+		public static final String GET_ALL_PAYMENT_REGISTER_BY_STATUS=PREFIX+ "/paymentRegister/getAllPaymentRegisterByStatus";
+		public static final String PAYMENT_DISSAPPROVE=PREFIX+ "/paymentRegister/paymentDissapprove";
+		public static final String PAYMENT_APPROVE_V3=PREFIX+ "/paymentRegister/paymentApproveV3";
+
+		
+	//====================================  BankStatements ===========================================
+		public static final String CREATE_BANK_STATEMENTS=PREFIX+ "/bankStatements/createBankStatement";
+		public static final String GET_UNUSED_BANK_STATEMENTS=PREFIX+ "/bankStatements/getUnusedBankStatement";
+		public static final String GET_ALL_BANK_STATEMENTS=PREFIX+ "/bankStatements/getAllBankStatements";
+		public static final String ADD_REGISTER_AMOUNT_IN_BANK_STATEMENTS =PREFIX+ "/bankStatements/addRegisterAmountInBankStatement";
+// =  == ================================== Tds Api creation =======================================
+		public static final String CREATE_TDS=PREFIX+ "/tds/createTds";
+		public static final String GET_ALL_TDS=PREFIX+ "/tds/getAllTds";
+		public static final String GET_ALL_TDS_COUNT=PREFIX+ "/tds/getAllTdsCount";
+		
+	// = ==========================================  File Upload = = = = =     = == = = = = = == == = = = = 	
+		
+		public static final String UPLOAD_IMAGE_TO_FILE=PREFIX+"/upload/uploadimageToFileSystem";
+		public static final String GET_IMAGE_TO_FILE=PREFIX+"/upload/getImageToFileSystem";
 
 }

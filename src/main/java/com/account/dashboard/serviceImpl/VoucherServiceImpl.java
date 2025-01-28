@@ -86,7 +86,7 @@ public class VoucherServiceImpl implements VoucherService{
 	}
 
 	@Override
-	public List<Voucher> getAllVoucher() {
+	public List<Voucher>  getAllVoucher() {
 		List<Voucher>voucher=voucherRepository.findAll();
 		return voucher;
 	}
@@ -167,7 +167,7 @@ public class VoucherServiceImpl implements VoucherService{
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
 
-				//        		totalAmount=totalAmount+debitAmount-creditAmount;
+				        		totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
 				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				//        	
@@ -185,7 +185,7 @@ public class VoucherServiceImpl implements VoucherService{
 
 				}
 
-				totalAmount=totalAmount+debitAmount;
+				totalAmount=totalAmount-debitAmount;
 
 			}
 		}
@@ -262,7 +262,7 @@ public class VoucherServiceImpl implements VoucherService{
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
 
-				//        		totalAmount=totalAmount+debitAmount-creditAmount;
+				        		totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
 				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				//        	
@@ -280,7 +280,7 @@ public class VoucherServiceImpl implements VoucherService{
 
 				}
 
-				totalAmount=totalAmount+debitAmount;
+				totalAmount=totalAmount-debitAmount;
 
 			}
 		}
@@ -311,9 +311,9 @@ public class VoucherServiceImpl implements VoucherService{
 		String dateString = dateFormat.format(date);
 		List<Voucher>voucherList=voucherRepository.findByIdInBetween(startDate,dateString);
 
-		long totalCredit=0;
-		long totalDebit=0;
-		long totalAmount=0;
+		double totalCredit=0;
+		double totalDebit=0;
+		double totalAmount=0;
 		for(Voucher v:voucherList) {
 			Map<String,Object>map = new HashMap<>();
 			map.put("id", v.getId());
@@ -334,16 +334,16 @@ public class VoucherServiceImpl implements VoucherService{
 			res.add(map);
 
 			if(v.isCreditDebit()) {
-				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
-				long creditAmount =Long.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
+				double debitAmount =Double.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				double creditAmount =Double.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
 
-				totalAmount=totalAmount+debitAmount-creditAmount;
+				totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
-				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				double debitAmount =Double.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				totalDebit=totalDebit+debitAmount;
-				totalAmount=totalAmount+debitAmount;
+				totalAmount=totalAmount-debitAmount;
 
 			}
 		}
@@ -387,11 +387,11 @@ public class VoucherServiceImpl implements VoucherService{
 				long creditAmount =Long.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
-				totalAmount=totalAmount+debitAmount-creditAmount;
+				totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
 				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				totalDebit=totalDebit+debitAmount;
-				totalAmount=totalAmount+debitAmount;
+				totalAmount=totalAmount-debitAmount;
 
 			}
 		}

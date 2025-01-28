@@ -21,6 +21,8 @@ public class Voucher {
 	
 	String companyName;
 	
+	Long estimateId;
+	
 	@ManyToOne
 	Ledger ledger;
 	
@@ -148,6 +150,12 @@ public class Voucher {
 	}
 	public void setSgst(String sgst) {
 		this.sgst = sgst;
+	}
+	public Long getEstimateId() {
+		return estimateId;
+	}
+	public void setEstimateId(Long estimateId) {
+		this.estimateId = estimateId;
 	}
 	
 	

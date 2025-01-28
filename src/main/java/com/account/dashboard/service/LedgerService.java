@@ -18,4 +18,6 @@ public interface LedgerService {
 
 	Ledger getLedgerById(Long id);
 
+	List<Ledger> globalSearchLedger(String name);
+
 }

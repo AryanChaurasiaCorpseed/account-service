@@ -21,12 +21,6 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @Controller
 public class BankDetailsController {
 	
-	Long id;
-	String bankName;
-	String ifscCode;
-	String branchName;
-	String branch;
-	
 	
 	@Autowired
 	BankDetailsService bankDetailsService ;
