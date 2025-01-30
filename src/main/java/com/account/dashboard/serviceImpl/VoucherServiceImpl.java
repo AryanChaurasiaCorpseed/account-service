@@ -202,9 +202,9 @@ public class VoucherServiceImpl implements VoucherService{
 		List<Voucher> voucherList = voucherRepository.findAllByLedgerId(ledgerId);
 		Map<String,Object>result = new HashMap<>();
 		List<Map<String, Object>>res= new ArrayList<>();
-		long totalCredit=0;
-		long totalDebit=0;
-		long totalAmount=0;
+		double totalCredit=0;
+		double totalDebit=0;
+		double totalAmount=0;
 		for(Voucher v:voucherList) {
 			Map<String,Object>map = new HashMap<>();
 			map.put("id", v.getId());
@@ -231,8 +231,8 @@ public class VoucherServiceImpl implements VoucherService{
 			res.add(map);
 
 			if(v.isCreditDebit()) {
-				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
-				long creditAmount =Long.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
+				double debitAmount =Double.parseDouble(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				double creditAmount =Double.parseDouble(v.getCreditAmount()!=null?v.getCreditAmount():"0");
 
 
 
@@ -253,8 +253,8 @@ public class VoucherServiceImpl implements VoucherService{
 						creditAmount=creditAmount+amount;
 					}
 					if(v.isCgstSgstPresent()) {
-						long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
-						long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
+						double a1 =Double.parseDouble(v.getCgst()!=null?v.getCgst():"0");
+						double a2 =Double.parseDouble(v.getSgst()!=null?v.getSgst():"0");
 						creditAmount=creditAmount+a1+a2;
 
 					}
@@ -264,7 +264,7 @@ public class VoucherServiceImpl implements VoucherService{
 
 				        		totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
-				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				double debitAmount =Double.parseDouble(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				//        	
 
 				totalDebit=totalDebit+debitAmount;
@@ -274,8 +274,8 @@ public class VoucherServiceImpl implements VoucherService{
 					debitAmount=debitAmount+amount;
 				}
 				if(v.isCgstSgstPresent()) {
-					long a1 =Long.valueOf(v.getCgst()!=null?v.getCgst():"0");
-					long a2 =Long.valueOf(v.getSgst()!=null?v.getSgst():"0");
+					double a1 =Double.parseDouble(v.getCgst()!=null?v.getCgst():"0");
+					double a2 =Double.parseDouble(v.getSgst()!=null?v.getSgst():"0");
 					debitAmount=debitAmount+a1+a2;
 
 				}

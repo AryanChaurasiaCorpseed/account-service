@@ -2,6 +2,7 @@ package com.account.dashboard.domain.account;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -45,7 +46,8 @@ public class Ledger {
 	//hsn details
     boolean hsnSacPrsent;
 	String hsnSacDetails;
-	String HsnSac;
+	 @Column(name = "hsn_sac_name")
+	String hsnSacName;
 	String hsnDescription;
 
 
@@ -63,6 +65,7 @@ public class Ledger {
 	
 	// BankDetails
 	boolean bankAccountPrsent;
+	
 	String accountHolderName;
 	String accountNo;
 	String ifscCode;
@@ -77,6 +80,15 @@ public class Ledger {
 	}
 	public LedgerType getLedgerType() {
 		return ledgerType;
+	}
+	public String getSource() {
+		return source;
+	}
+	public Long getEstimateId() {
+		return estimateId;
+	}
+	public Long getCompanyId() {
+		return companyId;
 	}
 	public String getEmail() {
 		return email;
@@ -105,8 +117,8 @@ public class Ledger {
 	public String getHsnSacDetails() {
 		return hsnSacDetails;
 	}
-	public String getHsnSac() {
-		return HsnSac;
+	public String getHsnSacName() {
+		return hsnSacName;
 	}
 	public String getHsnDescription() {
 		return hsnDescription;
@@ -168,6 +180,15 @@ public class Ledger {
 	public void setLedgerType(LedgerType ledgerType) {
 		this.ledgerType = ledgerType;
 	}
+	public void setSource(String source) {
+		this.source = source;
+	}
+	public void setEstimateId(Long estimateId) {
+		this.estimateId = estimateId;
+	}
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
+	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -195,8 +216,8 @@ public class Ledger {
 	public void setHsnSacDetails(String hsnSacDetails) {
 		this.hsnSacDetails = hsnSacDetails;
 	}
-	public void setHsnSac(String hsnSac) {
-		HsnSac = hsnSac;
+	public void setHsnSacName(String hsnSacName) {
+		this.hsnSacName = hsnSacName;
 	}
 	public void setHsnDescription(String hsnDescription) {
 		this.hsnDescription = hsnDescription;
@@ -249,26 +270,6 @@ public class Ledger {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-	public String getSource() {
-		return source;
-	}
-	public Long getEstimateId() {
-		return estimateId;
-	}
-	public Long getCompanyId() {
-		return companyId;
-	}
-	public void setSource(String source) {
-		this.source = source;
-	}
-	public void setEstimateId(Long estimateId) {
-		this.estimateId = estimateId;
-	}
-	public void setCompanyId(Long companyId) {
-		this.companyId = companyId;
-	}
-	
-	
 	
 	
 	

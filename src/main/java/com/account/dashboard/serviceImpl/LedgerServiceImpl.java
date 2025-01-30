@@ -47,7 +47,7 @@ public class LedgerServiceImpl implements LedgerService{
 		if(ledgerDto.isHsnSacPresent()) {
 			l.setHsnSacDetails(ledgerDto.getHsnSacDetails());
 			l.setHsnSacPrsent(ledgerDto.isHsnSacPresent());
-			l.setHsnSac(ledgerDto.getHsnSac());
+			l.setHsnSacName(ledgerDto.getHsnSac());
 			l.setHsnDescription(ledgerDto.getHsnDescription());
 		}
 		if(ledgerDto.isGstRateDetailPresent()) {
@@ -128,7 +128,7 @@ public class LedgerServiceImpl implements LedgerService{
 			l.setHsnSacPrsent(updateLedgerDto.isHsnSacPresent());
 
 			l.setHsnSacDetails(updateLedgerDto.getHsnSacDetails());
-			l.setHsnSac(updateLedgerDto.getHsnSac());
+			l.setHsnSacName(updateLedgerDto.getHsnSac());
 			l.setHsnDescription(updateLedgerDto.getHsnDescription());
 		}
 		if(updateLedgerDto.isGstRateDetailPresent()) {
