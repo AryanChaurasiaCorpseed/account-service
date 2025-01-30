@@ -362,9 +362,9 @@ public class VoucherServiceImpl implements VoucherService{
 
 		List<Voucher>voucherList=voucherRepository.findAllByLedgerIdIn(ledgerList);
 
-		long totalCredit=0;
-		long totalDebit=0;
-		long totalAmount=0;
+		double totalCredit=0;
+		double totalDebit=0;
+		double totalAmount=0;
 		for(Voucher v:voucherList) {
 			Map<String,Object>map = new HashMap<>();
 			map.put("id", v.getId());
@@ -383,13 +383,13 @@ public class VoucherServiceImpl implements VoucherService{
 			map.put("debitAmount", v.getDebitAmount());
 			res.add(map);
 			if(v.isCreditDebit()) {
-				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
-				long creditAmount =Long.valueOf(v.getCreditAmount()!=null?v.getCreditAmount():"0");
+				double debitAmount =Double.parseDouble(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				double creditAmount =Double.parseDouble(v.getCreditAmount()!=null?v.getCreditAmount():"0");
 				totalCredit=totalCredit+creditAmount;
 				totalDebit=totalDebit+debitAmount;
 				totalAmount=totalAmount-debitAmount+creditAmount;
 			}else {
-				long debitAmount =Long.valueOf(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				double debitAmount =Double.parseDouble(v.getDebitAmount()!=null?v.getDebitAmount():"0");
 				totalDebit=totalDebit+debitAmount;
 				totalAmount=totalAmount-debitAmount;
 
