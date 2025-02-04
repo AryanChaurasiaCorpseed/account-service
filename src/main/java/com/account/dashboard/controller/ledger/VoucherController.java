@@ -35,8 +35,8 @@ public class VoucherController {
 	}
 	
 	@GetMapping(UrlsMapping.GET_ALL_VOUCHER)
-	public List<Voucher> getAllVoucher(){
-		List<Voucher> res=voucherService.getAllVoucher();	
+	public List<Map<String,Object>> getAllVoucher(){
+		List<Map<String,Object>> res=voucherService.getAllVoucherV2();	
 		return res;
 		
 	}

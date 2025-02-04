@@ -91,6 +91,28 @@ public class VoucherServiceImpl implements VoucherService{
 		return voucher;
 	}
 
+	public List<Map<String,Object>>  getAllVoucherV2() {
+		List<Voucher>voucher=voucherRepository.findAll();
+		List<Map<String,Object>>res = new ArrayList<>();
+		for(Voucher v:voucher) {
+			Map<String,Object>map = new HashMap<>();
+			map.put("id", v.getId());
+			map.put("ledgerId", v.getLedger()!=null?v.getLedger().getId():0);
+			map.put("ledgerName", v.getLedger()!=null?v.getLedger().getName():"NA");
+			
+			map.put("creaditAmount", v.getCreditAmount());
+			map.put("debitAmount", v.getDebitAmount());
+			
+			map.put("paymentType", v.getPaymentType());
+			
+			map.put("createDate", v.getCreateDate());
+			map.put("ledgerType", v.getLedgerType());
+			map.put("voucherType", v.getVoucherType());
+			map.put("cerateDate", v.getCreateDate());
+			res.add(map);
+		}
+		return res;
+	}
 
 	public List<Map<String,Object>> getAllVoucherV1() {
 		List<Voucher>voucher=voucherRepository.findAll();
