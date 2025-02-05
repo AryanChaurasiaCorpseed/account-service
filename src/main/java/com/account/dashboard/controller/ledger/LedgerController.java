@@ -1,6 +1,7 @@
 package com.account.dashboard.controller.ledger;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,6 +60,13 @@ public class LedgerController {
 	@GetMapping(UrlsMapping.GET_ALL_LEDGER_BY_GROUP_ID)
 	public List<Ledger> getAllLedgerByGroupId(@RequestParam Long id){
 		List<Ledger> res=ledgerService.getAllLedgerByGroupId(id);	
+		return res;
+	}
+	
+	
+	@GetMapping(UrlsMapping.GET_ALL_AMOUNT_BY_GROUP_ID)
+	public Map<String,Object> getAllAmountByGroupId(@RequestParam Long id){
+		Map<String,Object> res=ledgerService.getAllAmountByGroupId(id);	
 		return res;
 	}
 }

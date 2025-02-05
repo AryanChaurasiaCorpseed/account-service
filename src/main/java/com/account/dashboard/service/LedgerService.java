@@ -1,6 +1,7 @@
 package com.account.dashboard.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,8 @@ public interface LedgerService {
 	List<Ledger> globalSearchLedger(String name);
 
 	List<Ledger> getAllLedgerByGroupId(Long id);
+
+	Map<String, Object> getAllAmountByGroupId(Long id);
+
 
 }

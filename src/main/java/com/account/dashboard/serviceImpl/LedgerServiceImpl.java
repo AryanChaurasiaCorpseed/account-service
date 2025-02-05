@@ -1,6 +1,9 @@
 package com.account.dashboard.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,17 +12,22 @@ import org.springframework.stereotype.Service;
 import com.account.dashboard.domain.Organization;
 import com.account.dashboard.domain.account.Ledger;
 import com.account.dashboard.domain.account.LedgerType;
+import com.account.dashboard.domain.account.Voucher;
 import com.account.dashboard.dto.LedgerDto;
 import com.account.dashboard.dto.UpdateLedgerDto;
 import com.account.dashboard.repository.LedgerRepository;
 import com.account.dashboard.repository.LedgerTypeRepository;
 import com.account.dashboard.repository.OrganizationRepository;
+import com.account.dashboard.repository.VoucherRepository;
 import com.account.dashboard.service.LedgerService;
 @Service
 public class LedgerServiceImpl implements LedgerService{
 
 	@Autowired
 	LedgerRepository ledgerRepository;
+	
+	@Autowired
+	VoucherRepository voucherRepository;
 
 	@Autowired
 	LedgerTypeRepository ledgerTypeRepository;
@@ -169,6 +177,44 @@ public class LedgerServiceImpl implements LedgerService{
 	public List<Ledger> getAllLedgerByGroupId(Long id) {
 		 List<Ledger> ledger = ledgerRepository.findAllByLedgerTypeId(id);
 		return ledger;
+	}
+
+	@Override
+	public Map<String, Object> getAllAmountByGroupId(Long id) {
+		List<Long>ledgerList=ledgerRepository.findByLedgerTypeId(id);
+		Map<String,Object>result = new HashMap<>();
+
+		List<Voucher>voucherList=voucherRepository.findAllByLedgerIdIn(ledgerList);
+
+		double totalCredit=0;
+		double totalDebit=0;
+		double totalAmount=0;
+		System.out.println("..."+voucherList.size());
+		for(Voucher v:voucherList) {			
+			if(v.isCreditDebit()) {
+				double debitAmount =0;
+				double creditAmount =0;
+				if(v!=null && v.getDebitAmount()!=null && (!v.getDebitAmount().equals(""))) {
+					debitAmount =Double.parseDouble(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				}
+				if(v!=null && v.getCreditAmount()!=null && (!v.getCreditAmount().equals(""))) {
+					creditAmount =Double.parseDouble(v.getCreditAmount()!=null?v.getCreditAmount():"0");
+				}
+				totalCredit=totalCredit+creditAmount;
+				totalDebit=totalDebit+debitAmount;
+				totalAmount=totalAmount-debitAmount+creditAmount;
+			}else {
+				double debitAmount =Double.parseDouble(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				totalDebit=totalDebit+debitAmount;
+				totalAmount=totalAmount-debitAmount;
+
+			}
+		}
+		result.put("totalCredit", totalCredit);
+		result.put("totalDebit", totalDebit);
+		result .put("totalAmount", totalAmount);
+
+		return result;
 	}
 
 
