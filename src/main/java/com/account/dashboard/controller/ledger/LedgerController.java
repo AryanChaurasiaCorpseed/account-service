@@ -69,4 +69,10 @@ public class LedgerController {
 		Map<String,Object> res=ledgerService.getAllAmountByGroupId(id);	
 		return res;
 	}
+	
+	@GetMapping(UrlsMapping.GET_ALL_AMOUNT_BY_LEDGER_ID)
+	public Map<String,Object> getAllAmountByLedgerId(@RequestParam Long id){
+		Map<String,Object> res=ledgerService.getAllAmountByLedgerId(id);	
+		return res;
+	}
 }

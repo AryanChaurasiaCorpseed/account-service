@@ -212,11 +212,49 @@ public class LedgerServiceImpl implements LedgerService{
 		}
 		result.put("totalCredit", totalCredit);
 		result.put("groupName", ledgerType.getName());
-
 		result.put("totalDebit", totalDebit);
 		result .put("totalAmount", totalAmount);
 
 		return result;
+	}
+
+	@Override
+	public Map<String, Object> getAllAmountByLedgerId(Long id) {
+
+		Map<String,Object>result = new HashMap<>();		
+		Ledger ledger = ledgerRepository.findById(id).get();
+		List<Voucher>voucherList=voucherRepository.findAllByLedgerId(id);
+		double totalCredit=0;
+		double totalDebit=0;
+		double totalAmount=0;
+		System.out.println("..."+voucherList.size());
+		for(Voucher v:voucherList) {			
+			if(v.isCreditDebit()) {
+				double debitAmount =0;
+				double creditAmount =0;
+				if(v!=null && v.getDebitAmount()!=null && (!v.getDebitAmount().equals(""))) {
+					debitAmount =Double.parseDouble(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				}
+				if(v!=null && v.getCreditAmount()!=null && (!v.getCreditAmount().equals(""))) {
+					creditAmount =Double.parseDouble(v.getCreditAmount()!=null?v.getCreditAmount():"0");
+				}
+				totalCredit=totalCredit+creditAmount;
+				totalDebit=totalDebit+debitAmount;
+				totalAmount=totalAmount-debitAmount+creditAmount;
+			}else {
+				double debitAmount =Double.parseDouble(v.getDebitAmount()!=null?v.getDebitAmount():"0");
+				totalDebit=totalDebit+debitAmount;
+				totalAmount=totalAmount-debitAmount;
+
+			}
+		}
+		result.put("totalCredit", totalCredit);
+		result.put("groupName", ledger.getName());
+		result.put("totalDebit", totalDebit);
+		result .put("totalAmount", totalAmount);
+
+		return result;
+	
 	}
 
 

@@ -25,5 +25,7 @@ public interface LedgerService {
 
 	Map<String, Object> getAllAmountByGroupId(Long id);
 
+	Map<String, Object> getAllAmountByLedgerId(Long id);
+
 
 }

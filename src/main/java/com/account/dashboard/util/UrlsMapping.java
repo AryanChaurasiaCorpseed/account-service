@@ -50,6 +50,7 @@ public interface UrlsMapping {
 	public static final String GLOBAL_SEARCH_LEDGER=PREFIX+ "/ledger/globalSearchLedger";
 	public static final String GET_ALL_LEDGER_BY_GROUP_ID=PREFIX+ "/ledger/getAllLedgerByGroupId";
 	public static final String GET_ALL_AMOUNT_BY_GROUP_ID=PREFIX+ "/ledger/getAllAmountByGroupId";
+	public static final String GET_ALL_AMOUNT_BY_LEDGER_ID=PREFIX+ "/ledger/getAllAmountByLedgerId";
 
 	//================================ Voucher Type ==========================================
 
