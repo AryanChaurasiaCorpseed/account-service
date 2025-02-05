@@ -183,7 +183,7 @@ public class LedgerServiceImpl implements LedgerService{
 	public Map<String, Object> getAllAmountByGroupId(Long id) {
 		List<Long>ledgerList=ledgerRepository.findByLedgerTypeId(id);
 		Map<String,Object>result = new HashMap<>();
-
+         LedgerType ledgerType = ledgerTypeRepository.findById(id).get();
 		List<Voucher>voucherList=voucherRepository.findAllByLedgerIdIn(ledgerList);
 
 		double totalCredit=0;
@@ -211,6 +211,8 @@ public class LedgerServiceImpl implements LedgerService{
 			}
 		}
 		result.put("totalCredit", totalCredit);
+		result.put("groupName", ledgerType.getName());
+
 		result.put("totalDebit", totalDebit);
 		result .put("totalAmount", totalAmount);
 
