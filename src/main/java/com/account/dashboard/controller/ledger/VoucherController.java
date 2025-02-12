@@ -40,7 +40,12 @@ public class VoucherController {
 		return res;
 		
 	}
-	
+	@GetMapping(UrlsMapping.GET_ALL_VOUCHER_TEST)
+	public List<Voucher> getAllVoucherTest(){
+		 List<Voucher> res = voucherService.getAllVoucher();	
+		return res;
+		
+	}
 	@GetMapping(UrlsMapping.GET_VOUCHER_AMOUNT)
 	public Map<String,Object> getVoucherAmount(){
 		Map<String,Object> res=voucherService.getVoucherAmount();	

@@ -52,7 +52,8 @@ public class PaymentRegisterController {
 	
 	@GetMapping(UrlsMapping.PAYMENT_APPROVE)
 	public Boolean paymentApproveAndDisapproved(@RequestBody UpdatePaymentDto updatePaymentDto){
-		Boolean res=paymentRegisterService.paymentApproveAndDisapproved(updatePaymentDto);	
+		Boolean res=paymentRegisterService.paymentApproveAndDisapproved(updatePaymentDto);
+
 		return res;
 		
 	}
@@ -80,7 +81,7 @@ public class PaymentRegisterController {
 //	
 	@PutMapping(UrlsMapping.PAYMENT_APPROVE_V2)
 	public Boolean paymentApproveAndDisapprovedv2(@RequestParam Long paymentRegisterId ,@RequestParam Long estimateId){
-		Boolean res=paymentRegisterService.paymentApproveAndDisapprovedV3(paymentRegisterId,estimateId);	
+		Boolean res=paymentRegisterService.paymentApproveAndDisapprovedV4(paymentRegisterId,estimateId);	
 		return res;
 		
 	}

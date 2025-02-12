@@ -36,6 +36,7 @@ public class BankStatementServiceImpl implements BankStatementService{
 		bankStatement.setTransactionId(createBankStatementDto.getTransactionId());
 		bankStatement.setTotalAmount(createBankStatementDto.getTotalAmount());
 		bankStatement.setUpdateDate(new Date());
+		bankStatement.setPaymentDate(new Date());
 		bankStatementRepository.save(bankStatement);
 		return bankStatement;
 	}

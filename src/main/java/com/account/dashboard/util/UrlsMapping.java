@@ -63,10 +63,13 @@ public interface UrlsMapping {
 	public static final String CREATE_VOUCHER=PREFIX+ "/voucher/createVoucher";
 	public static final String UPDATE_VOUCHER=PREFIX+ "/voucher/updateVoucher";
 	public static final String GET_ALL_VOUCHER=PREFIX+ "/voucher/getAllVoucher";
+	public static final String GET_ALL_VOUCHER_TEST=PREFIX+ "/voucher/getAllVoucherTest";
+
 	public static final String GET_VOUCHER_AMOUNT=PREFIX+ "/voucher/getVoucherAmount";
 	public static final String GET_ALL_VOUCHER_BY_LEDGER_ID=PREFIX+ "/voucher/getAllVoucherByLedgerId";
 	public static final String GET_ALL_VOUCHER_IN_BETWEEN_DATE=PREFIX+ "/voucher/getAllVoucherInBetweenDate";
 	public static final String GET_ALL_VOUCHER_BY_GROUP=PREFIX+ "/voucher/getAllVoucherByGroup";
+	public static final String GET_ALL_PAYABLE_VOUCHER=PREFIX+ "/voucher/getAllVoucher";
 
 	
 	//=============================== Bank Details ========================================
