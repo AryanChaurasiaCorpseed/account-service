@@ -102,6 +102,23 @@ public class VoucherServiceImpl implements VoucherService{
 			
 			map.put("creditAmount", v.getCreditAmount());
 			map.put("debitAmount", v.getDebitAmount());
+//			d gstAmount=0;
+//			if(v.getCgst()!=null &&v.getSgst()!=null) {
+//				Double cgst = Double.valueOf(v.getCgst());
+//				Double sgst = Double.valueOf(v.getSgst());
+//				double gst = cgst+sgst;
+//                double remGstAmount = 100-gst;
+//                if(v.getCreditAmount()) {
+//                	
+//                }
+//
+//			}
+			Double.valueOf(v.getCgst());
+			map.put("cgst", v.getCgst());
+			map.put("sgst", v.getSgst());
+
+			map.put("igst", v.getIgst());
+
 			
 			map.put("paymentType", v.getPaymentType());
 			map.put("product", v.getProduct()!=null?v.getProduct().getName():"NA");

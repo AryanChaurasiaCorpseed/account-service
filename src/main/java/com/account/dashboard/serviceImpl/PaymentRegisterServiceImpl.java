@@ -1,6 +1,7 @@
 package com.account.dashboard.serviceImpl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -136,7 +137,11 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 
 	@Override
 	public List<PaymentRegister> getAllPaymentRegister() {
-		List<PaymentRegister> paymentRegisterList = paymentRegisterRepository.findAll();
+//		List<PaymentRegister> paymentRegisterList = paymentRegisterRepository.findAll();
+//		List<String>status=Arrays.asList("initiated","approved");
+		List<String>status=Arrays.asList("initiated");
+
+		List<PaymentRegister> paymentRegisterList = paymentRegisterRepository.findAllByEstimateStatus(status);
 		return paymentRegisterList;
 	}
 
@@ -549,27 +554,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 			//			User user = userRepository.findById(assigneeId).get();
 			//			invoiceData.setAssignee(user);
 		}
-		// company
-		//		 if(createservicedetails.isConsultant()) {
-		//			 ConsultantByCompany consultantByCompany =new ConsultantByCompany();
-		//			 consultantByCompany.setName(createservicedetails.getOriginalCompanyName());
-		//			 consultantByCompany.setOriginalContact(createservicedetails.getOriginalContact());
-		//			 consultantByCompany.setOriginalEmail(createservicedetails.getOriginalEmail());
-		//			 consultantByCompany.setAddress(createservicedetails.getOriginalAddress());
-		//			 consultantByCompanyRepository.save(consultantByCompany);
-		//			 serviceDetails.setConsultantByCompany(consultantByCompany);
-		//
-		//		 }
-
-		//		 invoiceData.setIsPresent(createservicedetails.getIsPresent());
-		//		 invoiceData.setCompanyName(createservicedetails.getCompanyName());
-		//		 invoiceData.setCompanyId(createservicedetails.getCompanyId());
-		//		 invoiceData.setUnit(createservicedetails.isUnit());
-		//		 invoiceData.setUnitName(createservicedetails.getUnitName());
-		//		 invoiceData.setUnitId(createservicedetails.getUnitId());
-		//		 invoiceData.setPanNo(createservicedetails.getPanNo());
-
-
+		
 		String lead = feignLeadClient.get("leadId").toString();
 		Long leadId=Long.parseLong(lead);
 		invoiceData.setLeadId(leadId);
@@ -580,6 +565,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		invoiceData.setGstDocuments(feignLeadClient.get("gstNo")!=null?feignLeadClient.get("gstNo").toString():null);//misssing 
 
 		invoiceData.setCompanyAge(feignLeadClient.get("companyAge").toString());
+		
 		invoiceData.setGovermentfees(feignLeadClient.get("govermentFees").toString());
 		invoiceData.setGovermentCode(feignLeadClient.get("govermentCode")!=null?feignLeadClient.get("govermentCode").toString():null);
 		invoiceData.setGovermentGst(feignLeadClient.get("govermentGst")!=null?feignLeadClient.get("govermentGst").toString():null);
@@ -1176,7 +1162,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 
 			if(product!=null) {
 				System.out.println("test4444444..."+product.getName());
-				v.setProduct(product);
+//				v.setProduct(product);
 			}else {
 				System.out.println("test5555555");
 				product= new Ledger();
@@ -1241,16 +1227,16 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		}else {
 			System.out.println("test99999999999999");
 
-			LedgerType group = ledgerTypeRepository.findByName(paymentRegister.getRegisterBy());
+			LedgerType group = ledgerTypeRepository.findByName("Sales");
 			Organization organization = organizationRepository.findByName("corpseed");
 			if(group==null) {
 				group =new LedgerType();
-				group.setName(paymentRegister.getRegisterBy());
+				group.setName("Sales");
 				ledgerTypeRepository.save(group);
 			}
 			if(group!=null) { 
 				System.out.println("test111111111112222222222");
-				Ledger ledger = ledgerRepository.findByName(ledgerName);
+				Ledger ledger = ledgerRepository.findByName(paymentRegister.getCompanyName());
 				double totalEstimateAmount = Double.parseDouble(feignLeadClient.get("totalAmount")!=null?feignLeadClient.get("totalAmount").toString():"0");
 
 				// == total amount register ==
@@ -1506,6 +1492,20 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		return flag;
 
 
+	}
+
+
+	@Override
+	public List<InvoiceData> getAllInvoiceAccordingToUser(Long userId) {
+		List<InvoiceData>invoice=invoiceDataRepository.findAll();
+		return invoice;
+	}
+
+
+	@Override
+	public List<InvoiceData> getAllInvoiceForSales(Long userId) {
+		List<InvoiceData>invoice=invoiceDataRepository.findAll();
+		return invoice;
 	}
 
 

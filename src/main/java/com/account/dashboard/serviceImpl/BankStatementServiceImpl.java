@@ -70,12 +70,13 @@ public class BankStatementServiceImpl implements BankStatementService{
 		if(bankStatement.getLeftAmount()>0 && bankStatement.getLeftAmount()>d) {
 			if(bankStatement.getTransactionId().equals(paymentRegister.getTransactionId())) {
 
-
 				double leftAmount=bankStatement.getLeftAmount()-d;
 				bankStatement.setLeftAmount(leftAmount);
 				List<PaymentRegister> paymentList = bankStatement.getPaymentRegister();
 				paymentList.add(paymentRegister);
 				bankStatementRepository.save(bankStatement);
+				paymentRegister.setStatus("approved");
+				paymentRegisterRepository.save(paymentRegister);
 				flag=true;
 			}else {
 				throw new Exception("transaction id not match please check");

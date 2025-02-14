@@ -111,8 +111,11 @@ public interface UrlsMapping {
 		public static final String GET_ALL_PAYMENT_REGISTER_BY_STATUS=PREFIX+ "/paymentRegister/getAllPaymentRegisterByStatus";
 		public static final String PAYMENT_DISSAPPROVE=PREFIX+ "/paymentRegister/paymentDissapprove";
 		public static final String PAYMENT_APPROVE_V3=PREFIX+ "/paymentRegister/paymentApproveV3";
+		public static final String GET_ALL_INVOICE=PREFIX+ "/invoice/getAllInvoice";
+		public static final String GET_ALL_INVOICE_FOR_MANAGE_SALES=PREFIX+ "/invoice/getAllInvoiceForSales";
 
-		
+
+	
 	//====================================  BankStatements ===========================================
 		public static final String CREATE_BANK_STATEMENTS=PREFIX+ "/bankStatements/createBankStatement";
 		public static final String GET_UNUSED_BANK_STATEMENTS=PREFIX+ "/bankStatements/getUnusedBankStatement";

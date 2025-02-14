@@ -41,5 +41,9 @@ public interface PaymentRegisterService {
 
 	Boolean paymentApproveAndDisapprovedV4(Long paymentRegisterId, Long estimateId);
 
+	List<InvoiceData> getAllInvoiceAccordingToUser(Long userId);
+
+	List<InvoiceData> getAllInvoiceForSales(Long userId);
+
 
 }

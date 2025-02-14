@@ -59,7 +59,7 @@ public class PaymentRegisterController {
 	}
 	
 	@PutMapping(UrlsMapping.PAYMENT_DISSAPPROVE)
-	public Boolean paymentDisapproved(@RequestBody Long id){
+	public Boolean paymentDisapproved(@RequestParam Long id){
 		Boolean res=paymentRegisterService.paymentDisapproved(id);	
 		return res;
 		
@@ -130,4 +130,18 @@ public class PaymentRegisterController {
 		
 	}
 	
+	
+	@GetMapping(UrlsMapping.GET_ALL_INVOICE)
+	public List<InvoiceData> getAllInvoiceAccordingToUser(@RequestParam Long userId){
+		List<InvoiceData> res=paymentRegisterService.getAllInvoiceAccordingToUser(userId);	
+		return res;
+		
+	}
+	
+	@GetMapping(UrlsMapping.GET_ALL_INVOICE_FOR_MANAGE_SALES)
+	public List<InvoiceData> getAllInvoiceForSales(@RequestParam Long userId){
+		List<InvoiceData> res=paymentRegisterService.getAllInvoiceForSales(userId);	
+		return res;
+		
+	}
 }
