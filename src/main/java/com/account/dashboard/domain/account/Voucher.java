@@ -40,6 +40,7 @@ public class Voucher {
 	String debitAmount;
 	Date createDate;
 	String paymentType;
+ 
 	boolean isDeleted;
 	
 	// out side state
@@ -49,6 +50,8 @@ public class Voucher {
 	boolean cgstSgstPresent;
 	String cgst;
 	String sgst;
+	private double professionalGstAmount;
+
 	public Long getId() {
 		return id;
 	}
@@ -156,6 +159,12 @@ public class Voucher {
 	}
 	public void setEstimateId(Long estimateId) {
 		this.estimateId = estimateId;
+	}
+	public double getProfessionalGstAmount() {
+		return professionalGstAmount;
+	}
+	public void setProfessionalGstAmount(double professionalGstAmount) {
+		this.professionalGstAmount = professionalGstAmount;
 	}
 	
 	

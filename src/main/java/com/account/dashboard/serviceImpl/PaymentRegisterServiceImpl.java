@@ -93,6 +93,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		paymentRegister.setServiceName(createAmountDto.getServiceName());
 		paymentRegister.setGovermentfees(createAmountDto.getGovermentfees());
 		paymentRegister.setGovermentGst(createAmountDto.getGovermentGst());
+
 		paymentRegister.setGovermentGstPercent(createAmountDto.getGovermentGstPercent());
 		if(createAmountDto.isTdsPresent()) {
 			double tdsPercent = createAmountDto.getTdsPercent();
@@ -114,7 +115,7 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 		paymentRegister.setServiceCharge(createAmountDto.getServiceCharge());		
 
 		paymentRegister.setOtherFees(createAmountDto.getOtherFees());
-		paymentRegister.setOtherGst(createAmountDto.getOtherGst());
+//		paymentRegister.setOtherGst(createAmountDto.g̥etOtherGst());
 		paymentRegister.setOtherGstPercent(createAmountDto.getOtherGstPercent());
 		//		paymentRegister.setUploadReceipt(createAmountDto.getUploadReceipt());
 		paymentRegister.setTotalAmount(createAmountDto.getTotalAmount());

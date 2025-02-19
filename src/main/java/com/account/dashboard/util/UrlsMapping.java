@@ -111,8 +111,8 @@ public interface UrlsMapping {
 		public static final String GET_ALL_PAYMENT_REGISTER_BY_STATUS=PREFIX+ "/paymentRegister/getAllPaymentRegisterByStatus";
 		public static final String PAYMENT_DISSAPPROVE=PREFIX+ "/paymentRegister/paymentDissapprove";
 		public static final String PAYMENT_APPROVE_V3=PREFIX+ "/paymentRegister/paymentApproveV3";
-		public static final String GET_ALL_INVOICE=PREFIX+ "/invoice/getAllInvoice";
-		public static final String GET_ALL_INVOICE_FOR_MANAGE_SALES=PREFIX+ "/invoice/getAllInvoiceForSales";
+		public static final String GET_ALL_INVOICE=PREFIX+ "/paymentRegister/getAllInvoice";
+		public static final String GET_ALL_INVOICE_FOR_MANAGE_SALES=PREFIX+ "/paymentRegister/getAllInvoiceForSales";
 
 
 	
@@ -130,5 +130,10 @@ public interface UrlsMapping {
 		
 		public static final String UPLOAD_IMAGE_TO_FILE=PREFIX+"/upload/uploadimageToFileSystem";
 		public static final String GET_IMAGE_TO_FILE=PREFIX+"/upload/getImageToFileSystem";
+		
+	// =  == ================================== Tds Api creation =======================================
+		public static final String CREATE_GST=PREFIX+ "/tds/createGst";
+		public static final String GET_ALL_GST=PREFIX+ "/tds/getAllGst";
+		public static final String GET_GST_BY_ID=PREFIX+ "/tds/getGstById";
 
 }

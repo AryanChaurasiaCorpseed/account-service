@@ -52,6 +52,7 @@ public class PaymentRegister {
 	private double professionalFees;
 	private double profesionalGst;
 	private int professionalGstPercent;
+	private double professionalGstAmount;
 	
 	boolean tdsPresent;
 	private double tdsAmount;
@@ -89,6 +90,13 @@ public class PaymentRegister {
 			inverseJoinColumns = {@JoinColumn(name="payment_register_document_id"
 					+ "",referencedColumnName = "id",nullable=true,unique=false)})
 	List<FileData>fileData;
+	
+	String purchaseNumber;
+	Date purchaseDate;
+	String purchaseAttach;
+	String paymentTerm;
+	String comment;
+	
 	
 	public Long getId() {
 		return id;
@@ -320,6 +328,12 @@ public class PaymentRegister {
 	}
 	public void setFileData(List<FileData> fileData) {
 		this.fileData = fileData;
+	}
+	public double getProfessionalGstAmount() {
+		return professionalGstAmount;
+	}
+	public void setProfessionalGstAmount(double professionalGstAmount) {
+		this.professionalGstAmount = professionalGstAmount;
 	}
 	
     

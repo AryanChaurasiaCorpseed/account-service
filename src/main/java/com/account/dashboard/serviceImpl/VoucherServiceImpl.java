@@ -113,7 +113,7 @@ public class VoucherServiceImpl implements VoucherService{
 //                }
 //
 //			}
-			Double.valueOf(v.getCgst());
+//			Double.valueOf(v.getCgst());
 			map.put("cgst", v.getCgst());
 			map.put("sgst", v.getSgst());
 
