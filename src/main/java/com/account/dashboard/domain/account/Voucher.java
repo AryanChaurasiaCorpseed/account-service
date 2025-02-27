@@ -46,10 +46,14 @@ public class Voucher {
 	// out side state
 	boolean igstPresent;
 	String igst;
-	
+	double igstAmount;
+
 	boolean cgstSgstPresent;
 	String cgst;
 	String sgst;
+	double cgstAmount;
+	double sgstAmount;
+	
 	private double professionalGstAmount;
 
 	public Long getId() {
@@ -165,6 +169,24 @@ public class Voucher {
 	}
 	public void setProfessionalGstAmount(double professionalGstAmount) {
 		this.professionalGstAmount = professionalGstAmount;
+	}
+	public double getIgstAmount() {
+		return igstAmount;
+	}
+	public double getCgstAmount() {
+		return cgstAmount;
+	}
+	public double getSgstAmount() {
+		return sgstAmount;
+	}
+	public void setIgstAmount(double igstAmount) {
+		this.igstAmount = igstAmount;
+	}
+	public void setCgstAmount(double cgstAmount) {
+		this.cgstAmount = cgstAmount;
+	}
+	public void setSgstAmount(double sgstAmount) {
+		this.sgstAmount = sgstAmount;
 	}
 	
 	

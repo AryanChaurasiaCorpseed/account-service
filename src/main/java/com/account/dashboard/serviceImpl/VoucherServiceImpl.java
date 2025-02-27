@@ -52,10 +52,13 @@ public class VoucherServiceImpl implements VoucherService{
 				v.setCgstSgstPresent(createVoucherDto.isCgstIgstPresent());
 				v.setCgst(createVoucherDto.getCgst());
 				v.setSgst(createVoucherDto.getSgst());
+				v.setCgstAmount(createVoucherDto.getCgstAmount());
+				v.setSgstAmount(createVoucherDto.getSgstAmount());
 			}
 			if(createVoucherDto.isIgstPresent()) {
 				v.setIgstPresent(createVoucherDto.isIgstPresent());
 				v.setIgst(createVoucherDto.getIgst());
+				v.setIgstAmount(createVoucherDto.getIgstAmount());
 			}	
 		}
 
@@ -117,8 +120,11 @@ public class VoucherServiceImpl implements VoucherService{
 //			Double.valueOf(v.getCgst());
 			map.put("cgst", v.getCgst());
 			map.put("sgst", v.getSgst());
+            map.put("cgstAmount", v.getCgstAmount());
+            map.put("sgstAmount", v.getSgstAmount());
 
 			map.put("igst", v.getIgst());
+            map.put("igstAmount", v.getIgstAmount());
 
 			
 			map.put("paymentType", v.getPaymentType());

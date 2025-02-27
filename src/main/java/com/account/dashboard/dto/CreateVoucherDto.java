@@ -39,10 +39,14 @@ public class CreateVoucherDto {
 	
 	boolean igstPresent;
 	String igst;
+	double igstAmount;
 	
 	boolean cgstIgstPresent;
 	String cgst;
 	String sgst;
+	double cgstAmount;
+	double sgstAmount;
+
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -133,5 +137,24 @@ public class CreateVoucherDto {
 	public void setSgst(String sgst) {
 		this.sgst = sgst;
 	}
+	public double getIgstAmount() {
+		return igstAmount;
+	}
+	public double getCgstAmount() {
+		return cgstAmount;
+	}
+	public double getSgstAmount() {
+		return sgstAmount;
+	}
+	public void setIgstAmount(double igstAmount) {
+		this.igstAmount = igstAmount;
+	}
+	public void setCgstAmount(double cgstAmount) {
+		this.cgstAmount = cgstAmount;
+	}
+	public void setSgstAmount(double sgstAmount) {
+		this.sgstAmount = sgstAmount;
+	}
+	
 	
 }
