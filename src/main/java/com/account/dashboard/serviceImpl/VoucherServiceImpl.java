@@ -123,6 +123,8 @@ public class VoucherServiceImpl implements VoucherService{
 			
 			map.put("paymentType", v.getPaymentType());
 			map.put("product", v.getProduct()!=null?v.getProduct().getName():"NA");
+			map.put("productId", v.getProduct()!=null?v.getProduct().getId():"0");
+
 			map.put("group", v.getLedger()!=null?v.getLedger().getLedgerType()!=null?v.getLedger().getLedgerType().getName():"NA":"");
             map.put("voucherTypeId", v!=null?v.getLedgerType()!=null?v.getLedgerType():0:0);
 			map.put("ledgerTypeId", v.getLedgerType()!=null?v.getLedgerType().getId():0);
