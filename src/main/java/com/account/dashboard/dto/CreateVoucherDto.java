@@ -39,13 +39,17 @@ public class CreateVoucherDto {
 	
 	boolean igstPresent;
 	String igst;
-	double igstAmount;
+	double igstCreditAmount;
+	double igstDebitAmount;
 	
 	boolean cgstIgstPresent;
 	String cgst;
 	String sgst;
-	double cgstAmount;
-	double sgstAmount;
+	double cgstCreditAmount;
+	double cgstDebitAmount;
+
+	double sgstCreditAmount;
+	double sgstDebitAmount;
 
 	public String getCompanyName() {
 		return companyName;
@@ -137,24 +141,43 @@ public class CreateVoucherDto {
 	public void setSgst(String sgst) {
 		this.sgst = sgst;
 	}
-	public double getIgstAmount() {
-		return igstAmount;
+	public double getIgstCreditAmount() {
+		return igstCreditAmount;
 	}
-	public double getCgstAmount() {
-		return cgstAmount;
+	public double getIgstDebitAmount() {
+		return igstDebitAmount;
 	}
-	public double getSgstAmount() {
-		return sgstAmount;
+	public double getCgstCreditAmount() {
+		return cgstCreditAmount;
 	}
-	public void setIgstAmount(double igstAmount) {
-		this.igstAmount = igstAmount;
+	public double getCgstDebitAmount() {
+		return cgstDebitAmount;
 	}
-	public void setCgstAmount(double cgstAmount) {
-		this.cgstAmount = cgstAmount;
+	public double getSgstCreditAmount() {
+		return sgstCreditAmount;
 	}
-	public void setSgstAmount(double sgstAmount) {
-		this.sgstAmount = sgstAmount;
+	public double getSgstDebitAmount() {
+		return sgstDebitAmount;
 	}
+	public void setIgstCreditAmount(double igstCreditAmount) {
+		this.igstCreditAmount = igstCreditAmount;
+	}
+	public void setIgstDebitAmount(double igstDebitAmount) {
+		this.igstDebitAmount = igstDebitAmount;
+	}
+	public void setCgstCreditAmount(double cgstCreditAmount) {
+		this.cgstCreditAmount = cgstCreditAmount;
+	}
+	public void setCgstDebitAmount(double cgstDebitAmount) {
+		this.cgstDebitAmount = cgstDebitAmount;
+	}
+	public void setSgstCreditAmount(double sgstCreditAmount) {
+		this.sgstCreditAmount = sgstCreditAmount;
+	}
+	public void setSgstDebitAmount(double sgstDebitAmount) {
+		this.sgstDebitAmount = sgstDebitAmount;
+	}
+	
 	
 	
 }
