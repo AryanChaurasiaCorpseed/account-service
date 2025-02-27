@@ -69,6 +69,7 @@ public class Ledger {
 //	String accountHolderName;
 	@Column(name = "account")
 	String account;
+	String accountHolderName;
 	String ifscCode;
 	String swiftCode;
 	String bankName;

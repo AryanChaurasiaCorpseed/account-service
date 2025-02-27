@@ -95,7 +95,7 @@ public class LedgerServiceImpl implements LedgerService{
 
 		if(ledgerDto.isBankAccountPresent()){
 			l.setBankAccountPrsent(ledgerDto.isBankAccountPresent());
-//			l.setAccountHolderName(ledgerDto.getAccountHolderName());
+			l.setAccountHolderName(ledgerDto.getAccountHolderName());
 			l.setAccount(ledgerDto.getAccountNo());
 			l.setIfscCode(ledgerDto.getIfscCode());
 			l.setSwiftCode(ledgerDto.getSwiftCode());
