@@ -16,7 +16,8 @@ public class CreatePurchaseOrderDto {
 	private Long leadId;
 	private Long estimateId;
 	private Long createdById;
-	
+	private String serviceName;
+
 	public String getRegisterType() {
 		return registerType;
 	}
@@ -88,6 +89,12 @@ public class CreatePurchaseOrderDto {
 	}
 	public void setCreatedById(Long createdById) {
 		this.createdById = createdById;
+	}
+	public String getServiceName() {
+		return serviceName;
+	}
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
 	}
 	
 	
