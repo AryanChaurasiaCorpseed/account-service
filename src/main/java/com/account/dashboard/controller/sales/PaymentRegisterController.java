@@ -17,6 +17,7 @@ import com.account.dashboard.domain.PaymentRegister;
 import com.account.dashboard.domain.account.Voucher;
 import com.account.dashboard.dto.CreateAccountData;
 import com.account.dashboard.dto.CreateAmountDto;
+import com.account.dashboard.dto.CreatePurchaseOrderDto;
 import com.account.dashboard.dto.UpdatePaymentDto;
 import com.account.dashboard.service.PaymentRegisterService;
 import com.account.dashboard.util.UrlsMapping;
@@ -141,6 +142,13 @@ public class PaymentRegisterController {
 	@GetMapping(UrlsMapping.GET_ALL_INVOICE_FOR_MANAGE_SALES)
 	public List<InvoiceData> getAllInvoiceForSales(@RequestParam Long userId){
 		List<InvoiceData> res=paymentRegisterService.getAllInvoiceForSales(userId);	
+		return res;
+		
+	}
+	
+	@PostMapping(UrlsMapping.CREATE_PURCHASE_ORDER)
+	public PaymentRegister createPurchaseOrder(@RequestBody CreatePurchaseOrderDto createPurchaseOrderDto){
+		PaymentRegister res=paymentRegisterService.createPurchaseOrder(createPurchaseOrderDto);	
 		return res;
 		
 	}

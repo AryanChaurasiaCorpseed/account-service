@@ -37,6 +37,7 @@ public class PaymentRegister {
 	private String billingQuantity;//partial ,full ,milestone
 	private String paymentType;//Sales,
 	
+	
 
 	
 	String registerBy;
@@ -91,6 +92,7 @@ public class PaymentRegister {
 					+ "",referencedColumnName = "id",nullable=true,unique=false)})
 	List<FileData>fileData;
 	
+	String registerType;// payment , purchase order
 	String purchaseNumber;
 	Date purchaseDate;
 	String purchaseAttach;
@@ -334,6 +336,42 @@ public class PaymentRegister {
 	}
 	public void setProfessionalGstAmount(double professionalGstAmount) {
 		this.professionalGstAmount = professionalGstAmount;
+	}
+	public String getRegisterType() {
+		return registerType;
+	}
+	public String getPurchaseNumber() {
+		return purchaseNumber;
+	}
+	public Date getPurchaseDate() {
+		return purchaseDate;
+	}
+	public String getPurchaseAttach() {
+		return purchaseAttach;
+	}
+	public String getPaymentTerm() {
+		return paymentTerm;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setRegisterType(String registerType) {
+		this.registerType = registerType;
+	}
+	public void setPurchaseNumber(String purchaseNumber) {
+		this.purchaseNumber = purchaseNumber;
+	}
+	public void setPurchaseDate(Date purchaseDate) {
+		this.purchaseDate = purchaseDate;
+	}
+	public void setPurchaseAttach(String purchaseAttach) {
+		this.purchaseAttach = purchaseAttach;
+	}
+	public void setPaymentTerm(String paymentTerm) {
+		this.paymentTerm = paymentTerm;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 	
     

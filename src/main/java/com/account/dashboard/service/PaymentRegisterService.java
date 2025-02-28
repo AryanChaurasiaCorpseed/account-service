@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.account.dashboard.domain.InvoiceData;
 import com.account.dashboard.domain.PaymentRegister;
 import com.account.dashboard.dto.CreateAmountDto;
+import com.account.dashboard.dto.CreatePurchaseOrderDto;
 import com.account.dashboard.dto.UpdatePaymentDto;
 
 @Service
@@ -44,6 +45,8 @@ public interface PaymentRegisterService {
 	List<InvoiceData> getAllInvoiceAccordingToUser(Long userId);
 
 	List<InvoiceData> getAllInvoiceForSales(Long userId);
+
+	PaymentRegister createPurchaseOrder(CreatePurchaseOrderDto createPurchaseOrderDto);
 
 
 }

@@ -113,6 +113,7 @@ public interface UrlsMapping {
 		public static final String PAYMENT_APPROVE_V3=PREFIX+ "/paymentRegister/paymentApproveV3";
 		public static final String GET_ALL_INVOICE=PREFIX+ "/paymentRegister/getAllInvoice";
 		public static final String GET_ALL_INVOICE_FOR_MANAGE_SALES=PREFIX+ "/paymentRegister/getAllInvoiceForSales";
+		public static final String CREATE_PURCHASE_ORDER=PREFIX+ "/paymentRegister/createPurchaseOrder";
 
 
 	

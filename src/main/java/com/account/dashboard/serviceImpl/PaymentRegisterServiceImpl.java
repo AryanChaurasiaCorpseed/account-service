@@ -22,6 +22,7 @@ import com.account.dashboard.domain.account.Voucher;
 import com.account.dashboard.domain.account.VoucherType;
 import com.account.dashboard.dto.CreateAccountData;
 import com.account.dashboard.dto.CreateAmountDto;
+import com.account.dashboard.dto.CreatePurchaseOrderDto;
 import com.account.dashboard.dto.CreateTdsDto;
 import com.account.dashboard.dto.UpdatePaymentDto;
 import com.account.dashboard.repository.InvoiceDataRepository;
@@ -1507,6 +1508,25 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 	public List<InvoiceData> getAllInvoiceForSales(Long userId) {
 		List<InvoiceData>invoice=invoiceDataRepository.findAll();
 		return invoice;
+	}
+
+
+	@Override
+	public PaymentRegister createPurchaseOrder(CreatePurchaseOrderDto createPurchaseOrderDto) {
+
+		User u=userRepository.findById(createPurchaseOrderDto.getCreatedById()).get();
+		PaymentRegister paymentRegister =new PaymentRegister();
+		paymentRegister.setRegisterType(createPurchaseOrderDto.getRegisterType());
+		paymentRegister.setPurchaseNumber(createPurchaseOrderDto.getPurchaseNumber());
+		paymentRegister.setPurchaseAttach(createPurchaseOrderDto.getPurchaseAttach());
+		paymentRegister.setPaymentTerm(createPurchaseOrderDto.getPaymentTerm());
+		paymentRegister.setComment(createPurchaseOrderDto.getComment());
+		paymentRegister.setUpdateDate(new Date().toString());
+		paymentRegister.setCreatedById(createPurchaseOrderDto.getCreatedById());
+		paymentRegister.setEstimateId(createPurchaseOrderDto.getEstimateId());
+		paymentRegister.setLeadId(createPurchaseOrderDto.getLeadId());
+		paymentRegisterRepository.save(paymentRegister);
+		return paymentRegister;
 	}
 
 
