@@ -152,4 +152,11 @@ public class PaymentRegisterController {
 		return res;
 		
 	}
+	
+	@PostMapping(UrlsMapping.GET_ALL_PURCHASE_ORDER)
+	public List<Map<String,Object>> getAllPurchaseOrder(@RequestParam Long userId){
+		List<Map<String,Object>> res=paymentRegisterService.getAllPurchaseOrder(userId);	
+		return res;
+		
+	}
 }

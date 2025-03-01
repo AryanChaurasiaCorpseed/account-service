@@ -48,5 +48,7 @@ public interface PaymentRegisterService {
 
 	PaymentRegister createPurchaseOrder(CreatePurchaseOrderDto createPurchaseOrderDto);
 
+	List<Map<String,Object>> getAllPurchaseOrder(Long userId);
+
 
 }

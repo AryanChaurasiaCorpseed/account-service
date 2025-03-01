@@ -114,6 +114,7 @@ public interface UrlsMapping {
 		public static final String GET_ALL_INVOICE=PREFIX+ "/paymentRegister/getAllInvoice";
 		public static final String GET_ALL_INVOICE_FOR_MANAGE_SALES=PREFIX+ "/paymentRegister/getAllInvoiceForSales";
 		public static final String CREATE_PURCHASE_ORDER=PREFIX+ "/paymentRegister/createPurchaseOrder";
+		public static final String GET_ALL_PURCHASE_ORDER=PREFIX+ "/paymentRegister/getAllPurchaseOrder";
 
 
 	

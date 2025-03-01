@@ -1,13 +1,14 @@
 package com.account.dashboard.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class CreatePurchaseOrderDto {
 	
 	String registerType;// payment , purchase order
 	String purchaseNumber;
 	Date purchaseDate;
-	String purchaseAttach;
+	List<String> purchaseAttach;
 	String paymentTerm;
 	String comment;
 	String updateDate;
@@ -27,9 +28,7 @@ public class CreatePurchaseOrderDto {
 	public Date getPurchaseDate() {
 		return purchaseDate;
 	}
-	public String getPurchaseAttach() {
-		return purchaseAttach;
-	}
+
 	public String getPaymentTerm() {
 		return paymentTerm;
 	}
@@ -63,9 +62,7 @@ public class CreatePurchaseOrderDto {
 	public void setPurchaseDate(Date purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
-	public void setPurchaseAttach(String purchaseAttach) {
-		this.purchaseAttach = purchaseAttach;
-	}
+
 	public void setPaymentTerm(String paymentTerm) {
 		this.paymentTerm = paymentTerm;
 	}
@@ -95,6 +92,12 @@ public class CreatePurchaseOrderDto {
 	}
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
+	}
+	public List<String> getPurchaseAttach() {
+		return purchaseAttach;
+	}
+	public void setPurchaseAttach(List<String> purchaseAttach) {
+		this.purchaseAttach = purchaseAttach;
 	}
 	
 	

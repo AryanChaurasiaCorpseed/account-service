@@ -3,6 +3,7 @@ package com.account.dashboard.serviceImpl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -1514,19 +1515,52 @@ public class PaymentRegisterServiceImpl implements  PaymentRegisterService{
 	@Override
 	public PaymentRegister createPurchaseOrder(CreatePurchaseOrderDto createPurchaseOrderDto) {
 
-		User u=userRepository.findById(createPurchaseOrderDto.getCreatedById()).get();
+//		User u=userRepository.findById(createPurchaseOrderDto.getCreatedById()).get();
 		PaymentRegister paymentRegister =new PaymentRegister();
-		paymentRegister.setRegisterType(createPurchaseOrderDto.getRegisterType());
+		paymentRegister.setRegisterType("Purchase Order");
 		paymentRegister.setPurchaseNumber(createPurchaseOrderDto.getPurchaseNumber());
-		paymentRegister.setPurchaseAttach(createPurchaseOrderDto.getPurchaseAttach());
+		if(createPurchaseOrderDto.getPurchaseAttach()!=null && createPurchaseOrderDto.getPurchaseAttach().size()>0) {
+			paymentRegister.setPurchaseAttach(createPurchaseOrderDto.getPurchaseAttach().get(0));
+
+		}
+		paymentRegister.setStatus("initiated");
 		paymentRegister.setPaymentTerm(createPurchaseOrderDto.getPaymentTerm());
 		paymentRegister.setComment(createPurchaseOrderDto.getComment());
 		paymentRegister.setUpdateDate(new Date().toString());
 		paymentRegister.setCreatedById(createPurchaseOrderDto.getCreatedById());
 		paymentRegister.setEstimateId(createPurchaseOrderDto.getEstimateId());
 		paymentRegister.setLeadId(createPurchaseOrderDto.getLeadId());
+		paymentRegister.setServiceName(createPurchaseOrderDto.getServiceName());
 		paymentRegisterRepository.save(paymentRegister);
 		return paymentRegister;
+	}
+
+
+	@Override
+	public List<Map<String,Object>> getAllPurchaseOrder(Long userId) {
+		List<PaymentRegister>paymentRegister=paymentRegisterRepository.findAllByRegisterType("Purchase Order");
+		List<Map<String,Object>>list=new ArrayList<>();
+		for(PaymentRegister p: paymentRegister) {
+			Map<String,Object>map=new HashMap<>();
+			map.put("id", p.getId());
+			map.put("name", p.getServiceName());
+			map.put("registerType", p.getRegisterType());
+			map.put("purchaseNumber", p.getPurchaseNumber());
+			map.put("purchaseAttach", p.getPurchaseAttach());
+			map.put("paymentTerm", p.getPaymentTerm());
+			map.put("Comment", p.getComment());
+			map.put("updatedDate", p.getUpdateDate());
+			map.put("CreatedById", p.getCreatedById());
+			map.put("estimateId", p.getEstimateId());
+			map.put("leadId", p.getLeadId());
+			map.put("serviceName", p.getServiceName());
+			map.put("serviceName", p.getServiceName());
+			map.put("status", p.getStatus());
+
+			list.add(map);
+
+		}
+		return list;
 	}
 
 
